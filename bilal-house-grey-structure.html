@@ -1,0 +1,1193 @@
+<title>Bilal House Grey Structure</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: docs shell — left section nav, centred reading column, right "on this page" rail. Brick-red accent from the subject. */
+:root{
+  --bg:#fbfaf8; --panel:#f3f1ed; --fg:#1d1b19; --muted:#6a645d; --line:#e3ded6;
+  --accent:#a8432a; --accent-soft:#f6e6df; --note:#eef3f8; --note-line:#9db6cf; --warn:#fbf2dc; --warn-line:#d9b25a;
+  --code:#efece7; --paper:#ffffff; --soil:#c9b597; --sand:#efe0b4; --pcc:#b9b4ac; --brick:#c4694c; --dpc:#2f2b28; --rcc:#8e8a84;
+  --f-display:"Newsreader", Georgia, "Times New Roman", serif;
+  --f-body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#171615; --panel:#1f1d1b; --fg:#ece8e2; --muted:#a39b91; --line:#33302c;
+  --accent:#e58a6d; --accent-soft:#3a241d; --note:#1c2530; --note-line:#4f6d8c; --warn:#2e2614; --warn-line:#8f7430;
+  --code:#26231f; --soil:#6e5f49; --sand:#8a7a4e; --pcc:#5d5954; --brick:#a5543a; --dpc:#e8e2da; --rcc:#77736d; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#171615; --panel:#1f1d1b; --fg:#ece8e2; --muted:#a39b91; --line:#33302c;
+  --accent:#e58a6d; --accent-soft:#3a241d; --note:#1c2530; --note-line:#4f6d8c; --warn:#2e2614; --warn-line:#8f7430;
+  --code:#26231f; --soil:#6e5f49; --sand:#8a7a4e; --pcc:#5d5954; --brick:#a5543a; --dpc:#e8e2da; --rcc:#77736d; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.65}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:var(--accent)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:12px;display:flex;align-items:center;gap:12px}
+.brand{font-weight:700;letter-spacing:.01em;display:flex;align-items:center;gap:10px}
+.brand .mark{width:22px;height:14px;background:var(--brick);border-radius:2px;box-shadow:inset 0 -3px 0 rgba(0,0,0,.18)}
+.top .sub{color:var(--muted);font-size:14px}
+.shell{display:grid;grid-template-columns:250px minmax(0,1fr) 210px;gap:40px;max-width:1320px;margin:0 auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.side{position:sticky;top:72px;align-self:start;max-height:calc(100vh - 80px);overflow:auto;padding-block:28px}
+.side h4,.toc h4{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:18px 0 6px;font-weight:600}
+.side h4:first-child{margin-top:0}
+.side a,.toc a{display:block;text-decoration:none;color:var(--fg);font-size:14.5px;padding:5px 10px;border-radius:6px}
+.side a:hover{background:var(--panel)}
+.side a.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.toc{position:sticky;top:72px;align-self:start;padding-block:28px}
+.toc a{color:var(--muted);font-size:13.5px;padding:3px 0 3px 12px;border-left:2px solid var(--line);border-radius:0}
+.toc a.on{color:var(--accent);border-left-color:var(--accent)}
+main{min-width:0;padding-block:28px 96px;max-width:820px}
+.crumb{font-size:13.5px;color:var(--muted);margin-bottom:6px}
+h1,h2,h3{font-family:var(--f-display);font-weight:600;text-wrap:balance;line-height:1.2}
+h1{font-size:2.4rem;margin:0 0 10px}
+h2{font-size:1.75rem;margin:64px 0 12px;padding-top:12px;border-top:1px solid var(--line)}
+h3{font-size:1.25rem;margin:32px 0 8px}
+.lead{font-size:1.15rem;color:var(--muted);max-width:65ch}
+p,li{max-width:70ch}
+code,.num{font-family:var(--f-mono);font-size:.88em}
+code{background:var(--code);padding:1px 5px;border-radius:4px}
+.callout{border:1px solid var(--note-line);background:var(--note);border-radius:10px;padding:14px 16px;margin:18px 0;font-size:15px}
+.callout.warn{border-color:var(--warn-line);background:var(--warn)}
+.callout b.t{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.callout p{margin:4px 0}
+.tbl{overflow-x:auto;margin:16px 0;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:520px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--panel);font-weight:600;font-size:13px;letter-spacing:.02em}
+tr:last-child td{border-bottom:0}
+td.r,th.r{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;background:var(--accent-soft)}
+tr.sub td{font-weight:600;color:var(--muted);border-top:1px solid var(--line)}
+tr.grp td{background:var(--panel);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.tag{display:inline-block;font-size:12px;padding:1px 8px;border-radius:99px;background:var(--panel);border:1px solid var(--line);white-space:nowrap}
+.tag.opt{background:var(--warn);border-color:var(--warn-line)}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:18px 0}
+.kv div{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--panel)}
+.kv b{display:block;font-family:var(--f-display);font-size:1.6rem;line-height:1.1}
+.kv span{color:var(--muted);font-size:13.5px}
+.fig{border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--panel);overflow-x:auto;margin:16px 0}
+.fig svg{display:block;width:100%;min-width:520px;height:auto}
+.fig .cap{font-size:13px;color:var(--muted);margin-top:6px}
+input.rate{width:92px;font:inherit;font-family:var(--f-mono);font-size:13.5px;padding:4px 6px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);text-align:right}
+input.rate:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.reset{font:inherit;font-size:13.5px;padding:6px 12px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--fg);cursor:pointer}
+ol.steps{padding-left:22px} ol.steps li{margin:6px 0}
+
+.fig svg text{font-family:var(--f-body);font-size:13px;fill:var(--fg)}
+.fig svg .tiny{font-size:11.5px}.fig svg .mu{fill:var(--muted)}.fig svg .rm{font-weight:600;font-size:12.5px}
+.fig svg .ld{stroke:var(--muted);stroke-width:1;fill:none}
+.fig svg .w9{stroke:var(--fg);stroke-width:8;stroke-linecap:square}
+.fig svg .w4{stroke:var(--accent);stroke-width:4;stroke-linecap:square}
+.fig svg .beam{stroke:var(--accent);stroke-width:2;stroke-dasharray:6 4}
+.fig svg .pil{fill:var(--fg)}
+.fig svg .mh{fill:var(--panel);stroke:var(--fg);stroke-width:1.5}
+.fig svg .sewer{stroke:var(--note-line);stroke-width:3;fill:none;stroke-dasharray:10 4}
+.fig svg .tank{fill:none;stroke:var(--note-line);stroke-width:1.5;stroke-dasharray:4 3}
+.fig svg .plot{fill:var(--bg);stroke:var(--line)}
+.fig svg .roofed{fill:var(--accent-soft)}.fig svg .open{fill:var(--bg);stroke:var(--line);stroke-dasharray:3 3}
+.fig svg .soilst{fill:var(--soil);opacity:.5}.fig svg .path{fill:var(--pcc);opacity:.35}
+.fig svg .conc{fill:var(--pcc);stroke:var(--fg);stroke-width:.6}
+.fig svg .brk{fill:var(--brick);stroke:var(--fg);stroke-width:.6}.fig svg .brk.thin{stroke-width:.4}
+.fig svg .brk4{fill:var(--brick);opacity:.7;stroke:var(--fg);stroke-width:.6}
+.fig svg .khg{fill:var(--dpc);opacity:.55;stroke:var(--fg);stroke-width:.6}
+.fig svg .bar{stroke:var(--fg);stroke-width:2.2;fill:none}.fig svg .bar2{stroke:var(--accent);stroke-width:2.2;fill:none}.fig svg .bar3{stroke:var(--note-line);stroke-width:3;fill:none}
+.fig svg .dot{fill:var(--fg)}.fig svg .dotb{fill:var(--fg)}.fig svg .ring{fill:none;stroke:var(--accent);stroke-width:2}
+.fig svg .gut{fill:var(--muted)}.fig svg .hole{fill:var(--bg);stroke:var(--line)}
+.fig svg .gap{fill:var(--bg);stroke:var(--accent);stroke-width:.8}.fig svg .dpcb{fill:var(--dpc)}
+.fig svg .sandL{fill:var(--sand)}.fig svg .tile{fill:var(--brick);stroke:var(--fg);stroke-width:.6}
+.fig svg .mud{fill:var(--soil);stroke:var(--fg);stroke-width:.4}.fig svg .poly{fill:var(--note-line)}.fig svg .bit{fill:var(--dpc)}
+.fig svg .cov{fill:var(--rcc);stroke:var(--fg);stroke-width:.6}.fig svg .pipe{fill:var(--panel);stroke:var(--fg);stroke-width:1}
+.fig svg .chan{fill:none;stroke:var(--fg);stroke-width:1.5}
+.fig svg .room{fill:var(--bg);stroke:var(--fg);stroke-width:6}
+.fig svg .cup{fill:var(--warn);stroke:var(--accent);stroke-width:2}.fig svg .fan{fill:var(--panel);stroke:var(--fg);stroke-width:2}
+.fig svg .skip{fill:var(--panel);stroke:var(--muted);stroke-dasharray:5 4}
+.fig svg .ngl{stroke:var(--fg);stroke-dasharray:6 4}
+.plans{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:14px;margin:16px 0}
+.plans figure{margin:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--panel)}
+.plans img{display:block;width:100%;height:auto;background:var(--paper)}
+.plans figcaption{font-size:13px;color:var(--muted);padding:8px 12px}
+@media (max-width:700px){.plans{grid-template-columns:minmax(0,1fr)}}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:6px 0 4px}
+.seg button{font:inherit;font-size:14px;padding:8px 14px;border:0;background:var(--panel);color:var(--fg);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--bg);font-weight:600}
+.cmp{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:12px 0}
+.cmp div{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--panel)}
+.cmp b{display:block;font-family:var(--f-display);font-size:1.5rem}.cmp span{color:var(--muted);font-size:13.5px}
+.only-b{display:none!important}
+body.plan-b .only-b{display:revert!important}
+body.plan-b .only-a{display:none!important}
+.plan-tabs{display:inline-flex;gap:4px;padding:3px;border:1px solid var(--line);border-radius:10px;background:var(--panel);margin-left:auto}
+.plan-tabs button{font:inherit;font-size:14px;font-weight:600;padding:6px 14px;border:0;border-radius:7px;background:transparent;color:var(--muted);cursor:pointer;white-space:nowrap}
+.plan-tabs button[aria-selected="true"]{background:var(--accent);color:var(--bg)}
+.plan-tabs small{font-weight:400;opacity:.85}
+.planbar{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;border:1px solid var(--accent);background:var(--accent-soft);border-radius:10px;padding:10px 14px;margin:6px 0 18px;font-size:14.5px}
+.mobile-nav{display:none}
+@media (max-width:1180px){.shell{grid-template-columns:230px minmax(0,1fr)}.toc{display:none}}
+@media (max-width:860px){
+  .shell{grid-template-columns:minmax(0,1fr)}
+  .side{display:none}
+  .mobile-nav{display:flex;gap:8px;overflow-x:auto;padding:10px 0 4px;margin:0 0 6px}
+  .mobile-nav a{flex:none;font-size:13.5px;text-decoration:none;color:var(--fg);border:1px solid var(--line);border-radius:99px;padding:4px 12px;background:var(--panel)}
+  h1{font-size:1.9rem}
+  .top .sub{display:none}
+}
+</style>
+
+<header class="top">
+  <div class="brand"><span class="mark" aria-hidden="true"></span>Bilal House</div>
+  <span class="sub">Grey structure guide · rear part of ground floor</span>
+  <div class="plan-tabs" role="tablist" aria-label="Choose plan">
+    <button type="button" role="tab" id="tabA" data-plan="A" aria-selected="true">Plan A <small>full</small></button>
+    <button type="button" role="tab" id="tabB" data-plan="B" aria-selected="false">Plan B <small>smaller</small></button>
+  </div>
+</header>
+
+<div class="shell">
+<nav class="side" aria-label="Sections">
+  <h4>Start here</h4>
+  <a href="#overview">What we are building</a>
+  <a href="#thickness">Wall thickness</a>
+  <a href="#plan">Plan of this phase</a>
+  <a href="#planb">Plan B (smaller)</a>
+  <a href="#names">Material names</a>
+  <a href="#shopping">Shopping list</a>
+  <h4>Structure</h4>
+  <a href="#foundation">Foundation</a>
+  <a href="#bricks">Bricks</a>
+  <a href="#sarya">Sarya (steel)</a>
+  <a href="#concrete">Lintels, beams &amp; slab</a>
+  <a href="#dpc">DPC &amp; waterproofing</a>
+  <a href="#plaster">Plaster, floor base &amp; roof</a>
+  <h4>Services (grey stage)</h4>
+  <a href="#water">Water pipes &amp; tank</a>
+  <a href="#sewer">Sewer &amp; drains</a>
+  <a href="#electric">Electrical conduit &amp; lights</a>
+  <h4>Plan &amp; money</h4>
+  <a href="#steps">Step-by-step schedule</a>
+  <a href="#cost">Cost estimate</a>
+  <a href="#verify">Check with engineer</a>
+</nav>
+
+<main>
+<div class="mobile-nav" aria-label="Sections">
+  <a href="#overview">Overview</a><a href="#planb">Plan B</a><a href="#thickness">Walls</a><a href="#shopping">Shopping list</a><a href="#foundation">Foundation</a><a href="#bricks">Bricks</a><a href="#sarya">Sarya</a><a href="#concrete">Slab</a><a href="#dpc">DPC</a><a href="#plaster">Plaster</a><a href="#water">Water</a><a href="#sewer">Sewer</a><a href="#electric">Electric</a><a href="#steps">Steps</a><a href="#cost">Cost</a>
+</div>
+
+<div class="crumb">Guide / Ground floor / Grey structure / <span class="pv" data-a="Plan A" data-b="Plan B">Plan A</span></div>
+<h1 id="overview">Building the rear part of the ground floor</h1>
+<div class="planbar"><b>You are viewing <span class="pv" data-a="Plan A (full)" data-b="Plan B (smaller)">Plan A (full)</span>.</b><span class="only-a">All rooms in the screenshot, ~1,280 sft covered.</span><span class="only-b">Skips Bed 14×13, Dress and Bath 10×5′6″, and the back-yard sewer. ~930 sft covered.</span><span style="color:var(--muted)">Use the tabs at the top to switch. Every number below changes.</span></div>
+<p class="lead">A plain-language guide to the materials, quantities and steps for the grey structure of the part of plan 104-A-E5 shown in your screenshot. Single storey, no basement, finishing comes later.</p>
+
+<div class="kv">
+  <div><b><span class="pv" data-a="~1,280 sft" data-b="~930 sft">~1,280 sft</span></b><span>Covered area: roofed rooms only, patio not counted</span></div>
+  <div><b><span class="pv" data-a="~24,800" data-b="~20,900">~24,800</span></b><span>Khingar bricks, below DPC</span></div>
+  <div><b><span class="pv" data-a="~37,500" data-b="~32,100">~37,500</span></b><span>First-class bricks, above DPC</span></div>
+  <div><b><span class="pv" data-a="~450 bags" data-b="~370 bags">~450 bags</span></b><span>Cement, everything included</span></div>
+  <div><b><span class="pv" data-a="~1.45 ton" data-b="~1.15 ton">~1.45 ton</span></b><span>Sarya, mostly 3 sutar</span></div>
+</div>
+
+<h3>What is included</h3>
+<ul>
+  <li class="only-b"><b>Rooms (Plan B):</b> Bath 8′×7′, Master Bed 13′-1½″×16′-6″, Patio 9′×11′-1½″, Kitchen 10′×13′, S/Kitchen 7′-6″×7′-4½″, TV Lounge 17′-1½″×14′-3″. <b>Skipped for later:</b> Bed 14′×13′, Dress 9′×7′, Bath 10′×5′-6″ (top-right corner) and the back-yard sewer.</li>
+  <li class="only-a"><b>Rooms:</b> Bath 8′×7′, Dress 9′×7′, Bath 10′×5′-6″, Master Bed 13′-1½″×16′-6″, Bed 14′×13′, Patio 9′×11′-1½″, Kitchen 10′×13′, S/Kitchen 7′-6″×7′-4½″, TV Lounge 17′-1½″×14′-3″.</li>
+  <li class="only-b"><b>Covered area</b> is only the area under the roof slab. In Plan B that is <b>~930 sft</b>: Plan A's 1,280 sft minus the skipped corner (~350 sft). The open patio is not counted.</li>
+  <li class="only-a"><b>Covered area</b> means only the area under the roof slab: about 29′-4½″ × 47′ = 1,380 sft, minus the open patio (~100 sft) = <b>~1,280 sft</b>. The patio has walls but no roof, so it is not covered area.</li>
+  <li><b>The front edge</b> is the wall line at the bottom of the TV lounge (the 8′-5″ opening and the S/Kitchen bottom wall). <b>No material is counted for the staircase, drawing room, porch/garage, verandah or lawn.</b> The only things that reach the front are the sewer main to the street and the optional septic tank, because the drains need them.</li>
+  <li><b>Boundary walls: only left and front.</b> Left: a single-brick (4½″) wall along the full plot length (~109′) with pillars every 8′. Front: a 9″ wall at the street (~22′ plus 2 gate pillars, leaving ~12′ for the main gate and ramp). <b>No back or right boundary wall</b>, because the neighbours' houses already have walls there.</li>
+  <li><b>Left passage:</b> 3′ paved path and 2′ soil strip instead of a 5′ paved passage. Paving is finishing work, so it is not priced here.</li>
+  <li><b>Not included:</b> the 800-gallon underground water tank shown in the back yard (and the one in the front lawn) is <b>skipped</b>. Water comes from the plastic tank on the roof.</li>
+  <li><b>Main gate:</b> a 12′×7′ steel gate is now included in the cost table.</li>
+  <li><b>Grey services:</b> water pipes in walls, plastic roof tank, sewer lines and manholes, electrical conduits, boxes and COB light cups in the slab.</li>
+</ul>
+
+<h3 id="thickness">Wall thickness at a glance</h3>
+<p>Every wall in this phase, how thick it is above the DPC, and which walls from the drawing are <b>not</b> built.</p>
+<div class="only-a tbl"><table>
+<tr><th>Wall</th><th>Thickness</th><th>Notes</th></tr>
+<tr class="grp"><td colspan="3">House walls</td></tr>
+<tr><td>Back wall of the house (with the two V1 windows)</td><td><span class="tag">9″</span></td><td>Holds the roof</td></tr>
+<tr><td>Left wall of the house (W4, W5, W6 windows, along the passage)</td><td><span class="tag">9″</span></td><td>Holds the roof</td></tr>
+<tr><td>Right wall of the house (next to the neighbour)</td><td><span class="tag">9″</span></td><td>Holds the roof. Not plastered outside.</td></tr>
+<tr><td>Centre spine: Master bed | Bed, Kitchen | Lounge, S/Kitchen | Lounge</td><td><span class="tag">9″</span></td><td>Holds the roof in the middle</td></tr>
+<tr><td>Wall behind the bedrooms (Bath / Dress / Bath side)</td><td><span class="tag">9″</span></td><td>Holds the roof and the bath pipes</td></tr>
+<tr><td>Patio walls (3 sides)</td><td><span class="tag">9″</span></td><td>The roof ends on them</td></tr>
+<tr><td>TV lounge front wall (8′-6″ opening)</td><td><span class="tag">9″</span></td><td>Carries the beam</td></tr>
+<tr><td>Bath 8×7 | Dress, Dress | Bath 10×5′6″</td><td><span class="tag opt">4½″</span></td><td>Parda wall</td></tr>
+<tr><td>Master bed | Kitchen, Kitchen | S/Kitchen, small walls at D2 / D3</td><td><span class="tag opt">4½″</span></td><td>Parda wall</td></tr>
+<tr><td>Roof parapet (back, left, right)</td><td><span class="tag">9″</span></td><td>3′ high</td></tr>
+<tr class="grp"><td colspan="3">Boundary walls</td></tr>
+<tr><td>Left boundary (along the passage, full 109′)</td><td><span class="tag opt">4½″</span></td><td>Single brick with 13½″ pillars every 8′</td></tr>
+<tr><td>Front boundary (at the street, beside the gate)</td><td><span class="tag">9″</span></td><td>With 2 gate pillars</td></tr>
+<tr><td><b>Back boundary wall</b> (top line of the back yard in the drawing)</td><td><span class="tag">Not built</span></td><td>The neighbour's house wall is already there</td></tr>
+<tr><td><b>Right boundary wall</b>, including the 7′ piece along the back yard</td><td><span class="tag">Not built</span></td><td>The neighbour's house wall is already there</td></tr>
+<tr class="grp"><td colspan="3">Below DPC (underground)</td></tr>
+<tr><td>Footings of all walls, including 4½″ ones</td><td><span class="tag">9″ or wider, khingar</span></td><td>Nothing is thinner than 9″ below the DPC</td></tr>
+<tr><td>Manhole walls</td><td><span class="tag">9″ khingar</span></td><td></td></tr>
+</table></div>
+<div class="only-b tbl"><table>
+<tr><th>Wall</th><th>Thickness</th><th>Notes</th></tr>
+<tr class="grp"><td colspan="3">House walls</td></tr>
+<tr><td>Back wall of the left bath only (one V1 window)</td><td><span class="tag">9″</span></td><td>Holds the roof</td></tr>
+<tr><td>New outside walls around the skipped corner: left bath side wall, master bed top and right walls, lobby top wall</td><td><span class="tag">9″</span></td><td>Become outside walls in Plan B. Leave toothing for later.</td></tr>
+<tr><td>Left wall of the house (W4, W5, W6 windows, along the passage)</td><td><span class="tag">9″</span></td><td>Holds the roof</td></tr>
+<tr><td>Right wall of the house, lounge and patio part only (~27′)</td><td><span class="tag">9″</span></td><td>Holds the roof. Not plastered outside.</td></tr>
+<tr><td>Spine: Kitchen | Lounge, S/Kitchen | Lounge</td><td><span class="tag">9″</span></td><td>Holds the roof in the middle</td></tr>
+<tr><td>Patio walls (3 sides)</td><td><span class="tag">9″</span></td><td>The roof ends on them. The top one is the future bedroom wall.</td></tr>
+<tr><td>TV lounge front wall (8′-6″ opening)</td><td><span class="tag">9″</span></td><td>Carries the beam</td></tr>
+<tr><td>Master bed | Kitchen, Kitchen | S/Kitchen, small walls at D2 / D3</td><td><span class="tag opt">4½″</span></td><td>Parda wall</td></tr>
+<tr><td>Roof parapet (all round the roofed part)</td><td><span class="tag">9″</span></td><td>3′ high</td></tr>
+<tr class="grp"><td colspan="3">Boundary walls</td></tr>
+<tr><td>Left boundary (along the passage, full 109′)</td><td><span class="tag opt">4½″</span></td><td>Single brick with 13½″ pillars every 8′</td></tr>
+<tr><td>Front boundary (at the street, beside the gate)</td><td><span class="tag">9″</span></td><td>With 2 gate pillars</td></tr>
+<tr><td><b>Back boundary wall</b> (top line of the back yard in the drawing)</td><td><span class="tag">Not built</span></td><td>The neighbour's house wall is already there</td></tr>
+<tr><td><b>Right boundary wall</b>, including the 7′ piece along the back yard</td><td><span class="tag">Not built</span></td><td>The neighbour's house wall is already there</td></tr>
+<tr class="grp"><td colspan="3">Below DPC (underground)</td></tr>
+<tr><td>Footings of all walls, including 4½″ ones</td><td><span class="tag">9″ or wider, khingar</span></td><td>Nothing is thinner than 9″ below the DPC</td></tr>
+<tr><td>Manhole walls</td><td><span class="tag">9″ khingar</span></td><td></td></tr>
+</table></div>
+
+<h3 id="plan">The part we are building</h3>
+<div class="plans">
+<figure><img src="assets/build-area.jpg" alt="Drawing of the rear part of the ground floor: back yard, two baths, dress, master bed, bed, patio, kitchen, S/kitchen and TV lounge" loading="lazy"><figcaption>This phase: from the back yard to the TV lounge front wall (the "OPENING 8′-6″ WIDE" line). The stair and drawing room at the bottom of the picture are not built now.</figcaption></figure>
+<figure><img src="assets/ground-floor-plan.jpg" alt="Full ground floor plan 104-A-E5" loading="lazy"><figcaption>Full ground floor plan, for reference. Only the top part, down to the TV lounge, is in this guide.</figcaption></figure>
+</div>
+<div class="callout"><b class="t">How these numbers were made</b>
+<p>Lengths were taken from your drawing: covered width 29′-4½″, floor level +2′-0″ above road (F.L.), wall height 10′, roof slab 5″ RCC 1:2:4, DPC 1½″ 1:2:4, and the 9″×12″ beam with ¾″ bars. The part of the PDF that has the foundation section is cut off, so the foundation below uses the normal Pakistani design for this kind of house. Wall lengths are measured from the plan, so expect ±5–10%.</p></div>
+
+<div class="callout warn"><b class="t">Assumptions you should confirm</b>
+<p>1. Walls that hold the roof are 9″, outer walls included, which is normal for a single storey. Six inside walls are 4½″ parda walls (see <a href="#walltypes">wall types</a>). If you will add an upper floor later, ask the engineer whether the outer walls should be 13½″.<br>2. The patio is open to the sky, so it has no roof slab. If you cover it, add about 100 sft of slab.<br>3. The right wall of the house is a full new house wall. If its foundation already exists, take <span class="pv" data-a="about 2,900 khingar bricks and 16 bags" data-b="about 1,700 khingar bricks and 10 bags">about 2,900 khingar bricks and 16 bags</span> of cement off the foundation numbers.<br>4. The plastic tank sits on the roof. There is no underground tank in this phase.</p></div>
+
+<h2 id="planb">Plan A and Plan B compared</h2>
+<p>The tabs at the top switch the whole guide between the two plans. <b>Plan A</b> builds every room in the screenshot. <b>Plan B</b> builds the same house but leaves out the top-right corner for later: the <b>Bed 14′×13′</b>, the <b>Dress 9′×7′</b> and the <b>Bath 10′×5′-6″</b>. It also has <b>no sewer in the back yard</b>. In Plan B the sewer starts at the left bath (8′×7′), which drains straight into a manhole in the passage beside it.</p>
+
+
+<h3>What changes in Plan B</h3>
+<div class="tbl"><table>
+<tr><th>Item</th><th>Plan A</th><th>Plan B</th></tr>
+<tr><td>Rooms</td><td>2 bedrooms, 2 baths, dress, kitchen, S/kitchen, lounge</td><td>1 bedroom (master), 1 bath (8×7), kitchen, S/kitchen, lounge</td></tr>
+<tr><td>Covered (roofed) area</td><td>~1,280 sft</td><td><b>~930 sft</b></td></tr>
+<tr><td>9″ walls</td><td>~248 rft</td><td>~210 rft. The back and right walls of the skipped corner go. The bath–dress wall and the lobby top wall are added as 9″.</td></tr>
+<tr><td>4½″ parda walls</td><td>~52 rft</td><td>~37 rft (bath–dress and dress–bath walls gone)</td></tr>
+<tr><td>Patio top wall (with W4 window)</td><td>9″</td><td>9″, kept. It becomes the future bedroom's wall.</td></tr>
+<tr><td>Manholes</td><td>4 (2 in back yard, 2 in passage)</td><td><b>2</b>, both in the passage: one beside the left bath, one beside the kitchen</td></tr>
+<tr><td>6″ sewer main</td><td>~130 ft (from back yard)</td><td>~100 ft (from left bath to street)</td></tr>
+<tr><td>Water points</td><td>15 cold, 7 hot</td><td>11 cold, 5 hot</td></tr>
+<tr><td>COB cups / fan boxes / switch boards / sockets / AC</td><td>40 / 4 / 11 / 14 / 3</td><td>30 / 3 / 7 / 11 / 2</td></tr>
+</table></div>
+
+<h3>Plan B quantities</h3>
+<div class="tbl"><table>
+<tr><th>Material</th><th class="r">Plan A</th><th class="r">Plan B</th></tr>
+<tr><td>Khingar bricks (below DPC)</td><td class="r">24,800</td><td class="r">~20,900</td></tr>
+<tr><td>First-class bricks (above DPC)</td><td class="r">37,500</td><td class="r">~32,100</td></tr>
+<tr><td>Cement</td><td class="r">450 bags</td><td class="r">~370 bags (~105 in foundation)</td></tr>
+<tr><td>Sarya (all sizes)</td><td class="r">1,445 kg</td><td class="r">~1,145 kg (3 sutar ~790 kg, 6 sutar 260 kg, 2 sutar ~70 kg)</td></tr>
+<tr><td>Rait, Ravi</td><td class="r">1,510 cft</td><td class="r">~1,290 cft</td></tr>
+<tr><td>Rait, Chenab</td><td class="r">1,025 cft</td><td class="r">~840 cft</td></tr>
+<tr><td>Bajri</td><td class="r">755 cft</td><td class="r">~615 cft</td></tr>
+<tr><td>Crush</td><td class="r">525 cft</td><td class="r">~390 cft</td></tr>
+<tr><td>Chips</td><td class="r">35 cft</td><td class="r">~31 cft</td></tr>
+<tr><td>Ghassu</td><td class="r">2,100 cft</td><td class="r">~1,550 cft</td></tr>
+<tr><td>Digging</td><td class="r">~3,300 cft</td><td class="r">~2,800 cft</td></tr>
+<tr><td>Bitumen / polythene / roof tiles</td><td class="r">245 kg / 1,400 sft / 4,700</td><td class="r">185 kg / 1,010 sft / 3,400</td></tr>
+</table></div>
+<div class="callout"><b class="t">Building the skipped corner later</b><p>When you add the bedroom, dress and bath later, the new walls join onto the 9″ master wall and the patio top wall. Leave <b>toothing</b> (every second course sticking out) at the corners where the new walls will meet. Also leave a 4″ pipe stub with a cap from the passage manhole, ready for the future bath.</p></div>
+<h2 id="names">Material names (what to ask the shop for)</h2>
+<div class="tbl"><table>
+<tr><th>Name at site</th><th>What it is</th><th>Where it goes</th></tr>
+<tr><td><b>Cement</b></td><td>50 kg bag, OPC (normal grey cement)</td><td>Everywhere: concrete, brick mortar, plaster</td></tr>
+<tr><td><b>Rait (Ravi / local)</b></td><td>Fine, soft sand</td><td>Bed under foundation, brick mortar (masala)</td></tr>
+<tr><td><b>Rait (Chenab / Lawrencepur)</b></td><td>Coarse, clean, sharp sand</td><td>Concrete (PCC and RCC), DPC, plaster</td></tr>
+<tr><td><b>Bajri / Bajar</b></td><td>River gravel, ¾″–1½″, cheaper</td><td>Foundation PCC 1:4:8 and floor base PCC</td></tr>
+<tr><td><b>Crush</b></td><td>Machine-crushed stone ½″–¾″ (Margalla/Sargodha)</td><td>RCC: roof slab, beams, lintels</td></tr>
+<tr><td><b>Chips (barik crush)</b></td><td>Small crush ¼″–⅜″</td><td>DPC concrete layer</td></tr>
+<tr><td><b>Khingar eent</b></td><td>Over-burnt, very hard, dark bricks. Often bent, but cheaper and they do not soak water.</td><td>Below DPC: foundation steps, plinth, manholes, septic, boundary footing</td></tr>
+<tr><td><b>Awwal eent (first class)</b></td><td>9″×4½″×3″ straight, even, red bricks</td><td>Above DPC: all walls, parapet, boundary above ground</td></tr>
+<tr><td><b>Sarya</b></td><td>Steel bars, Grade 60. Size in <i>sutar</i>, 1 sutar = ⅛″</td><td>Slab, beams, lintels</td></tr>
+<tr><td><b>Tar (binding wire)</b></td><td>Soft black wire</td><td>Tying sarya together</td></tr>
+<tr><td><b>Bitumen (lukk)</b></td><td>Black tar, used hot</td><td>On top of DPC and on the roof</td></tr>
+<tr><td><b>Ghassu</b></td><td>Cheap fine sandy fill. Packs hard when flooded with water and does not shrink.</td><td>Filling inside the rooms (bharai), up to the floor base</td></tr>
+<tr><td><b>Mitti</b></td><td>Ordinary earth, the soil you dig out</td><td>Backfill outside and around footings, roof mud. Nothing to buy.</td></tr>
+</table></div>
+
+<h3>Sarya sizes</h3>
+<div class="tbl"><table>
+<tr><th>Sutar</th><th>Inch</th><th>mm</th><th class="r">Weight of one 40 ft bar</th></tr>
+<tr><td>2 sutar</td><td>¼″</td><td>6</td><td class="r">~3.0 kg</td></tr>
+<tr><td><b>3 sutar</b></td><td><b>⅜″</b></td><td>10</td><td class="r"><b>~6.8 kg</b></td></tr>
+<tr><td>4 sutar</td><td>½″</td><td>12</td><td class="r">~12.1 kg</td></tr>
+<tr><td>5 sutar</td><td>⅝″</td><td>16</td><td class="r">~19.0 kg</td></tr>
+<tr><td>6 sutar</td><td>¾″</td><td>20</td><td class="r">~27.3 kg</td></tr>
+</table></div>
+
+<h3>Mix ratios in simple words</h3>
+<p><b>1:4:8</b> means 1 tasla cement, 4 tasla rait, 8 tasla bajri. <b>1:2:4</b> means 1 cement, 2 rait, 4 crush. <b>1:6</b> mortar means 1 cement and 6 rait. Use the same tasla for every material.</p>
+
+<h2 id="shopping">Full shopping list</h2>
+<p>This is everything for the grey structure of this part, with breakage and wastage already added. Buy in 2–3 rounds, not all at once (see <a href="#steps">schedule</a>).</p>
+<div class="only-a tbl"><table>
+<tr><th>Item</th><th class="r">Quantity</th><th>Notes</th></tr>
+<tr class="grp"><td colspan="3">Basic materials</td></tr>
+<tr><td>Khingar bricks</td><td class="r">24,800</td><td>Everything below DPC, incl. manholes, septic, boundary footing. 8% breakage added.</td></tr>
+<tr><td>First-class bricks</td><td class="r">37,500</td><td>9″ and 4½″ walls above DPC, parapet, boundary above ground, tank stand. 5% breakage added.</td></tr>
+<tr><td>Cement</td><td class="r">450 bags</td><td>About 125 bags are needed in the foundation stage</td></tr>
+<tr><td>Rait, Ravi / local</td><td class="r">1,510 cft</td><td>Brick mortar plus bed under foundation</td></tr>
+<tr><td>Rait, Chenab</td><td class="r">1,025 cft</td><td>Concrete, DPC, plaster</td></tr>
+<tr><td>Bajri</td><td class="r">755 cft</td><td>PCC under foundation and floors</td></tr>
+<tr><td>Crush ½″–¾″</td><td class="r">525 cft</td><td>Slab, beams, lintels</td></tr>
+<tr><td>Chips ¼″–⅜″</td><td class="r">35 cft</td><td>DPC</td></tr>
+<tr><td>Sarya 3 sutar (⅜″)</td><td class="r">1,070 kg</td><td>~157 bars of 40 ft</td></tr>
+<tr><td>Sarya 6 sutar (¾″)</td><td class="r">260 kg</td><td>~10 bars. For the beam in the drawing.</td></tr>
+<tr><td>Sarya 2 sutar (¼″)</td><td class="r">87 kg</td><td>Lintel rings + bars in parda walls</td></tr>
+<tr><td>Sarya 4 sutar (½″)</td><td class="r">15 kg</td><td>Fan hooks and spare</td></tr>
+<tr><td>Binding wire</td><td class="r">15 kg</td><td></td></tr>
+<tr><td>Ghassu</td><td class="r">~2,100 cft</td><td>Filling inside the rooms, about 19″ deep, watered and rammed</td></tr>
+<tr><td>Mitti</td><td class="r">0 to buy</td><td>Use the ~3,300 cft of dug soil for backfill outside the footings and for the roof mud</td></tr>
+<tr class="grp"><td colspan="3">Waterproofing</td></tr>
+<tr><td>Bitumen</td><td class="r">~250 kg</td><td>50 kg on DPC, 200 kg on roof</td></tr>
+<tr><td>Waterproofing compound</td><td class="r">~15 kg / litre</td><td>Mixed into the DPC and slab top</td></tr>
+<tr><td>Polythene sheet (thick)</td><td class="r">~1,400 sft</td><td>Roof, under the mud</td></tr>
+<tr><td>Anti-termite chemical</td><td class="r">1 set</td><td>Sprayed in trenches and under floors</td></tr>
+<tr class="grp"><td colspan="3">Services (details in their own sections)</td></tr>
+<tr><td>Water: PPR pipes, fittings, valves, 500 gal plastic tank</td><td class="r">See list</td><td><a href="#water">Water section</a></td></tr>
+<tr><td>Sewer: PVC 6″/4″/3″/2″ pipes, traps, manhole covers</td><td class="r">See list</td><td><a href="#sewer">Sewer section</a></td></tr>
+<tr><td>Main gate 12′×7′ (MS steel)</td><td class="r">1</td><td>Fabricated and fixed at the front boundary</td></tr>
+<tr><td>Electric: conduit, 40 COB cups, boxes, DB box</td><td class="r">See list</td><td><a href="#electric">Electrical section</a></td></tr>
+</table></div>
+<div class="only-b tbl"><table>
+<tr><th>Item</th><th class="r">Quantity</th><th>Notes</th></tr>
+<tr class="grp"><td colspan="3">Basic materials</td></tr>
+<tr><td>Khingar bricks</td><td class="r">20,900</td><td>Everything below DPC, incl. manholes, septic, boundary footing. 8% breakage added.</td></tr>
+<tr><td>First-class bricks</td><td class="r">32,100</td><td>9″ and 4½″ walls above DPC, parapet, boundary above ground, tank stand. 5% breakage added.</td></tr>
+<tr><td>Cement</td><td class="r">370 bags</td><td>About 107 bags are needed in the foundation stage</td></tr>
+<tr><td>Rait, Ravi / local</td><td class="r">1,290 cft</td><td>Brick mortar plus bed under foundation</td></tr>
+<tr><td>Rait, Chenab</td><td class="r">840 cft</td><td>Concrete, DPC, plaster</td></tr>
+<tr><td>Bajri</td><td class="r">620 cft</td><td>PCC under foundation and floors</td></tr>
+<tr><td>Crush ½″–¾″</td><td class="r">390 cft</td><td>Slab, beams, lintels</td></tr>
+<tr><td>Chips ¼″–⅜″</td><td class="r">27 cft</td><td>DPC</td></tr>
+<tr><td>Sarya 3 sutar (⅜″)</td><td class="r">790 kg</td><td>~116 bars of 40 ft</td></tr>
+<tr><td>Sarya 6 sutar (¾″)</td><td class="r">260 kg</td><td>~10 bars. For the beam in the drawing.</td></tr>
+<tr><td>Sarya 2 sutar (¼″)</td><td class="r">70 kg</td><td>Lintel rings + bars in parda walls</td></tr>
+<tr><td>Sarya 4 sutar (½″)</td><td class="r">12 kg</td><td>Fan hooks and spare</td></tr>
+<tr><td>Binding wire</td><td class="r">12 kg</td><td></td></tr>
+<tr><td>Ghassu</td><td class="r">~1,550 cft</td><td>Filling inside the rooms, about 19″ deep, watered and rammed</td></tr>
+<tr><td>Mitti</td><td class="r">0 to buy</td><td>Use the ~2,800 cft of dug soil for backfill outside the footings and for the roof mud</td></tr>
+<tr class="grp"><td colspan="3">Waterproofing</td></tr>
+<tr><td>Bitumen</td><td class="r">~185 kg</td><td>40 kg on DPC, 145 kg on roof</td></tr>
+<tr><td>Waterproofing compound</td><td class="r">~12 kg / litre</td><td>Mixed into the DPC and slab top</td></tr>
+<tr><td>Polythene sheet (thick)</td><td class="r">~1,010 sft</td><td>Roof, under the mud</td></tr>
+<tr><td>Anti-termite chemical</td><td class="r">1 set</td><td>Sprayed in trenches and under floors</td></tr>
+<tr class="grp"><td colspan="3">Services (details in their own sections)</td></tr>
+<tr><td>Water: PPR pipes, fittings, valves, 500 gal plastic tank</td><td class="r">See list</td><td><a href="#water">Water section</a></td></tr>
+<tr><td>Sewer: PVC 6″/4″/3″/2″ pipes, traps, manhole covers</td><td class="r">See list</td><td><a href="#sewer">Sewer section</a></td></tr>
+<tr><td>Main gate 12′×7′ (MS steel)</td><td class="r">1</td><td>Fabricated and fixed at the front boundary</td></tr>
+<tr><td>Electric: conduit, 30 COB cups, boxes, DB box</td><td class="r">See list</td><td><a href="#electric">Electrical section</a></td></tr>
+</table></div>
+
+<h2 id="foundation">Foundation</h2>
+<p>The foundation is a trench filled in layers, from bottom to top: sand bed, then plain concrete, then brick steps that get narrower as they go up, up to the plinth. At plinth top comes the DPC. The drawing gives floor level as 2′ above road level, so the plinth sits 2′ above the ground.</p>
+
+<div class="fig">
+<svg viewBox="0 0 680 510" role="img" aria-label="Cross-section of the 9 inch house wall foundation">
+  <g font-family="Figtree, system-ui, sans-serif" font-size="13" fill="var(--fg)">
+  <rect x="40" y="270" width="340" height="220" fill="var(--soil)" opacity=".55"/>
+  <rect x="125" y="270" width="150" height="210" fill="var(--soil)" opacity=".85"/>
+  <rect x="125" y="465" width="150" height="15" fill="var(--sand)" stroke="var(--fg)" stroke-width=".6"/>
+  <rect x="125" y="435" width="150" height="30" fill="var(--pcc)" stroke="var(--fg)" stroke-width=".6"/>
+  <rect x="143.75" y="405" width="112.5" height="30" fill="var(--brick)" stroke="var(--fg)" stroke-width=".6"/>
+  <rect x="155" y="375" width="90" height="30" fill="var(--brick)" stroke="var(--fg)" stroke-width=".6"/>
+  <rect x="166.25" y="345" width="67.5" height="30" fill="var(--brick)" stroke="var(--fg)" stroke-width=".6"/>
+  <rect x="177.5" y="157.5" width="45" height="187.5" fill="var(--brick)" stroke="var(--fg)" stroke-width=".6"/>
+  <rect x="222.5" y="175" width="157.5" height="95" fill="var(--sand)" stroke="var(--fg)" stroke-width=".6"/>
+  <rect x="222.5" y="160" width="157.5" height="15" fill="var(--pcc)" stroke="var(--fg)" stroke-width=".6"/>
+  <rect x="177.5" y="150" width="45" height="7.5" fill="var(--dpc)"/>
+  <rect x="177.5" y="40" width="45" height="110" fill="var(--brick)" stroke="var(--fg)" stroke-width=".6"/>
+  <line x1="30" y1="270" x2="390" y2="270" stroke="var(--fg)" stroke-dasharray="6 4"/>
+  <text x="36" y="262">Ground (NGL)</text>
+  <text x="36" y="200" fill="var(--muted)">Outside</text>
+  <text x="300" y="120" fill="var(--muted)">Inside room</text>
+  <line x1="20" y1="270" x2="20" y2="480" stroke="var(--muted)"/><text x="12" y="375" transform="rotate(-90 12 375)" text-anchor="middle" fill="var(--muted)">3′-6″ deep</text>
+  <line x1="125" y1="498" x2="275" y2="498" stroke="var(--muted)"/><text x="200" y="494" text-anchor="middle" fill="var(--muted)">2′-6″ trench</text>
+  <g font-size="13">
+    <line x1="223" y1="153" x2="410" y2="70" stroke="var(--muted)"/><text x="414" y="74">DPC 1½″ (chips 1:2:4) + 2 coats bitumen</text>
+    <line x1="380" y1="167" x2="410" y2="140" stroke="var(--muted)"/><text x="414" y="144">Floor base: PCC 3″ (1:4:8)</text>
+    <line x1="380" y1="220" x2="410" y2="190" stroke="var(--muted)"/><text x="414" y="194">Ghassu fill, flooded + rammed in 6″ layers</text>
+    <text x="36" y="330" fill="var(--muted)" font-size="12">Dug mitti</text><text x="36" y="345" fill="var(--muted)" font-size="12">backfill</text>
+    <line x1="223" y1="300" x2="410" y2="262" stroke="var(--muted)"/><text x="414" y="266">9″ khingar wall up to DPC</text>
+    <line x1="234" y1="360" x2="410" y2="354" stroke="var(--muted)"/><text x="414" y="358">Step 3: 13½″ wide, 2 courses</text>
+    <line x1="245" y1="390" x2="410" y2="384" stroke="var(--muted)"/><text x="414" y="388">Step 2: 18″ wide, 2 courses</text>
+    <line x1="256" y1="420" x2="410" y2="414" stroke="var(--muted)"/><text x="414" y="418">Step 1: 22½″ wide, 2 courses</text>
+    <line x1="275" y1="450" x2="410" y2="444" stroke="var(--muted)"/><text x="414" y="448">PCC 6″ (1:4:8 bajri)</text>
+    <line x1="275" y1="472" x2="410" y2="472" stroke="var(--muted)"/><text x="414" y="476">Rait bed 3″ + anti-termite spray</text>
+  </g>
+  <text x="300" y="146" fill="var(--muted)" font-size="12">F.L. +2′-0″</text>
+  </g>
+</svg>
+<div class="cap">Every 9″ structural wall uses this foundation. Parda walls use a smaller one (see table below). Khingar below the black DPC line, first-class above it.</div>
+</div>
+
+<h3 id="walltypes">Which walls are 9″ and which are 4½″</h3>
+<p>The roof slab rests on the <b>9″ structural walls</b>. They are laid out so that no slab span is more than about 14′–15′. The <b>4½″ parda walls</b> only divide rooms and carry no slab or beam, so they can be thin.</p>
+<div class="fig only-a"><svg viewBox="0 0 680 690" role="img" aria-label="Schematic plan of the part being built, showing wall types, manholes and tank"><rect x="30" y="30" width="378" height="594" class="plot"/><rect x="30" y="30" width="22" height="594" class="soilst"/><rect x="52" y="30" width="33" height="594" class="path"/><rect x="85" y="107" width="323.4" height="517.0" class="roofed"/><rect x="302.8" y="329.2" width="105.6" height="130.9" class="open"/><polyline class="sewer" points="376.5,68.5 68.5,68.5 68.5,679"/><line class="w9" x1="85.0" y1="107.0" x2="408.4" y2="107.0"/><line class="w9" x1="85.0" y1="107.0" x2="85.0" y2="624.0"/><line class="w9" x1="408.4" y1="107.0" x2="408.4" y2="624.0"/><line class="w9" x1="85.0" y1="197.8" x2="241.8" y2="197.8"/><line class="w9" x1="241.8" y1="197.8" x2="241.8" y2="389.7"/><line class="w9" x1="287.4" y1="176.3" x2="408.4" y2="176.3"/><line class="w9" x1="204.9" y1="389.7" x2="241.8" y2="389.7"/><line class="w9" x1="204.9" y1="389.7" x2="204.9" y2="537.1"/><line class="w9" x1="178.5" y1="537.1" x2="204.9" y2="537.1"/><line class="w9" x1="178.5" y1="537.1" x2="178.5" y2="624.0"/><line class="w9" x1="302.8" y1="329.2" x2="408.4" y2="329.2"/><line class="w9" x1="302.8" y1="329.2" x2="302.8" y2="460.1"/><line class="w9" x1="302.8" y1="460.1" x2="408.4" y2="460.1"/><line class="w9" x1="85.0" y1="624.0" x2="273.1" y2="624.0"/><line class="w9" x1="384.2" y1="624.0" x2="408.4" y2="624.0"/><line class="w4" x1="178.5" y1="107.0" x2="178.5" y2="197.8"/><line class="w4" x1="287.4" y1="107.0" x2="287.4" y2="176.3"/><line class="w4" x1="85.0" y1="389.7" x2="204.9" y2="389.7"/><line class="w4" x1="85.0" y1="537.1" x2="178.5" y2="537.1"/><line class="beam" x1="273.1" y1="624.0" x2="384.2" y2="624.0"/><line class="w4" x1="30" y1="30" x2="30" y2="679"/><rect class="pil" x="29" y="24" width="12" height="12"/><rect class="pil" x="29" y="112" width="12" height="12"/><rect class="pil" x="29" y="200" width="12" height="12"/><rect class="pil" x="29" y="288" width="12" height="12"/><rect class="pil" x="29" y="376" width="12" height="12"/><rect class="pil" x="29" y="464" width="12" height="12"/><rect class="pil" x="29" y="552" width="12" height="12"/><rect class="pil" x="29" y="640" width="12" height="12"/><rect class="mh" x="57.5" y="57.5" width="22" height="22"/><text x="68.5" y="72.5" text-anchor="middle" class="tiny">1</text><rect class="mh" x="365.5" y="57.5" width="22" height="22"/><text x="376.5" y="72.5" text-anchor="middle" class="tiny">2</text><rect class="mh" x="57.5" y="215.9" width="22" height="22"/><text x="68.5" y="230.9" text-anchor="middle" class="tiny">3</text><rect class="mh" x="57.5" y="475.5" width="22" height="22"/><text x="68.5" y="490.5" text-anchor="middle" class="tiny">4</text><rect class="tank" x="316.0" y="118.0" width="55" height="44"/><text x="343.5" y="146.6" text-anchor="middle" class="tiny">tank</text><text x="131.2" y="151.0" text-anchor="middle" class="rm">Bath</text><text x="131.2" y="165.0" text-anchor="middle" class="tiny mu">8×7</text><text x="233.5" y="142.2" text-anchor="middle" class="rm">Dress</text><text x="233.5" y="156.2" text-anchor="middle" class="tiny mu">9×7</text><text x="349.0" y="140.0" text-anchor="middle" class="rm">Bath</text><text x="349.0" y="154.0" text-anchor="middle" class="tiny mu">10×5′6″</text><text x="162.0" y="294.0" text-anchor="middle" class="rm">Master bed</text><text x="162.0" y="308.0" text-anchor="middle" class="tiny mu">13′1½″×16′6″</text><text x="327.0" y="255.5" text-anchor="middle" class="rm">Bed</text><text x="327.0" y="269.5" text-anchor="middle" class="tiny mu">14×13</text><text x="355.6" y="393.0" text-anchor="middle" class="rm">Patio</text><text x="355.6" y="407.0" text-anchor="middle" class="tiny mu">open, no roof</text><text x="144.4" y="464.5" text-anchor="middle" class="rm">Kitchen</text><text x="144.4" y="478.5" text-anchor="middle" class="tiny mu">10×13</text><text x="131.2" y="583.3" text-anchor="middle" class="rm">S/Kit</text><text x="131.2" y="597.3" text-anchor="middle" class="tiny mu">7′6″×7′4½″</text><text x="294.0" y="552.5" text-anchor="middle" class="rm">TV lounge</text><text x="294.0" y="566.5" text-anchor="middle" class="tiny mu">17′1½″×14′3″</text><text x="270.9" y="415.0" text-anchor="middle" class="rm">Lobby</text><text x="246.7" y="71.8" text-anchor="middle" class="tiny mu">Back yard 7′ (neighbour wall behind, no new wall)</text><text x="329.2" y="651.5" text-anchor="middle" class="tiny mu">8′-6″ opening, beam over</text><text x="195" y="679" text-anchor="middle" class="tiny mu">Stair, drawing, porch: not in this phase ↓</text><text x="46.5" y="437" class="tiny mu" transform="rotate(-90 46.5 437)" text-anchor="middle">3′ path + 2′ soil</text><text x="429.29999999999995" y="371" class="tiny mu" transform="rotate(90 429.29999999999995 371)" text-anchor="middle">Neighbour house (no boundary wall)</text><g transform="translate(470,60)"><line class="w9" x1="0" y1="0" x2="34" y2="0"/><text x="46" y="4">9″ structural wall</text></g><g transform="translate(470,94)"><line class="w4" x1="0" y1="0" x2="34" y2="0"/><text x="46" y="4">4½″ parda wall</text></g><g transform="translate(470,128)"><line class="beam" x1="0" y1="0" x2="34" y2="0"/><text x="46" y="4">9″×12″ beam</text></g><g transform="translate(470,162)"><rect class="pil" x="11" y="-6" width="12" height="12"/><text x="46" y="4">Boundary pillar 13½″</text></g><g transform="translate(470,196)"><rect class="mh" x="6" y="-11" width="22" height="22"/><text x="46" y="4">Manhole 2′×2′</text></g><g transform="translate(470,230)"><line class="sewer" x1="0" y1="0" x2="34" y2="0"/><text x="46" y="4">6″ sewer main</text></g><g transform="translate(470,264)"><rect class="roofed" x="0" y="-9" width="34" height="18"/><text x="46" y="4">Roofed (covered) area</text></g><g transform="translate(470,298)"><rect class="open" x="0" y="-9" width="34" height="18"/><text x="46" y="4">Open to sky</text></g><g transform="translate(470,332)"><rect class="tank" x="4" y="-9" width="26" height="18"/><text x="46" y="4">500 gal tank on roof</text></g><text x="470" y="380" class="tiny mu">Approximate, from drawing 104-A-E5.</text><text x="470" y="396" class="tiny mu">Measure on site before building.</text></svg><div class="cap">Schematic of this phase. Black = 9″ walls that carry the roof, red = 4½″ parda walls. Blue dashes = sewer main through manholes 1–4 to the street.</div></div>
+<div class="fig only-b"><svg viewBox="0 0 680 690" role="img" aria-label="Plan B schematic: bed, dress and bath on the right skipped"><rect x="30" y="30" width="378" height="594" class="plot"/><rect x="30" y="30" width="22" height="594" class="soilst"/><rect x="52" y="30" width="33" height="594" class="path"/><polygon class="skip" points="178.5,107.0 408.4,107.0 408.4,329.2 241.8,329.2 241.8,197.8 178.5,197.8"/><polygon class="roofed" points="85.0,107.0 178.5,107.0 178.5,197.8 241.8,197.8 241.8,329.2 302.8,329.2 302.8,460.1 408.4,460.1 408.4,624.0 85.0,624.0"/><rect x="302.8" y="329.2" width="105.6" height="130.9" class="open"/><polyline class="sewer" points="68.5,151 68.5,679"/><line class="sewer" x1="129" y1="151" x2="68.5" y2="151"/><line class="w9" x1="85.0" y1="107.0" x2="178.5" y2="107.0"/><line class="w9" x1="85.0" y1="107.0" x2="85.0" y2="624.0"/><line class="w9" x1="178.5" y1="107.0" x2="178.5" y2="197.8"/><line class="w9" x1="85.0" y1="197.8" x2="241.8" y2="197.8"/><line class="w9" x1="241.8" y1="197.8" x2="241.8" y2="389.7"/><line class="w9" x1="241.8" y1="329.2" x2="408.4" y2="329.2"/><line class="w9" x1="408.4" y1="329.2" x2="408.4" y2="624.0"/><line class="w9" x1="204.9" y1="389.7" x2="241.8" y2="389.7"/><line class="w9" x1="204.9" y1="389.7" x2="204.9" y2="537.1"/><line class="w9" x1="178.5" y1="537.1" x2="204.9" y2="537.1"/><line class="w9" x1="178.5" y1="537.1" x2="178.5" y2="624.0"/><line class="w9" x1="302.8" y1="329.2" x2="302.8" y2="460.1"/><line class="w9" x1="302.8" y1="460.1" x2="408.4" y2="460.1"/><line class="w9" x1="85.0" y1="624.0" x2="273.1" y2="624.0"/><line class="w9" x1="384.2" y1="624.0" x2="408.4" y2="624.0"/><line class="w4" x1="85.0" y1="389.7" x2="204.9" y2="389.7"/><line class="w4" x1="85.0" y1="537.1" x2="178.5" y2="537.1"/><line class="beam" x1="273.1" y1="624.0" x2="384.2" y2="624.0"/><line class="w4" x1="30" y1="30" x2="30" y2="679"/><rect class="pil" x="29" y="24" width="12" height="12"/><rect class="pil" x="29" y="112" width="12" height="12"/><rect class="pil" x="29" y="200" width="12" height="12"/><rect class="pil" x="29" y="288" width="12" height="12"/><rect class="pil" x="29" y="376" width="12" height="12"/><rect class="pil" x="29" y="464" width="12" height="12"/><rect class="pil" x="29" y="552" width="12" height="12"/><rect class="pil" x="29" y="640" width="12" height="12"/><rect class="mh" x="57.5" y="140.0" width="22" height="22"/><text x="68.5" y="155.0" text-anchor="middle" class="tiny">1</text><rect class="mh" x="57.5" y="475.5" width="22" height="22"/><text x="68.5" y="490.5" text-anchor="middle" class="tiny">2</text><rect class="tank" x="101.5" y="217.0" width="55" height="44"/><text x="129.0" y="245.6" text-anchor="middle" class="tiny">tank</text><text x="131.2" y="151.0" text-anchor="middle" class="rm">Bath</text><text x="131.2" y="165.0" text-anchor="middle" class="tiny mu">8×7</text><text x="162.0" y="294.0" text-anchor="middle" class="rm">Master bed</text><text x="162.0" y="308.0" text-anchor="middle" class="tiny mu">13′1½″×16′6″</text><text x="355.6" y="393.0" text-anchor="middle" class="rm">Patio</text><text x="355.6" y="407.0" text-anchor="middle" class="tiny mu">open, no roof</text><text x="144.4" y="464.5" text-anchor="middle" class="rm">Kitchen</text><text x="144.4" y="478.5" text-anchor="middle" class="tiny mu">10×13</text><text x="131.2" y="583.3" text-anchor="middle" class="rm">S/Kit</text><text x="131.2" y="597.3" text-anchor="middle" class="tiny mu">7′6″×7′4½″</text><text x="294.0" y="552.5" text-anchor="middle" class="rm">TV lounge</text><text x="294.0" y="566.5" text-anchor="middle" class="tiny mu">17′1½″×14′3″</text><text x="270.9" y="365.5" text-anchor="middle" class="rm">Lobby</text><text x="321.5" y="195.0" text-anchor="middle" class="rm mu">Not built in Plan B</text><text x="321.5" y="210.0" text-anchor="middle" class="tiny mu">future Bed 14×13, Dress, Bath 10×5′6″</text><text x="246.7" y="71.8" text-anchor="middle" class="tiny mu">Back yard: no sewer, no tank, no wall</text><text x="329.2" y="651.5" text-anchor="middle" class="tiny mu">8′-6″ opening, beam over</text><text x="195" y="679" text-anchor="middle" class="tiny mu">Stair, drawing, porch: not in this phase ↓</text><text x="46.5" y="437" class="tiny mu" transform="rotate(-90 46.5 437)" text-anchor="middle">3′ path + 2′ soil</text><g transform="translate(470,60)"><line class="w9" x1="0" y1="0" x2="34" y2="0"/><text x="46" y="4">9″ structural wall</text></g><g transform="translate(470,94)"><line class="w4" x1="0" y1="0" x2="34" y2="0"/><text x="46" y="4">4½″ parda wall</text></g><g transform="translate(470,128)"><rect class="skip" x="0" y="-9" width="34" height="18"/><text x="46" y="4">Skipped in Plan B</text></g><g transform="translate(470,162)"><rect class="mh" x="6" y="-11" width="22" height="22"/><text x="46" y="4">Manhole 2′×2′</text></g><g transform="translate(470,196)"><line class="sewer" x1="0" y1="0" x2="34" y2="0"/><text x="46" y="4">Sewer, starts at left bath</text></g><g transform="translate(470,230)"><rect class="roofed" x="0" y="-9" width="34" height="18"/><text x="46" y="4">Roofed (~930 sft)</text></g><g transform="translate(470,264)"><rect class="tank" x="4" y="-9" width="26" height="18"/><text x="46" y="4">Tank on roof</text></g></svg><div class="cap">Plan B: the grey area is left empty for now. The master bed's top and right walls and the lobby's top wall become outside walls, so they are 9″. The bath–dress wall changes from 4½″ to 9″.</div></div>
+<div class="only-a tbl"><table>
+<tr><th>Wall</th><th class="r">Length</th><th>Type</th><th>Why</th></tr>
+<tr class="grp"><td colspan="4">9″ structural (~248 rft)</td></tr>
+<tr><td>Outer walls: back, left, right</td><td class="r">~120 rft</td><td><span class="tag">9″</span></td><td>Carry the slab edges and parapet</td></tr>
+<tr><td>Centre spine: Master bed | Bed, continuing as Kitchen | Lounge and S/Kitchen | Lounge</td><td class="r">~40 rft</td><td><span class="tag">9″</span></td><td>Splits the 29′ width into two spans of ~13′ and ~15′</td></tr>
+<tr><td>Long line behind the bedrooms (Bath / Dress / Bath side)</td><td class="r">~28 rft</td><td><span class="tag">9″</span></td><td>Supports slab of the bath strip and the bedrooms. It also holds the bath pipes.</td></tr>
+<tr><td>Patio walls (top, left, bottom)</td><td class="r">~31 rft</td><td><span class="tag">9″</span></td><td>The patio is open, so the slab edge stops on these walls</td></tr>
+<tr><td>Lounge front wall (8′-5″ opening line)</td><td class="r">~29 rft</td><td><span class="tag">9″</span></td><td>Closes the house and carries the beam over the 8′-5″ opening</td></tr>
+<tr class="grp"><td colspan="4">4½″ parda walls (~52 rft)</td></tr>
+<tr><td>Bath 8′×7′ | Dress</td><td class="r">~7.5 rft</td><td><span class="tag opt">4½″</span></td><td>Divider inside the 7′ strip</td></tr>
+<tr><td>Dress | Bath 10′×5′-6″</td><td class="r">~7.5 rft</td><td><span class="tag opt">4½″</span></td><td>Divider inside the 7′ strip</td></tr>
+<tr><td>Master bed | Kitchen</td><td class="r">~13.5 rft</td><td><span class="tag opt">4½″</span></td><td>Slab spans across it, from the left wall to the spine</td></tr>
+<tr><td>Kitchen | S/Kitchen</td><td class="r">~10 rft</td><td><span class="tag opt">4½″</span></td><td>Divider</td></tr>
+<tr><td>S/Kitchen side wall at door D3</td><td class="r">~7.5 rft</td><td><span class="tag opt">4½″</span></td><td>Divider</td></tr>
+<tr><td>Small return walls at the D2 doors (lobby)</td><td class="r">~6 rft</td><td><span class="tag opt">4½″</span></td><td>Door side pieces</td></tr>
+</table></div>
+<div class="only-b tbl"><table>
+<tr><th>Wall</th><th class="r">Length</th><th>Type</th><th>Why</th></tr>
+<tr class="grp"><td colspan="4">9″ structural (~210 rft)</td></tr>
+<tr><td>Outer walls: left (47′), right lounge/patio part (~27′), back of left bath (8½′)</td><td class="r">~82 rft</td><td><span class="tag">9″</span></td><td>Carry the slab edges and parapet</td></tr>
+<tr><td>Master bed right wall (now an outside wall), continuing as Kitchen | Lounge and S/Kitchen | Lounge</td><td class="r">~40 rft</td><td><span class="tag">9″</span></td><td>Splits the 29′ width into two spans of ~13′ and ~15′</td></tr>
+
+<tr><td>New outside walls: left bath side (~8′), master bed top (~6′), lobby top (~6′)</td><td class="r">~20 rft</td><td><span class="tag">9″</span></td><td>Close the house where the skipped corner was</td></tr>
+<tr><td>Patio walls (top, left, bottom)</td><td class="r">~31 rft</td><td><span class="tag">9″</span></td><td>The patio is open, so the slab edge stops on these walls</td></tr>
+<tr><td>Lounge front wall (8′-5″ opening line)</td><td class="r">~29 rft</td><td><span class="tag">9″</span></td><td>Closes the house and carries the beam over the 8′-5″ opening</td></tr>
+<tr class="grp"><td colspan="4">4½″ parda walls (~37 rft)</td></tr>
+<tr><td>Master bed | Kitchen</td><td class="r">~13.5 rft</td><td><span class="tag opt">4½″</span></td><td>Slab spans across it, from the left wall to the spine</td></tr>
+<tr><td>Kitchen | S/Kitchen</td><td class="r">~10 rft</td><td><span class="tag opt">4½″</span></td><td>Divider</td></tr>
+<tr><td>S/Kitchen side wall at door D3</td><td class="r">~7.5 rft</td><td><span class="tag opt">4½″</span></td><td>Divider</td></tr>
+<tr><td>Small return walls at the D2 doors (lobby)</td><td class="r">~6 rft</td><td><span class="tag opt">4½″</span></td><td>Door side pieces</td></tr>
+</table></div>
+<div class="callout"><b class="t">How to build parda walls properly</b>
+<p>• <b>Below DPC</b>, every parda wall still sits on a 9″ khingar footing, so the floor fill does not push it over. It only becomes 4½″ above the DPC.<br>
+• Build parda walls <b>after the slab props are removed</b> (step 21), so the slab never rests on them. Leave a ½″ gap at the top and pack it tight with mortar.<br>
+• Every 5th course, lay <b>2 bars of 2 sutar (¼″)</b> in the mortar, bent 9″ into the 9″ walls at both ends. This stops cracks.<br>
+• Do not cut deep pipe grooves in a 4½″ wall. Keep plumbing on the 9″ walls. Thin electrical conduit is fine.</p></div>
+
+<div class="fig"><svg viewBox="0 0 680 300" role="img" aria-label="Parda wall detail">
+<rect x="40" y="20" width="560" height="34" class="conc"/>
+<rect x="100" y="54" width="60" height="186" class="brk"/><rect x="470" y="54" width="60" height="186" class="brk"/>
+<rect x="160" y="60" width="15" height="10" class="brk thin"/><rect x="175" y="60" width="30" height="10" class="brk thin"/><rect x="205" y="60" width="30" height="10" class="brk thin"/><rect x="235" y="60" width="30" height="10" class="brk thin"/><rect x="265" y="60" width="30" height="10" class="brk thin"/><rect x="295" y="60" width="30" height="10" class="brk thin"/><rect x="325" y="60" width="30" height="10" class="brk thin"/><rect x="355" y="60" width="30" height="10" class="brk thin"/><rect x="385" y="60" width="30" height="10" class="brk thin"/><rect x="415" y="60" width="30" height="10" class="brk thin"/><rect x="445" y="60" width="25" height="10" class="brk thin"/><rect x="160" y="70" width="30" height="10" class="brk thin"/><rect x="190" y="70" width="30" height="10" class="brk thin"/><rect x="220" y="70" width="30" height="10" class="brk thin"/><rect x="250" y="70" width="30" height="10" class="brk thin"/><rect x="280" y="70" width="30" height="10" class="brk thin"/><rect x="310" y="70" width="30" height="10" class="brk thin"/><rect x="340" y="70" width="30" height="10" class="brk thin"/><rect x="370" y="70" width="30" height="10" class="brk thin"/><rect x="400" y="70" width="30" height="10" class="brk thin"/><rect x="430" y="70" width="30" height="10" class="brk thin"/><rect x="460" y="70" width="10" height="10" class="brk thin"/><rect x="160" y="80" width="15" height="10" class="brk thin"/><rect x="175" y="80" width="30" height="10" class="brk thin"/><rect x="205" y="80" width="30" height="10" class="brk thin"/><rect x="235" y="80" width="30" height="10" class="brk thin"/><rect x="265" y="80" width="30" height="10" class="brk thin"/><rect x="295" y="80" width="30" height="10" class="brk thin"/><rect x="325" y="80" width="30" height="10" class="brk thin"/><rect x="355" y="80" width="30" height="10" class="brk thin"/><rect x="385" y="80" width="30" height="10" class="brk thin"/><rect x="415" y="80" width="30" height="10" class="brk thin"/><rect x="445" y="80" width="25" height="10" class="brk thin"/><rect x="160" y="90" width="30" height="10" class="brk thin"/><rect x="190" y="90" width="30" height="10" class="brk thin"/><rect x="220" y="90" width="30" height="10" class="brk thin"/><rect x="250" y="90" width="30" height="10" class="brk thin"/><rect x="280" y="90" width="30" height="10" class="brk thin"/><rect x="310" y="90" width="30" height="10" class="brk thin"/><rect x="340" y="90" width="30" height="10" class="brk thin"/><rect x="370" y="90" width="30" height="10" class="brk thin"/><rect x="400" y="90" width="30" height="10" class="brk thin"/><rect x="430" y="90" width="30" height="10" class="brk thin"/><rect x="460" y="90" width="10" height="10" class="brk thin"/><rect x="160" y="100" width="15" height="10" class="brk thin"/><rect x="175" y="100" width="30" height="10" class="brk thin"/><rect x="205" y="100" width="30" height="10" class="brk thin"/><rect x="235" y="100" width="30" height="10" class="brk thin"/><rect x="265" y="100" width="30" height="10" class="brk thin"/><rect x="295" y="100" width="30" height="10" class="brk thin"/><rect x="325" y="100" width="30" height="10" class="brk thin"/><rect x="355" y="100" width="30" height="10" class="brk thin"/><rect x="385" y="100" width="30" height="10" class="brk thin"/><rect x="415" y="100" width="30" height="10" class="brk thin"/><rect x="445" y="100" width="25" height="10" class="brk thin"/><rect x="160" y="110" width="30" height="10" class="brk thin"/><rect x="190" y="110" width="30" height="10" class="brk thin"/><rect x="220" y="110" width="30" height="10" class="brk thin"/><rect x="250" y="110" width="30" height="10" class="brk thin"/><rect x="280" y="110" width="30" height="10" class="brk thin"/><rect x="310" y="110" width="30" height="10" class="brk thin"/><rect x="340" y="110" width="30" height="10" class="brk thin"/><rect x="370" y="110" width="30" height="10" class="brk thin"/><rect x="400" y="110" width="30" height="10" class="brk thin"/><rect x="430" y="110" width="30" height="10" class="brk thin"/><rect x="460" y="110" width="10" height="10" class="brk thin"/><rect x="160" y="120" width="15" height="10" class="brk thin"/><rect x="175" y="120" width="30" height="10" class="brk thin"/><rect x="205" y="120" width="30" height="10" class="brk thin"/><rect x="235" y="120" width="30" height="10" class="brk thin"/><rect x="265" y="120" width="30" height="10" class="brk thin"/><rect x="295" y="120" width="30" height="10" class="brk thin"/><rect x="325" y="120" width="30" height="10" class="brk thin"/><rect x="355" y="120" width="30" height="10" class="brk thin"/><rect x="385" y="120" width="30" height="10" class="brk thin"/><rect x="415" y="120" width="30" height="10" class="brk thin"/><rect x="445" y="120" width="25" height="10" class="brk thin"/><rect x="160" y="130" width="30" height="10" class="brk thin"/><rect x="190" y="130" width="30" height="10" class="brk thin"/><rect x="220" y="130" width="30" height="10" class="brk thin"/><rect x="250" y="130" width="30" height="10" class="brk thin"/><rect x="280" y="130" width="30" height="10" class="brk thin"/><rect x="310" y="130" width="30" height="10" class="brk thin"/><rect x="340" y="130" width="30" height="10" class="brk thin"/><rect x="370" y="130" width="30" height="10" class="brk thin"/><rect x="400" y="130" width="30" height="10" class="brk thin"/><rect x="430" y="130" width="30" height="10" class="brk thin"/><rect x="460" y="130" width="10" height="10" class="brk thin"/><rect x="160" y="140" width="15" height="10" class="brk thin"/><rect x="175" y="140" width="30" height="10" class="brk thin"/><rect x="205" y="140" width="30" height="10" class="brk thin"/><rect x="235" y="140" width="30" height="10" class="brk thin"/><rect x="265" y="140" width="30" height="10" class="brk thin"/><rect x="295" y="140" width="30" height="10" class="brk thin"/><rect x="325" y="140" width="30" height="10" class="brk thin"/><rect x="355" y="140" width="30" height="10" class="brk thin"/><rect x="385" y="140" width="30" height="10" class="brk thin"/><rect x="415" y="140" width="30" height="10" class="brk thin"/><rect x="445" y="140" width="25" height="10" class="brk thin"/><rect x="160" y="150" width="30" height="10" class="brk thin"/><rect x="190" y="150" width="30" height="10" class="brk thin"/><rect x="220" y="150" width="30" height="10" class="brk thin"/><rect x="250" y="150" width="30" height="10" class="brk thin"/><rect x="280" y="150" width="30" height="10" class="brk thin"/><rect x="310" y="150" width="30" height="10" class="brk thin"/><rect x="340" y="150" width="30" height="10" class="brk thin"/><rect x="370" y="150" width="30" height="10" class="brk thin"/><rect x="400" y="150" width="30" height="10" class="brk thin"/><rect x="430" y="150" width="30" height="10" class="brk thin"/><rect x="460" y="150" width="10" height="10" class="brk thin"/><rect x="160" y="160" width="15" height="10" class="brk thin"/><rect x="175" y="160" width="30" height="10" class="brk thin"/><rect x="205" y="160" width="30" height="10" class="brk thin"/><rect x="235" y="160" width="30" height="10" class="brk thin"/><rect x="265" y="160" width="30" height="10" class="brk thin"/><rect x="295" y="160" width="30" height="10" class="brk thin"/><rect x="325" y="160" width="30" height="10" class="brk thin"/><rect x="355" y="160" width="30" height="10" class="brk thin"/><rect x="385" y="160" width="30" height="10" class="brk thin"/><rect x="415" y="160" width="30" height="10" class="brk thin"/><rect x="445" y="160" width="25" height="10" class="brk thin"/><rect x="160" y="170" width="30" height="10" class="brk thin"/><rect x="190" y="170" width="30" height="10" class="brk thin"/><rect x="220" y="170" width="30" height="10" class="brk thin"/><rect x="250" y="170" width="30" height="10" class="brk thin"/><rect x="280" y="170" width="30" height="10" class="brk thin"/><rect x="310" y="170" width="30" height="10" class="brk thin"/><rect x="340" y="170" width="30" height="10" class="brk thin"/><rect x="370" y="170" width="30" height="10" class="brk thin"/><rect x="400" y="170" width="30" height="10" class="brk thin"/><rect x="430" y="170" width="30" height="10" class="brk thin"/><rect x="460" y="170" width="10" height="10" class="brk thin"/><rect x="160" y="180" width="15" height="10" class="brk thin"/><rect x="175" y="180" width="30" height="10" class="brk thin"/><rect x="205" y="180" width="30" height="10" class="brk thin"/><rect x="235" y="180" width="30" height="10" class="brk thin"/><rect x="265" y="180" width="30" height="10" class="brk thin"/><rect x="295" y="180" width="30" height="10" class="brk thin"/><rect x="325" y="180" width="30" height="10" class="brk thin"/><rect x="355" y="180" width="30" height="10" class="brk thin"/><rect x="385" y="180" width="30" height="10" class="brk thin"/><rect x="415" y="180" width="30" height="10" class="brk thin"/><rect x="445" y="180" width="25" height="10" class="brk thin"/><rect x="160" y="190" width="30" height="10" class="brk thin"/><rect x="190" y="190" width="30" height="10" class="brk thin"/><rect x="220" y="190" width="30" height="10" class="brk thin"/><rect x="250" y="190" width="30" height="10" class="brk thin"/><rect x="280" y="190" width="30" height="10" class="brk thin"/><rect x="310" y="190" width="30" height="10" class="brk thin"/><rect x="340" y="190" width="30" height="10" class="brk thin"/><rect x="370" y="190" width="30" height="10" class="brk thin"/><rect x="400" y="190" width="30" height="10" class="brk thin"/><rect x="430" y="190" width="30" height="10" class="brk thin"/><rect x="460" y="190" width="10" height="10" class="brk thin"/><rect x="160" y="200" width="15" height="10" class="brk thin"/><rect x="175" y="200" width="30" height="10" class="brk thin"/><rect x="205" y="200" width="30" height="10" class="brk thin"/><rect x="235" y="200" width="30" height="10" class="brk thin"/><rect x="265" y="200" width="30" height="10" class="brk thin"/><rect x="295" y="200" width="30" height="10" class="brk thin"/><rect x="325" y="200" width="30" height="10" class="brk thin"/><rect x="355" y="200" width="30" height="10" class="brk thin"/><rect x="385" y="200" width="30" height="10" class="brk thin"/><rect x="415" y="200" width="30" height="10" class="brk thin"/><rect x="445" y="200" width="25" height="10" class="brk thin"/><rect x="160" y="210" width="30" height="10" class="brk thin"/><rect x="190" y="210" width="30" height="10" class="brk thin"/><rect x="220" y="210" width="30" height="10" class="brk thin"/><rect x="250" y="210" width="30" height="10" class="brk thin"/><rect x="280" y="210" width="30" height="10" class="brk thin"/><rect x="310" y="210" width="30" height="10" class="brk thin"/><rect x="340" y="210" width="30" height="10" class="brk thin"/><rect x="370" y="210" width="30" height="10" class="brk thin"/><rect x="400" y="210" width="30" height="10" class="brk thin"/><rect x="430" y="210" width="30" height="10" class="brk thin"/><rect x="460" y="210" width="10" height="10" class="brk thin"/>
+<rect x="160" y="54" width="310" height="6" class="gap"/>
+<polyline points="130,111 160,111 470,111 500,111" class="bar"/><polyline points="130,161 160,161 470,161 500,161" class="bar"/><polyline points="130,211 160,211 470,211 500,211" class="bar"/>
+<rect x="100" y="220" width="430" height="6" class="dpcb"/>
+<rect x="100" y="226" width="430" height="40" class="khg"/>
+<text x="616" y="40" class="tiny mu">Slab</text>
+<line x1="320" y1="57" x2="560" y2="80" class="ld"/><text x="540" y="95" class="tiny">½″ gap, packed with</text><text x="540" y="109" class="tiny">mortar after props out</text>
+<line x1="480" y1="111" x2="560" y2="140" class="ld"/><text x="540" y="154" class="tiny">2 bars 2 sutar every</text><text x="540" y="168" class="tiny">5th course, 9″ into walls</text>
+<line x1="500" y1="223" x2="560" y2="200" class="ld"/><text x="540" y="196" class="tiny">DPC</text>
+<line x1="520" y1="250" x2="560" y2="250" class="ld"/><text x="565" y="254" class="tiny">9″ khingar below DPC</text>
+<text x="130" y="290" class="tiny mu">9″ wall</text><text x="300" y="290" class="tiny mu" text-anchor="middle">4½″ parda wall (first class)</text><text x="500" y="290" class="tiny mu">9″ wall</text>
+</svg><div class="cap">Parda wall: 9″ khingar footing up to DPC, 4½″ above, steel bars every 5th course, gap at the top packed after the slab props come out.</div></div>
+<h3>Foundation sizes</h3>
+<div class="only-a tbl"><table>
+<tr><th>Wall</th><th class="r">Length</th><th>Trench (width × depth)</th><th>Layers bottom to top</th></tr>
+<tr><td>9″ structural walls (outer ~120 rft + inner ~128 rft)</td><td class="r">~248 rft</td><td>2′-6″ × 3′-6″</td><td>3″ rait, 6″ PCC, steps 22½″/18″/13½″, then 9″ wall to DPC</td></tr>
+<tr><td>4½″ parda walls</td><td class="r">~52 rft</td><td>2′-0″ × 2′-6″</td><td>3″ rait, 6″ PCC, step 13½″, then 9″ khingar to DPC, then 4½″ above DPC</td></tr>
+<tr><td>Left boundary, single brick 4½″</td><td class="r">~109 rft</td><td>1′-6″ × 2′-0″</td><td>3″ rait, 6″ PCC, steps 13½″/9″, then 4½″ wall, 7′ high. 13½″×13½″ pillar every 8′ (15 pillars).</td></tr>
+<tr><td>Front boundary 9″</td><td class="r">~22 rft</td><td>2′-0″ × 2′-6″</td><td>3″ rait, 6″ PCC, steps 18″/13½″, then 9″ wall, 7′ high, plus 2 gate pillars</td></tr>
+</table></div>
+<div class="only-b tbl"><table>
+<tr><th>Wall</th><th class="r">Length</th><th>Trench (width × depth)</th><th>Layers bottom to top</th></tr>
+<tr><td>9″ structural walls</td><td class="r">~210 rft</td><td>2′-6″ × 3′-6″</td><td>3″ rait, 6″ PCC, steps 22½″/18″/13½″, then 9″ wall to DPC</td></tr>
+<tr><td>4½″ parda walls</td><td class="r">~37 rft</td><td>2′-0″ × 2′-6″</td><td>3″ rait, 6″ PCC, step 13½″, then 9″ khingar to DPC, then 4½″ above DPC</td></tr>
+<tr><td>Left boundary, single brick 4½″</td><td class="r">~109 rft</td><td>1′-6″ × 2′-0″</td><td>3″ rait, 6″ PCC, steps 13½″/9″, then 4½″ wall, 7′ high. 13½″×13½″ pillar every 8′ (15 pillars).</td></tr>
+<tr><td>Front boundary 9″</td><td class="r">~22 rft</td><td>2′-0″ × 2′-6″</td><td>3″ rait, 6″ PCC, steps 18″/13½″, then 9″ wall, 7′ high, plus 2 gate pillars</td></tr>
+</table></div>
+
+<div class="fig"><svg viewBox="0 0 680 250" role="img" aria-label="Left boundary wall elevation"><line x1="20" y1="170" x2="660" y2="170" class="ngl"/><rect x="40" y="30" width="30" height="140" class="brk"/><rect x="70" y="30" width="170" height="140" class="brk4"/><rect x="240" y="30" width="30" height="140" class="brk"/><rect x="270" y="30" width="170" height="140" class="brk4"/><rect x="440" y="30" width="30" height="140" class="brk"/><rect x="470" y="30" width="170" height="140" class="brk4"/><rect x="640" y="30" width="30" height="140" class="brk"/><rect x="30" y="170" width="620" height="30" class="khg"/><rect x="20" y="200" width="640" height="12" class="conc"/><text x="125" y="105" text-anchor="middle" class="mu">4½″ wall</text><text x="55" y="22" text-anchor="middle" class="tiny">Pillar 13½″</text><line x1="70" y1="225" x2="240" y2="225" class="ld"/><text x="155" y="241" text-anchor="middle" class="tiny mu">8′ centre to centre</text><text x="666" y="104" class="tiny mu" transform="rotate(90 666 104)" text-anchor="middle">7′ high</text><text x="330" y="190" text-anchor="middle" class="tiny">Khingar footing (13½″ → 9″), PCC 6″ below</text><text x="560" y="164" class="tiny mu">Ground</text></svg><div class="cap">Left boundary wall: single brick (4½″) panels between 13½″ pillars every 8′, on a khingar footing.</div></div>
+<h3>Foundation materials (up to DPC)</h3>
+<p>You asked how much cement and bajri goes into the foundation alone. Here it is, house plus boundary walls, from digging up to DPC:</p>
+<div class="only-a tbl"><table>
+<tr><th>Work</th><th class="r">Volume</th><th class="r">Cement</th><th class="r">Rait</th><th class="r">Bajri / chips</th><th class="r">Bricks</th></tr>
+<tr><td>Digging (khudai)</td><td class="r">~3,300 cft</td><td class="r">–</td><td class="r">–</td><td class="r">–</td><td class="r">–</td></tr>
+<tr><td>Rait bed 3″</td><td class="r">235 cft</td><td class="r">–</td><td class="r">235 cft Ravi</td><td class="r">–</td><td class="r">–</td></tr>
+<tr><td>PCC 6″ (1:4:8)</td><td class="r">477 cft</td><td class="r">45 bags</td><td class="r">226 cft Chenab</td><td class="r">451 cft bajri</td><td class="r">–</td></tr>
+<tr><td>Khingar footing + plinth (mortar 1:5)</td><td class="r">1,485 cft</td><td class="r">74 bags</td><td class="r">461 cft Ravi</td><td class="r">–</td><td class="r">20,050 khingar</td></tr>
+<tr><td>DPC 1½″ (1:2:4)</td><td class="r">35 cft</td><td class="r">6 bags</td><td class="r">16 cft Chenab</td><td class="r">31 cft chips</td><td class="r">–</td></tr>
+<tr class="total"><td>Foundation total</td><td class="r"></td><td class="r">~125 bags</td><td class="r">~940 cft</td><td class="r">~482 cft</td><td class="r">~20,050 khingar</td></tr>
+</table></div>
+<div class="only-b tbl"><table>
+<tr><th>Work</th><th class="r">Volume</th><th class="r">Cement</th><th class="r">Rait</th><th class="r">Bajri / chips</th><th class="r">Bricks</th></tr>
+<tr><td>Digging (khudai)</td><td class="r">~2,800 cft</td><td class="r">–</td><td class="r">–</td><td class="r">–</td><td class="r">–</td></tr>
+<tr><td>Rait bed 3″</td><td class="r">205 cft</td><td class="r">–</td><td class="r">205 cft Ravi</td><td class="r">–</td><td class="r">–</td></tr>
+<tr><td>PCC 6″ (1:4:8)</td><td class="r">415 cft</td><td class="r">39 bags</td><td class="r">196 cft Chenab</td><td class="r">392 cft bajri</td><td class="r">–</td></tr>
+<tr><td>Khingar footing + plinth (mortar 1:5)</td><td class="r">1,267 cft</td><td class="r">63 bags</td><td class="r">393 cft Ravi</td><td class="r">–</td><td class="r">17,100 khingar</td></tr>
+<tr><td>DPC 1½″ (1:2:4)</td><td class="r">30 cft</td><td class="r">5 bags</td><td class="r">13 cft Chenab</td><td class="r">27 cft chips</td><td class="r">–</td></tr>
+<tr class="total"><td>Foundation total</td><td class="r"></td><td class="r">~107 bags</td><td class="r">~807 cft</td><td class="r">~419 cft</td><td class="r">~17,100 khingar</td></tr>
+</table></div>
+<div class="only-a callout"><b class="t">Mitti outside, ghassu inside</b><p>You will dig about 3,300 cft of mitti. Keep it on the plot. About 1,700 cft goes back into the trenches around the footings, up to ground level. About 425 cft goes on the roof as mud. Spread the rest in the back yard and the 2′ soil strip.</p>
+<p>Inside the rooms, from ground level up to the floor base, fill with <b>ghassu</b>: about 19″ deep over ~1,110 sft, so <b>about 2,100 cft</b> loose. Lay it in 6″ layers, flood each layer with water and ram it. Ghassu is sandy, so the floor PCC goes straight on top and the 3″ rait layer is not needed.</p></div>
+<div class="only-b callout"><b class="t">Mitti outside, ghassu inside</b><p>You will dig about 2,800 cft of mitti. Keep it on the plot. About 1,450 cft goes back into the trenches around the footings, up to ground level. About 305 cft goes on the roof as mud. Spread the rest in the back yard, the empty corner and the 2′ soil strip.</p><p>Inside the rooms, from ground level up to the floor base, fill with <b>ghassu</b>: about 19″ deep over ~810 sft, so <b>about 1,550 cft</b> loose. Lay it in 6″ layers, flood each layer with water and ram it. The floor PCC goes straight on top.</p></div>
+
+<h2 id="bricks">Brick estimate</h2>
+<p>There are two kinds of brick. <b>Khingar</b> goes everywhere below the DPC, because it is hard, cheap and does not soak up ground water. <b>First-class (awwal)</b> goes everywhere above the DPC, because it is straight and gives clean walls for plaster. Only the rooms under the roof are counted. Nothing is counted for the stair, drawing room or porch/garage.</p>
+
+<h3>Khingar bricks (below DPC)</h3>
+<div class="only-a tbl"><table>
+<tr><th>Part</th><th>How it was worked out</th><th class="r">Bricks</th></tr>
+<tr><td>Foundation of 9″ structural walls</td><td>~248 rft: steps plus 2′ plinth</td><td class="r">15,370</td></tr>
+<tr><td>Foundation of 4½″ parda walls</td><td>~52 rft: one step + 9″ khingar up to DPC</td><td class="r">2,050</td></tr>
+<tr><td>Boundary wall footings</td><td>Left 4½″ (~109 rft, 15 pillars) + front 9″ (~22 rft), up to ground level</td><td class="r">2,630</td></tr>
+<tr><td>Manholes (4 nos, 2′×2′)</td><td>~330 bricks each</td><td class="r">1,320</td></tr>
+<tr><td>Septic tank (8′-3″ × 5′-6″, as drawn) <span class="tag opt">optional</span></td><td>Only if the society or street sewer needs it</td><td class="r">1,600</td></tr>
+<tr class="total"><td>Khingar total</td><td></td><td class="r">22,970</td></tr>
+<tr class="total"><td>Buy (8% breakage, khingar is uneven)</td><td></td><td class="r">~24,800</td></tr>
+</table></div>
+<div class="only-b tbl"><table>
+<tr><th>Part</th><th>How it was worked out</th><th class="r">Bricks</th></tr>
+<tr><td>Foundation of 9″ structural walls</td><td>~210 rft: steps plus 2′ plinth</td><td class="r">13,020</td></tr>
+<tr><td>Foundation of 4½″ parda walls</td><td>~37 rft: one step + 9″ khingar up to DPC</td><td class="r">1,450</td></tr>
+<tr><td>Boundary wall footings</td><td>Left 4½″ (~109 rft, 15 pillars) + front 9″ (~22 rft), up to ground level</td><td class="r">2,630</td></tr>
+<tr><td>Manholes (2 nos, 2′×2′)</td><td>~330 bricks each</td><td class="r">660</td></tr>
+<tr><td>Septic tank (8′-3″ × 5′-6″, as drawn) <span class="tag opt">optional</span></td><td>Only if the society or street sewer needs it</td><td class="r">1,600</td></tr>
+<tr class="total"><td>Khingar total</td><td></td><td class="r">19,360</td></tr>
+<tr class="total"><td>Buy (8% breakage, khingar is uneven)</td><td></td><td class="r">~20,900</td></tr>
+</table></div>
+<p>Without the septic tank, buy about <span class="pv" data-a="23,100" data-b="19,200">23,100</span> khingar bricks.</p>
+<div class="callout"><b class="t">Not counted anywhere</b><p>No foundation, wall, slab or brick is counted for the staircase, stair bath (mumtee bath), drawing room, porch/garage or verandah. The bottom wall of the TV lounge is counted because it closes the lounge, and it will be shared with those rooms later.</p></div>
+
+<h3>First-class bricks (above DPC)</h3>
+<div class="only-a tbl"><table>
+<tr><th>Part</th><th>How it was worked out</th><th class="r">Bricks</th></tr>
+<tr><td>9″ structural walls, DPC to roof (10′)</td><td>~248 rft, door and window openings removed</td><td class="r">22,265</td></tr>
+<tr><td>4½″ parda walls, DPC to roof (10′)</td><td>~52 rft, door openings removed</td><td class="r">2,430</td></tr>
+<tr><td>Roof parapet 9″ × 3′</td><td>Back, left and right sides of the roof (~123 rft)</td><td class="r">3,740</td></tr>
+<tr><td>Left boundary above ground</td><td>Single brick 4½″, 7′ high, ~109 rft, 15 pillars 13½″×13½″</td><td class="r">5,060</td></tr>
+<tr><td>Front boundary above ground</td><td>9″, 7′ high, ~22 rft, 2 gate pillars</td><td class="r">1,920</td></tr>
+<tr><td>Roof tank platform</td><td>About 3′ high, for water pressure</td><td class="r">300</td></tr>
+<tr class="total"><td>First-class total</td><td></td><td class="r">35,715</td></tr>
+<tr class="total"><td>Buy (5% breakage)</td><td></td><td class="r">~37,500</td></tr>
+</table></div>
+<div class="only-b tbl"><table>
+<tr><th>Part</th><th>How it was worked out</th><th class="r">Bricks</th></tr>
+<tr><td>9″ structural walls, DPC to roof (10′)</td><td>~210 rft, door and window openings removed</td><td class="r">18,515</td></tr>
+<tr><td>4½″ parda walls, DPC to roof (10′)</td><td>~37 rft, door openings removed</td><td class="r">1,730</td></tr>
+<tr><td>Roof parapet 9″ × 3′</td><td>All round the roofed part (~102 rft)</td><td class="r">3,100</td></tr>
+<tr><td>Left boundary above ground</td><td>Single brick 4½″, 7′ high, ~109 rft, 15 pillars 13½″×13½″</td><td class="r">5,060</td></tr>
+<tr><td>Front boundary above ground</td><td>9″, 7′ high, ~22 rft, 2 gate pillars</td><td class="r">1,920</td></tr>
+<tr><td>Roof tank platform</td><td>About 3′ high, for water pressure</td><td class="r">300</td></tr>
+<tr class="total"><td>First-class total</td><td></td><td class="r">30,625</td></tr>
+<tr class="total"><td>Buy (5% breakage)</td><td></td><td class="r">~32,100</td></tr>
+</table></div>
+
+<div class="only-a callout"><b class="t">What was cut to save money</b>
+<p>Bricks went from ~75,700 to <b>~62,300</b> (about 13,400 fewer), and cement went from ~510 to <b>~450 bags</b>. The changes were:</p>
+<p>• Outer house walls made 9″ instead of 13½″, with a smaller foundation.<br>• Six inside walls (~52 rft) made 4½″ parda walls, with a lighter footing.<br>• Back and right boundary walls removed.<br>• Left boundary made single brick (4½″) with pillars.<br>• Outer face of the left boundary left unplastered (pointing only).</p>
+<p><b>Further saving if needed:</b> make the roof parapet 4½″ with pillars every 8′. That saves about 1,800 bricks, but the parapet will be weaker for leaning on.</p></div>
+<div class="only-b callout"><b class="t">Plan B compared with Plan A</b><p>Plan B uses about <b>53,000 bricks</b> (20,900 khingar + 32,100 first class) instead of ~62,300, and about <b>370 bags</b> of cement instead of ~450. The savings from 9″ outer walls, parda walls and the single-brick left boundary all still apply.</p></div>
+
+<p><b>Simple rule used:</b> 1 cubic foot of brick wall takes about 13½ bricks with mortar. 1,000 first-class bricks take about 2.8 bags of cement and 21 cft of rait for 1:6 mortar. 1,000 khingar bricks in 1:5 mortar take about 3.7 bags and 23 cft of rait. That is about 12% more than first class, because the bent bricks leave bigger joints.</p>
+<div class="callout"><b class="t">Khingar tips</b><p>Pick the straightest khingar bricks for the corners and the top course under the DPC. Put the badly bent ones in the middle of the wide footing steps. Fill all gaps fully with mortar. Khingar does not need soaking as long as first-class bricks do. A quick dip is enough.</p></div>
+<div class="callout"><b class="t">Brick tips</b><p>Soak bricks in water for a few hours before laying. Keep the mortar joint about ⅜″. Lay no more than about 4′ of height per day. Water the wall (tarai) twice a day for 7 days.</p></div>
+
+<h2 id="sarya">Sarya (steel) estimate</h2>
+<p>Since this is a single-storey house with load-bearing walls there are no columns. Steel goes into the roof slab, the lintels over doors and windows, and the beam shown in the drawing.</p>
+<div class="only-a tbl"><table>
+<tr><th>Size</th><th>Where it goes</th><th class="r">Weight</th><th class="r">40 ft bars</th></tr>
+<tr><td><b>3 sutar (⅜″)</b></td><td>Roof slab: bottom main bars @ 6″ c/c (every second bar cranked near the walls), cross bars @ 9″ c/c, extra top bars 4′ long @ 9″ over every inner wall. Lintel bars (4 per lintel). Beam rings @ 9″.</td><td class="r">1,070 kg</td><td class="r">~157</td></tr>
+<tr><td><b>6 sutar (¾″)</b></td><td>9″×12″ beam over the 8′-5″ lounge opening and other wide openings, about 40 rft. The drawing shows 3 bars at top and 4 at bottom.</td><td class="r">260 kg</td><td class="r">~10</td></tr>
+<tr><td><b>2 sutar (¼″)</b></td><td>Lintel rings @ 6″ c/c (32 kg) + 2 bars every 5th course in parda walls (55 kg)</td><td class="r">87 kg</td><td class="r">~29</td></tr>
+<tr><td><b>4 sutar (½″)</b></td><td>Fan hooks in slab (4 nos), spare</td><td class="r">15 kg</td><td class="r">~2</td></tr>
+<tr><td>Binding wire</td><td>About 1% of steel</td><td class="r">15 kg</td><td class="r">–</td></tr>
+<tr class="total"><td>Total</td><td></td><td class="r">~1,445 kg</td><td class="r"></td></tr>
+</table></div>
+<div class="only-b tbl"><table>
+<tr><th>Size</th><th>Where it goes</th><th class="r">Weight</th><th class="r">40 ft bars</th></tr>
+<tr><td><b>3 sutar (⅜″)</b></td><td>Roof slab (~920 sft): bottom main bars @ 6″ c/c (every second bar cranked near the walls), cross bars @ 9″ c/c, extra top bars 4′ long @ 9″ over every inner wall. Lintel bars. Beam rings @ 9″.</td><td class="r">790 kg</td><td class="r">~116</td></tr>
+<tr><td><b>6 sutar (¾″)</b></td><td>9″×12″ beam over the 8′-6″ lounge opening and other wide openings, about 40 rft. 3 bars top, 4 bottom.</td><td class="r">260 kg</td><td class="r">~10</td></tr>
+<tr><td><b>2 sutar (¼″)</b></td><td>Lintel rings @ 6″ c/c + 2 bars every 5th course in parda walls</td><td class="r">70 kg</td><td class="r">~23</td></tr>
+<tr><td><b>4 sutar (½″)</b></td><td>Fan hooks in slab (3 nos), spare</td><td class="r">12 kg</td><td class="r">~1</td></tr>
+<tr><td>Binding wire</td><td>About 1% of steel</td><td class="r">12 kg</td><td class="r">–</td></tr>
+<tr class="total"><td>Total</td><td></td><td class="r">~1,145 kg</td><td class="r"></td></tr>
+</table></div>
+<div class="fig"><svg viewBox="0 0 680 250" role="img" aria-label="Roof slab steel section">
+<rect x="40" y="70" width="600" height="34" class="conc"/>
+<rect x="40" y="104" width="30" height="100" class="brk"/><rect x="325" y="104" width="30" height="100" class="brk"/><rect x="610" y="104" width="30" height="100" class="brk"/>
+<line x1="44" y1="97" x2="636" y2="97" class="bar"/>
+<polyline points="44,77 100,77 125,97 280,97 305,77 375,77 400,97 555,97 580,77 636,77" class="bar2"/>
+<line x1="250" y1="78" x2="430" y2="78" class="bar3"/>
+<circle cx="60" cy="93" r="2.6" class="dot"/><circle cx="84" cy="93" r="2.6" class="dot"/><circle cx="108" cy="93" r="2.6" class="dot"/><circle cx="132" cy="93" r="2.6" class="dot"/><circle cx="156" cy="93" r="2.6" class="dot"/><circle cx="180" cy="93" r="2.6" class="dot"/><circle cx="204" cy="93" r="2.6" class="dot"/><circle cx="228" cy="93" r="2.6" class="dot"/><circle cx="252" cy="93" r="2.6" class="dot"/><circle cx="276" cy="93" r="2.6" class="dot"/><circle cx="300" cy="93" r="2.6" class="dot"/><circle cx="324" cy="93" r="2.6" class="dot"/><circle cx="348" cy="93" r="2.6" class="dot"/><circle cx="372" cy="93" r="2.6" class="dot"/><circle cx="396" cy="93" r="2.6" class="dot"/><circle cx="420" cy="93" r="2.6" class="dot"/><circle cx="444" cy="93" r="2.6" class="dot"/><circle cx="468" cy="93" r="2.6" class="dot"/><circle cx="492" cy="93" r="2.6" class="dot"/><circle cx="516" cy="93" r="2.6" class="dot"/><circle cx="540" cy="93" r="2.6" class="dot"/><circle cx="564" cy="93" r="2.6" class="dot"/><circle cx="588" cy="93" r="2.6" class="dot"/><circle cx="612" cy="93" r="2.6" class="dot"/>
+<rect x="160" y="98" width="10" height="6" class="gut"/><rect x="480" y="98" width="10" height="6" class="gut"/>
+<line x1="165" y1="104" x2="165" y2="140" class="ld"/><text x="170" y="150">Gutka (spacer) 1″ cover</text>
+<line x1="200" y1="97" x2="200" y2="40" class="ld"/><text x="120" y="32">Bottom bars 3 sutar @ 6″ (straight)</text>
+<line x1="125" y1="88" x2="80" y2="40" class="ld"/><text x="20" y="20" class="mu">Every 2nd bar cranked up over walls</text>
+<line x1="340" y1="78" x2="440" y2="40" class="ld"/><text x="400" y="32">Extra top bars 3 sutar, 4′ long @ 9″</text>
+<line x1="516" y1="93" x2="560" y2="150" class="ld"/><text x="470" y="166">Cross bars 3 sutar @ 9″ (dots)</text>
+<text x="650" y="92" class="tiny mu">5″</text>
+<text x="210" y="225" class="mu">Span ≤ 14′–15′</text><text x="440" y="225" class="mu">Span ≤ 14′–15′</text>
+<text x="300" y="245" class="tiny mu">9″ wall under the slab</text>
+</svg><div class="cap">Roof slab steel cut through a wall. Every second bottom bar bends up over the walls, and extra short top bars sit over each inside wall where the slab tries to crack on top.</div></div>
+<div class="callout warn"><b class="t">Ask the engineer about the slab</b><p>A 5″ slab with 3 sutar @ 6″ is normal for rooms up to about 14′ wide. The lounge is 17′ wide, so the engineer may ask for 4 sutar bars there, a 6″ slab, or a beam in the middle. If you plan an upper floor later, tell the engineer now: the slab, beams and foundation may change.</p></div>
+
+<h2 id="concrete">Lintels, beams &amp; roof slab</h2>
+<div class="only-a tbl"><table>
+<tr><th>Item</th><th>Size</th><th class="r">Concrete</th><th class="r">Cement</th><th class="r">Chenab rait</th><th class="r">Crush</th></tr>
+<tr><td>Roof slab (patio left open)</td><td>~1,270 sft × 5″, 1:2:4</td><td class="r">530 cft</td><td class="r">93 bags</td><td class="r">233 cft</td><td class="r">466 cft</td></tr>
+<tr><td>Beams</td><td>9″×12″, ~40 rft</td><td class="r">30 cft</td><td class="r">5 bags</td><td class="r">13 cft</td><td class="r">26 cft</td></tr>
+<tr><td>Lintels over doors/windows</td><td>6″ thick, 9″ wide, 9″ extra each side, ~90 rft</td><td class="r">35 cft</td><td class="r">6 bags</td><td class="r">15 cft</td><td class="r">31 cft</td></tr>
+<tr class="total"><td>Total RCC</td><td></td><td class="r">595 cft</td><td class="r">104 bags</td><td class="r">261 cft</td><td class="r">523 cft</td></tr>
+</table></div>
+<div class="only-b tbl"><table>
+<tr><th>Item</th><th>Size</th><th class="r">Concrete</th><th class="r">Cement</th><th class="r">Chenab rait</th><th class="r">Crush</th></tr>
+<tr><td>Roof slab (patio and skipped corner left open)</td><td>~920 sft × 5″, 1:2:4</td><td class="r">382 cft</td><td class="r">67 bags</td><td class="r">168 cft</td><td class="r">336 cft</td></tr>
+<tr><td>Beams</td><td>9″×12″, ~40 rft</td><td class="r">30 cft</td><td class="r">5 bags</td><td class="r">13 cft</td><td class="r">26 cft</td></tr>
+<tr><td>Lintels over doors/windows</td><td>6″ thick, 9″ wide, 9″ extra each side, ~70 rft</td><td class="r">27 cft</td><td class="r">5 bags</td><td class="r">12 cft</td><td class="r">24 cft</td></tr>
+<tr class="total"><td>Total RCC</td><td></td><td class="r">439 cft</td><td class="r">77 bags</td><td class="r">193 cft</td><td class="r">386 cft</td></tr>
+</table></div>
+<p><b>Rule used:</b> 100 cft of 1:2:4 concrete needs about 17½ bags of cement, 44 cft of rait and 88 cft of crush. 100 cft of 1:4:8 needs about 9½ bags, 47 cft of rait and 95 cft of bajri.</p>
+<div class="fig"><svg viewBox="0 0 680 240" role="img" aria-label="Lintel over a door">
+<rect x="30" y="40" width="80" height="170" class="brk"/><rect x="290" y="40" width="80" height="170" class="brk"/>
+<rect x="30" y="20" width="340" height="20" class="brk"/>
+<rect x="85" y="40" width="230" height="24" class="conc"/>
+<rect x="110" y="64" width="180" height="146" class="hole"/>
+<text x="200" y="140" text-anchor="middle" class="mu">Door opening</text>
+<line x1="85" y1="78" x2="110" y2="78" class="ld"/><text x="70" y="96" class="tiny mu">9″</text>
+<line x1="290" y1="78" x2="315" y2="78" class="ld"/><text x="300" y="96" class="tiny mu">9″</text>
+<line x1="200" y1="52" x2="200" y2="10" class="ld"/><text x="210" y="14">Lintel 6″ deep, 1:2:4</text>
+<g transform="translate(470,60)">
+<rect x="0" y="0" width="90" height="60" class="conc"/>
+<rect x="12" y="12" width="66" height="36" rx="3" class="ring"/>
+<circle cx="18" cy="18" r="4" class="dotb"/><circle cx="72" cy="18" r="4" class="dotb"/><circle cx="18" cy="42" r="4" class="dotb"/><circle cx="72" cy="42" r="4" class="dotb"/>
+<text x="45" y="84" text-anchor="middle" class="tiny mu">Section: 9″ × 6″</text>
+<line x1="72" y1="42" x2="130" y2="100" class="ld"/><text x="60" y="118" class="tiny">4 bars 3 sutar (⅜″)</text>
+<line x1="78" y1="20" x2="130" y2="-10" class="ld"/><text x="80" y="-16" class="tiny">Rings 2 sutar @ 6″</text>
+</g>
+</svg><div class="cap">Lintel over a door or window: rests 9″ on the wall each side, 4 bars of 3 sutar held by 2 sutar rings.</div></div>
+<div class="callout"><b class="t">Slab day (lantar)</b><p>Pour the whole slab in one day without stopping. Hire a mixer and a vibrator. Put concrete spacer blocks (gutka) under the steel so it has 1″ of cover. Keep water standing on the slab in small mud ponds for 14 days. Leave the props in for 21 days.</p></div>
+
+<h2 id="dpc">DPC &amp; waterproofing</h2>
+<p>The DPC (damp proof course) is a thin concrete band on top of the plinth. It stops ground water climbing up into the walls. Done well, it saves you from salty, peeling walls later.</p>
+<ol class="steps">
+  <li><b>Level the top of the plinth</b> brickwork everywhere at the same height (F.L. +2′-0″).</li>
+  <li><b>Fix wooden side planks</b> on both sides of the wall so the DPC has straight edges.</li>
+  <li><b>Pour 1½″ of chips concrete</b>: cement 1, Chenab rait 2, chips 4. Add waterproofing compound to the water as the packet says (about 1 kg per bag of cement). Smooth the top.</li>
+  <li><b>Cure for 3–4 days</b>, keeping it wet with gunny bags.</li>
+  <li><b>When dry, apply 2 coats of hot bitumen</b> on top, and sprinkle sand on the second coat so the next mortar grips. Run the bitumen a little down the sides.</li>
+  <li><b>Leave no gaps.</b> DPC must run continuously under every wall, door openings included. Door openings get DPC too.</li>
+</ol>
+<div class="fig"><svg viewBox="0 0 680 230" role="img" aria-label="DPC layers on top of plinth">
+<rect x="200" y="20" width="90" height="70" class="brk"/>
+<rect x="200" y="90" width="90" height="6" class="sandL"/>
+<rect x="200" y="96" width="90" height="8" class="dpcb"/>
+<rect x="200" y="104" width="90" height="22" class="conc"/>
+<rect x="200" y="126" width="90" height="90" class="khg"/>
+<line x1="290" y1="55" x2="360" y2="40" class="ld"/><text x="365" y="44">First-class brick wall starts here</text>
+<line x1="290" y1="93" x2="360" y2="80" class="ld"/><text x="365" y="84">Sand sprinkled on wet bitumen (grip)</text>
+<line x1="290" y1="100" x2="360" y2="112" class="ld"/><text x="365" y="116">2 coats hot bitumen (~45 kg total)</text>
+<line x1="290" y1="115" x2="360" y2="144" class="ld"/><text x="365" y="148">DPC 1½″: cement 1 : Chenab 2 : chips 4</text><text x="365" y="164" class="tiny mu">+ waterproofing compound, cure 3–4 days</text>
+<line x1="290" y1="175" x2="360" y2="196" class="ld"/><text x="365" y="200">Khingar plinth, top dead level (F.L. +2′)</text>
+<text x="40" y="100" class="mu">Plinth top</text><line x1="110" y1="96" x2="196" y2="96" class="ld"/>
+</svg><div class="cap">DPC close-up, bottom to top: khingar plinth, 1½″ chips concrete, bitumen, sand, then first-class brick.</div></div>
+<div class="only-a tbl"><table>
+<tr><th>DPC item</th><th class="r">Quantity</th></tr>
+<tr><td>DPC area (house + boundary)</td><td class="r">~282 sft</td></tr>
+<tr><td>Cement</td><td class="r">6 bags</td></tr>
+<tr><td>Chips</td><td class="r">31 cft</td></tr>
+<tr><td>Chenab rait</td><td class="r">16 cft</td></tr>
+<tr><td>Bitumen (2 coats)</td><td class="r">~45 kg</td></tr>
+<tr><td>Waterproofing compound</td><td class="r">~8 kg</td></tr>
+</table></div>
+<div class="only-b tbl"><table>
+<tr><th>DPC item</th><th class="r">Quantity</th></tr>
+<tr><td>DPC area (house + boundary)</td><td class="r">~242 sft</td></tr>
+<tr><td>Cement</td><td class="r">5 bags</td></tr>
+<tr><td>Chips</td><td class="r">27 cft</td></tr>
+<tr><td>Chenab rait</td><td class="r">13 cft</td></tr>
+<tr><td>Bitumen (2 coats)</td><td class="r">~40 kg</td></tr>
+<tr><td>Waterproofing compound</td><td class="r">~7 kg</td></tr>
+</table></div>
+<p><b>Also:</b> spray anti-termite chemical in the trench bottom before the rait, and again on the filled earth before the floor base.</p>
+
+<h2 id="plaster">Plaster, floor base &amp; roof</h2>
+<div class="only-a tbl"><table>
+<tr><th>Work</th><th>Area and mix</th><th class="r">Cement</th><th class="r">Rait</th></tr>
+<tr><td>Inside wall plaster ½″</td><td>~4,150 sft, 1:4</td><td class="r">36 bags</td><td class="r">178 cft</td></tr>
+<tr><td>Ceiling plaster ⅜″</td><td>~1,110 sft, 1:3</td><td class="r">9 bags</td><td class="r">34 cft</td></tr>
+<tr><td>Outside plaster ¾″</td><td>~1,750 sft, 1:4 (back, left, parapet, front edge; not the right side wall against the neighbour)</td><td class="r">23 bags</td><td class="r">114 cft</td></tr>
+<tr><td>Boundary wall plaster ½″</td><td>~1,070 sft, 1:5. Left wall inside face only (outside face pointing only), front wall both faces.</td><td class="r">8 bags</td><td class="r">48 cft</td></tr>
+<tr><td>Floor base inside rooms</td><td>~1,110 sft: 3″ PCC 1:4:8 straight on the rammed ghassu</td><td class="r">26 bags</td><td class="r">132 Chenab, 263 cft bajri</td></tr>
+</table></div>
+<div class="only-b tbl"><table>
+<tr><th>Work</th><th>Area and mix</th><th class="r">Cement</th><th class="r">Rait</th></tr>
+<tr><td>Inside wall plaster ½″</td><td>~2,980 sft, 1:4</td><td class="r">26 bags</td><td class="r">128 cft</td></tr>
+<tr><td>Ceiling plaster ⅜″</td><td>~810 sft, 1:3</td><td class="r">7 bags</td><td class="r">25 cft</td></tr>
+<tr><td>Outside plaster ¾″</td><td>~1,930 sft, 1:4 (left, back of bath, new walls around the skipped corner, parapet, front edge)</td><td class="r">25 bags</td><td class="r">125 cft</td></tr>
+<tr><td>Boundary wall plaster ½″</td><td>~1,070 sft, 1:5. Left wall inside face only, front wall both faces.</td><td class="r">8 bags</td><td class="r">48 cft</td></tr>
+<tr><td>Floor base inside rooms</td><td>~810 sft: 3″ PCC 1:4:8 straight on the rammed ghassu</td><td class="r">19 bags</td><td class="r">96 Chenab, 192 cft bajri</td></tr>
+</table></div>
+<h3>Roof waterproofing (end of grey stage)</h3>
+<p>Without this the roof will leak in the first monsoon. On top of the cured slab: 2 coats of hot bitumen <span class="pv" data-a="(~200 kg)" data-b="(~145 kg)">(~200 kg)</span>, then polythene sheet <span class="pv" data-a="(~1,400 sft)" data-b="(~1,010 sft)">(~1,400 sft)</span>, then 4″ of rammed mitti <span class="pv" data-a="(~425 cft," data-b="(~305 cft,">(~425 cft,</span> from your own dug soil), then brick roof tiles <span class="pv" data-a="(~4,700)" data-b="(~3,400)">(~4,700)</span> laid in mud and pointed with cement <span class="pv" data-a="(~10 bags)" data-b="(~7 bags)">(~10 bags)</span>. Give it a slope toward the 4 rain outlets.</p>
+
+<div class="fig"><svg viewBox="0 0 680 220" role="img" aria-label="Roof waterproofing layers">
+<polygon points="40,40 600,62 600,82 40,60" class="tile"/>
+<polygon points="40,60 600,82 600,112 40,90" class="mud"/>
+<polygon points="40,90 600,112 600,116 40,94" class="poly"/>
+<polygon points="40,94 600,116 600,120 40,98" class="bit"/>
+<rect x="40" y="120" width="560" height="34" class="conc"/>
+<polygon points="40,98 600,120 40,120" class="conc"/>
+<rect x="600" y="40" width="40" height="114" class="brk"/>
+<rect x="596" y="104" width="16" height="16" class="hole"/>
+<line x1="300" y1="56" x2="300" y2="20" class="ld"/><text x="200" y="14">Brick roof tiles, cement pointing</text>
+<line x1="420" y1="92" x2="660" y2="180" class="ld"/>
+<line x1="150" y1="78" x2="150" y2="180" class="ld"/><text x="40" y="196">4″ mitti, rammed (your dug soil)</text>
+<line x1="250" y1="102" x2="250" y2="180" class="ld"/><text x="230" y="214" class="tiny">Polythene sheet</text>
+<line x1="380" y1="108" x2="380" y2="180" class="ld"/><text x="350" y="196" class="tiny">2 coats bitumen</text>
+<text x="470" y="196" class="tiny">Slope ~1″ per 10′ to outlet</text>
+<text x="300" y="142" class="mu" text-anchor="middle">5″ RCC slab</text>
+<text x="604" y="136" class="tiny mu">outlet</text>
+</svg><div class="cap">Roof waterproofing, bottom to top: slab, bitumen, polythene, 4″ rammed mitti, brick tiles, all sloping to the rain outlets.</div></div>
+<h2 id="water">Water pipes &amp; plastic tank</h2>
+<p>Water flows from a plastic tank on the roof, by gravity, to <span class="pv" data-a="2 baths" data-b="1 bath">2 baths</span>, the kitchen, S/kitchen, a washing machine point and 2 outdoor taps. A geyser line gives hot water to the baths and kitchen. Use <b>PPR pipes</b> (green or white, heat-welded joints) inside walls.</p>
+
+<h3>Water points</h3>
+<div class="only-a tbl"><table>
+<tr><th>Room</th><th>Cold points</th><th>Hot points</th><th>Stop valves</th></tr>
+<tr><td>Bath 8′×7′</td><td>Commode, muslim shower, basin, shower mixer (4)</td><td>Basin, shower mixer (2)</td><td>2 (hot + cold)</td></tr>
+<tr><td>Bath 10′×5′-6″</td><td>Commode, muslim shower, basin, shower mixer (4)</td><td>Basin, shower mixer (2)</td><td>2</td></tr>
+<tr><td>Kitchen</td><td>Sink (1)</td><td>Sink (1)</td><td>1</td></tr>
+<tr><td>S/Kitchen</td><td>Sink (1), washing machine (1)</td><td>Sink (1)</td><td>–</td></tr>
+<tr><td>Back yard + patio</td><td>Wash taps (2)</td><td>–</td><td>–</td></tr>
+<tr><td>Geyser</td><td>Inlet (1)</td><td>Outlet (1)</td><td>1</td></tr>
+<tr class="total"><td>Total</td><td>15</td><td>7</td><td>6 + 1 main</td></tr>
+</table></div>
+<div class="only-b tbl"><table>
+<tr><th>Room</th><th>Cold points</th><th>Hot points</th><th>Stop valves</th></tr>
+<tr><td>Bath 8′×7′</td><td>Commode, muslim shower, basin, shower mixer (4)</td><td>Basin, shower mixer (2)</td><td>2 (hot + cold)</td></tr>
+<tr><td>Kitchen</td><td>Sink (1)</td><td>Sink (1)</td><td>1</td></tr>
+<tr><td>S/Kitchen</td><td>Sink (1), washing machine (1)</td><td>Sink (1)</td><td>–</td></tr>
+<tr><td>Back yard + patio</td><td>Wash taps (2)</td><td>–</td><td>–</td></tr>
+<tr><td>Geyser</td><td>Inlet (1)</td><td>Outlet (1)</td><td>1</td></tr>
+<tr class="total"><td>Total</td><td>11</td><td>5</td><td>4 + 1 main</td></tr>
+</table></div>
+
+<h3>Water supply shopping list</h3>
+<div class="only-a tbl"><table>
+<tr><th>Item</th><th class="r">Quantity</th><th>Notes</th></tr>
+<tr><td>Plastic water tank, 500 gallon</td><td class="r">1</td><td>Enough for 5–6 people. Comes with lid. Put on brick platform on roof over the bath walls.</td></tr>
+<tr><td>PPR pipe 32 mm (1″)</td><td class="r">40 ft (~4 lengths)</td><td>Tank outlet down to the main line</td></tr>
+<tr><td>PPR pipe 25 mm (¾″)</td><td class="r">200 ft (~16 lengths)</td><td>Branch lines, hot main, and motor line to the tank</td></tr>
+<tr><td>PPR pipe 20 mm (½″)</td><td class="r">220 ft (~17 lengths)</td><td>Short lines to each point</td></tr>
+<tr><td>PPR elbows 20 / 25 / 32 mm</td><td class="r">40 / 25 / 6</td><td></td></tr>
+<tr><td>PPR tees 20 / 25 / 32 mm</td><td class="r">15 / 12 / 3</td><td></td></tr>
+<tr><td>Reducer tees / sockets (25×20, 32×25)</td><td class="r">10 / 4</td><td></td></tr>
+<tr><td>Female threaded elbow 20 mm × ½″</td><td class="r">24</td><td>The wall points where taps fit later</td></tr>
+<tr><td>Concealed stop valve 20/25 mm</td><td class="r">7</td><td></td></tr>
+<tr><td>Ball valve 32 mm + 2 unions</td><td class="r">1 set</td><td>At the tank outlet</td></tr>
+<tr><td>Tank connectors (inlet, outlet, overflow)</td><td class="r">3</td><td></td></tr>
+<tr><td>End plugs ½″</td><td class="r">24</td><td>Close points for the pressure test</td></tr>
+<tr><td>Pipe clamps</td><td class="r">60</td><td></td></tr>
+</table></div>
+<div class="only-b tbl"><table>
+<tr><th>Item</th><th class="r">Quantity</th><th>Notes</th></tr>
+<tr><td>Plastic water tank, 500 gallon</td><td class="r">1</td><td>Enough for 5–6 people. Comes with lid. Put on brick platform on roof over the bath walls.</td></tr>
+<tr><td>PPR pipe 32 mm (1″)</td><td class="r">40 ft (~4 lengths)</td><td>Tank outlet down to the main line</td></tr>
+<tr><td>PPR pipe 25 mm (¾″)</td><td class="r">160 ft (~13 lengths)</td><td>Branch lines, hot main, and motor line to the tank</td></tr>
+<tr><td>PPR pipe 20 mm (½″)</td><td class="r">160 ft (~13 lengths)</td><td>Short lines to each point</td></tr>
+<tr><td>PPR elbows 20 / 25 / 32 mm</td><td class="r">30 / 20 / 6</td><td></td></tr>
+<tr><td>PPR tees 20 / 25 / 32 mm</td><td class="r">11 / 9 / 3</td><td></td></tr>
+<tr><td>Reducer tees / sockets (25×20, 32×25)</td><td class="r">8 / 4</td><td></td></tr>
+<tr><td>Female threaded elbow 20 mm × ½″</td><td class="r">18</td><td>The wall points where taps fit later</td></tr>
+<tr><td>Concealed stop valve 20/25 mm</td><td class="r">5</td><td></td></tr>
+<tr><td>Ball valve 32 mm + 2 unions</td><td class="r">1 set</td><td>At the tank outlet</td></tr>
+<tr><td>Tank connectors (inlet, outlet, overflow)</td><td class="r">3</td><td></td></tr>
+<tr><td>End plugs ½″</td><td class="r">18</td><td>Close points for the pressure test</td></tr>
+<tr><td>Pipe clamps</td><td class="r">45</td><td></td></tr>
+</table></div>
+<div class="callout"><b class="t">Before plaster</b><p>Close all points with plugs and pressure-test the whole system for 24 hours. A leak found after tiles costs 10 times more to fix.</p></div>
+
+<h2 id="sewer">Sewer &amp; drains</h2>
+<p>Your drawing sends all waste to manholes in the 5′ passage on the left, then to the main sewer at the front gate. Even though only the rear part is being built now, the 6″ main line must reach the street, so it is laid the full length of the passage.</p>
+
+<h3>Manholes (2′×2′ inside)</h3>
+<div class="only-a tbl"><table>
+<tr><th>No.</th><th>Where</th><th>Collects</th></tr>
+<tr><td>MH-1</td><td>Back yard, left corner</td><td>Bath 8′×7′, back yard drain, rain pipes at back</td></tr>
+<tr><td>MH-2</td><td>Back yard, right corner</td><td>Bath 10′×5′-6″</td></tr>
+<tr><td>MH-3</td><td>Passage, beside master bed (line A)</td><td>Patio floor drain, left rain pipe</td></tr>
+<tr><td>MH-4</td><td>Passage, beside kitchen</td><td>Kitchen and S/kitchen sinks, washing machine</td></tr>
+</table></div>
+<div class="only-b tbl"><table>
+<tr><th>No.</th><th>Where</th><th>Collects</th></tr>
+<tr><td>MH-1</td><td>Passage, beside the left bath (8′×7′). The sewer starts here.</td><td>Left bath (commode, basin, floor trap), back roof rain pipes</td></tr>
+<tr><td>MH-2</td><td>Passage, beside kitchen</td><td>Kitchen and S/kitchen sinks, washing machine, patio drain, left rain pipe</td></tr>
+</table></div>
+
+<div class="fig"><svg viewBox="0 0 680 270" role="img" aria-label="Manhole section">
+<rect x="120" y="40" width="40" height="190" class="khg"/><rect x="280" y="40" width="40" height="190" class="khg"/>
+<rect x="100" y="230" width="240" height="20" class="conc"/>
+<path d="M160 230 L160 200 Q220 175 280 200 L280 230 Z" class="conc"/>
+<path d="M190 205 Q220 230 250 205" class="chan"/>
+<rect x="110" y="28" width="220" height="12" class="cov"/>
+<rect x="40" y="150" width="80" height="18" class="pipe"/><rect x="320" y="185" width="90" height="22" class="pipe"/>
+<line x1="80" y1="150" x2="80" y2="120" class="ld"/><text x="20" y="112" class="tiny">Inlet 4″ / 3″ (higher)</text>
+<line x1="380" y1="196" x2="440" y2="170" class="ld"/><text x="445" y="174" class="tiny">Outlet 6″ main (lower), to street</text>
+<line x1="220" y1="34" x2="440" y2="40" class="ld"/><text x="445" y="44" class="tiny">Cover 2′×2′ (RCC or iron)</text>
+<line x1="300" y1="100" x2="440" y2="90" class="ld"/><text x="445" y="94" class="tiny">9″ khingar walls, plastered inside 1:3</text>
+<line x1="230" y1="210" x2="440" y2="130" class="ld"/><text x="445" y="134" class="tiny">Benching + half-round channel</text>
+<line x1="330" y1="240" x2="440" y2="230" class="ld"/><text x="445" y="234" class="tiny">4″ PCC base</text>
+<text x="220" y="140" text-anchor="middle" class="mu">2′ × 2′ inside</text>
+</svg><div class="cap">Manhole section: water comes in high and leaves low through a smooth channel, so nothing settles.</div></div>
+<h3>Drainage shopping list</h3>
+<div class="only-a tbl"><table>
+<tr><th>Item</th><th class="r">Quantity</th><th>Use</th></tr>
+<tr><td>PVC pipe 6″</td><td class="r">~130 ft</td><td>Main line: MH-2 → MH-1 → passage → street sewer</td></tr>
+<tr><td>PVC pipe 4″</td><td class="r">~30 ft</td><td>Commodes to manholes</td></tr>
+<tr><td>PVC pipe 3″</td><td class="r">~120 ft</td><td>Floor traps, sinks, 4 rain pipes from roof (~12 ft each)</td></tr>
+<tr><td>PVC pipe 2″</td><td class="r">~60 ft</td><td>Basins, washing machine, 2 vent pipes up past roof</td></tr>
+<tr><td>4″ bends / 4″ Y</td><td class="r">4 / 2</td><td></td></tr>
+<tr><td>3″ bends / 3″ tees or Y</td><td class="r">12 / 6</td><td></td></tr>
+<tr><td>2″ bends / 2″ tees</td><td class="r">12 / 4</td><td></td></tr>
+<tr><td>Floor trap 3″ (with grating)</td><td class="r">4</td><td>2 baths, patio, back yard</td></tr>
+<tr><td>Gully trap</td><td class="r">2</td><td>Kitchen, S/kitchen</td></tr>
+<tr><td>Roof rain outlet with grating</td><td class="r">4</td><td>Fix before the slab is poured</td></tr>
+<tr><td>Vent cowl 2″</td><td class="r">2</td><td>Top of vent pipes</td></tr>
+<tr><td>Manhole covers 2′×2′ (RCC or iron)</td><td class="r">4</td><td></td></tr>
+<tr><td>PVC solvent cement</td><td class="r">2 tins</td><td></td></tr>
+</table></div>
+<div class="only-b tbl"><table>
+<tr><th>Item</th><th class="r">Quantity</th><th>Use</th></tr>
+<tr><td>PVC pipe 6″</td><td class="r">~100 ft</td><td>Main line: MH-1 (beside left bath) → MH-2 → street sewer. No pipe in the back yard.</td></tr>
+<tr><td>PVC pipe 4″</td><td class="r">~15 ft</td><td>Commodes to manholes</td></tr>
+<tr><td>PVC pipe 3″</td><td class="r">~95 ft</td><td>Floor traps, sinks, 4 rain pipes from roof (~12 ft each)</td></tr>
+<tr><td>PVC pipe 2″</td><td class="r">~45 ft</td><td>Basin, washing machine, 1 vent pipe up past roof</td></tr>
+<tr><td>4″ bends / 4″ Y</td><td class="r">2 / 1</td><td></td></tr>
+<tr><td>3″ bends / 3″ tees or Y</td><td class="r">10 / 5</td><td></td></tr>
+<tr><td>2″ bends / 2″ tees</td><td class="r">10 / 3</td><td></td></tr>
+<tr><td>Floor trap 3″ (with grating)</td><td class="r">3</td><td>Bath, patio, back yard</td></tr>
+<tr><td>Gully trap</td><td class="r">2</td><td>Kitchen, S/kitchen</td></tr>
+<tr><td>Roof rain outlet with grating</td><td class="r">4</td><td>Fix before the slab is poured</td></tr>
+<tr><td>Vent cowl 2″</td><td class="r">1</td><td>Top of vent pipes</td></tr>
+<tr><td>Manhole covers 2′×2′ (RCC or iron)</td><td class="r">2</td><td></td></tr>
+<tr><td>PVC solvent cement</td><td class="r">2 tins</td><td></td></tr>
+</table></div>
+<div class="callout"><b class="t">3′ path + 2′ soil strip</b><p>Lay the 6″ main and the manholes under the 3′ paved path, not under the soil strip. Then the manhole covers stay on the path where you can reach them, and plant roots in the soil strip cannot crack the pipe.</p></div>
+<div class="callout"><b class="t">Slope</b><p>Every drain pipe needs a downhill slope: about ¼″ per foot for 3″ and 4″ pipes, and ⅛″ per foot for the 6″ main. Lay drain pipes that run under rooms before the earth filling and floor base.</p></div>
+
+<h2 id="electric">Electrical conduit, boxes &amp; COB cups</h2>
+<p>At grey stage only the empty pipes (conduit), boxes and light cups go in. Wires, switches, COB lights and fans come with finishing. There are no wall lights. Fans have remote control, so there are no dimmers. Each room gets 2 low sockets and 1–2 switch boards.</p>
+
+<h3>Light and box plan per room</h3>
+<p>COB cups (plastic cups with langer) go into the slab shuttering before the roof is poured, spaced about 4′–5′ apart and about 2′–3′ from the walls.</p>
+<div class="only-a tbl"><table>
+<tr><th>Room</th><th class="r">COB cups</th><th class="r">Fan box</th><th class="r">Switch boards</th><th class="r">Low sockets</th><th class="r">AC box</th><th>Other</th></tr>
+<tr><td>Master bed 13′-1½″×16′-6″</td><td class="r">8 (2 rows of 4)</td><td class="r">1</td><td class="r">2</td><td class="r">2</td><td class="r">1</td><td>Board at door + bedside</td></tr>
+<tr><td>Bed 14′×13′</td><td class="r">6 (2 rows of 3)</td><td class="r">1</td><td class="r">2</td><td class="r">2</td><td class="r">1</td><td>Board at door + bedside</td></tr>
+<tr><td>TV lounge 17′-1½″×14′-3″</td><td class="r">8 (2 rows of 4)</td><td class="r">1</td><td class="r">2</td><td class="r">3</td><td class="r">1</td><td>TV / internet box, DB box</td></tr>
+<tr><td>Lobby in front of bedroom doors</td><td class="r">2</td><td class="r">–</td><td class="r">–</td><td class="r">–</td><td class="r">–</td><td>Switched from lounge board</td></tr>
+<tr><td>Kitchen 10′×13′</td><td class="r">4</td><td class="r">–</td><td class="r">1</td><td class="r">4 (counter height)</td><td class="r">–</td><td>Exhaust fan hole</td></tr>
+<tr><td>S/Kitchen 7′-6″×7′-4½″</td><td class="r">2</td><td class="r">–</td><td class="r">1</td><td class="r">2</td><td class="r">–</td><td>Exhaust fan hole</td></tr>
+<tr><td>Dress 9′×7′</td><td class="r">2</td><td class="r">–</td><td class="r">1</td><td class="r">1</td><td class="r">–</td><td></td></tr>
+<tr><td>Bath 8′×7′</td><td class="r">2</td><td class="r">–</td><td class="r">1 (outside)</td><td class="r">–</td><td class="r">–</td><td>Exhaust fan hole</td></tr>
+<tr><td>Bath 10′×5′-6″</td><td class="r">2</td><td class="r">–</td><td class="r">1 (outside)</td><td class="r">–</td><td class="r">–</td><td>Exhaust fan hole</td></tr>
+<tr class="total"><td>Total</td><td class="r">36 → buy 40</td><td class="r">3</td><td class="r">11</td><td class="r">14</td><td class="r">3</td><td></td></tr>
+</table></div>
+<div class="only-b tbl"><table>
+<tr><th>Room</th><th class="r">COB cups</th><th class="r">Fan box</th><th class="r">Switch boards</th><th class="r">Low sockets</th><th class="r">AC box</th><th>Other</th></tr>
+<tr><td>Master bed 13′-1½″×16′-6″</td><td class="r">8 (2 rows of 4)</td><td class="r">1</td><td class="r">2</td><td class="r">2</td><td class="r">1</td><td>Board at door + bedside</td></tr>
+<tr><td>TV lounge 17′-1½″×14′-3″</td><td class="r">8 (2 rows of 4)</td><td class="r">1</td><td class="r">2</td><td class="r">3</td><td class="r">1</td><td>TV / internet box, DB box</td></tr>
+<tr><td>Lobby in front of bedroom doors</td><td class="r">2</td><td class="r">–</td><td class="r">–</td><td class="r">–</td><td class="r">–</td><td>Switched from lounge board</td></tr>
+<tr><td>Kitchen 10′×13′</td><td class="r">4</td><td class="r">–</td><td class="r">1</td><td class="r">4 (counter height)</td><td class="r">–</td><td>Exhaust fan hole</td></tr>
+<tr><td>S/Kitchen 7′-6″×7′-4½″</td><td class="r">2</td><td class="r">–</td><td class="r">1</td><td class="r">2</td><td class="r">–</td><td>Exhaust fan hole</td></tr>
+<tr><td>Bath 8′×7′</td><td class="r">2</td><td class="r">–</td><td class="r">1 (outside)</td><td class="r">–</td><td class="r">–</td><td>Exhaust fan hole</td></tr>
+<tr class="total"><td>Total</td><td class="r">26 → buy 30</td><td class="r">2</td><td class="r">7</td><td class="r">11</td><td class="r">2</td><td></td></tr>
+</table></div>
+<p>If you cover the patio later, add 2 cups there.</p>
+<div class="fig"><svg viewBox="0 0 680 370" role="img" aria-label="COB light cup layout for master bedroom">
+<rect x="60" y="30" width="396.0" height="315.0" class="room"/>
+<circle cx="120.0" cy="109.2" r="7" class="cup"/><circle cx="120.0" cy="265.8" r="7" class="cup"/><circle cx="212.0" cy="109.2" r="7" class="cup"/><circle cx="212.0" cy="265.8" r="7" class="cup"/><circle cx="304.0" cy="109.2" r="7" class="cup"/><circle cx="304.0" cy="265.8" r="7" class="cup"/><circle cx="396.0" cy="109.2" r="7" class="cup"/><circle cx="396.0" cy="265.8" r="7" class="cup"/>
+<rect x="249.0" y="178.5" width="18" height="18" class="fan"/>
+<line x1="60" y1="363.0" x2="120.0" y2="363.0" class="ld"/><text x="64" y="379.0" class="tiny mu">2′-6″ from wall</text>
+<text x="258.0" y="379.0" text-anchor="middle" class="tiny mu">16′-6″</text>
+<text x="48" y="187.5" class="tiny mu" transform="rotate(-90 48 187.5)" text-anchor="middle">13′-1½″</text>
+<g transform="translate(500,60)"><circle cx="8" cy="0" r="7" class="cup"/><text x="24" y="4">COB cup (8)</text>
+<rect x="0" y="24" width="16" height="16" class="fan"/><text x="24" y="37">Fan box + hook</text>
+<text x="0" y="74" class="tiny mu">Cups ~3′-10″ apart</text><text x="0" y="90" class="tiny mu">along the room,</text><text x="0" y="106" class="tiny mu">rows 6′-6″ apart.</text>
+<text x="0" y="136" class="tiny mu">Bed 14×13: 2 rows of 3.</text><text x="0" y="152" class="tiny mu">Lounge: 2 rows of 4.</text>
+<text x="0" y="168" class="tiny mu">Same spacing rule.</text></g>
+</svg><div class="cap">Master bedroom ceiling: 8 COB cups in 2 rows of 4, about 2′-6″ in from the walls, fan box in the centre. Fix all of these on the shuttering before the slab is poured.</div></div>
+
+
+<h3>Electrical grey shopping list</h3>
+<div class="only-a tbl"><table>
+<tr><th>Item</th><th class="r">Quantity</th><th>Notes</th></tr>
+<tr><td>COB plastic cups (with langer)</td><td class="r">40</td><td>36 plus 4 spare</td></tr>
+<tr><td>Fan boxes (slab type, with hook)</td><td class="r">4</td><td>3 plus 1 spare. Hook from 4 sutar bar, tied to slab steel.</td></tr>
+<tr><td>Round junction boxes for slab</td><td class="r">15</td><td></td></tr>
+<tr><td>Switch board boxes (plastic, 4–6 switch size)</td><td class="r">11</td><td>Ask the electrician for sizes such as 3″×6″ or 6″×6″</td></tr>
+<tr><td>Socket boxes (plastic, small)</td><td class="r">14</td><td></td></tr>
+<tr><td>AC boxes</td><td class="r">3</td><td>With 1″ conduit from DB</td></tr>
+<tr><td>TV / internet box</td><td class="r">1</td><td>Plus spare conduit to each bedroom</td></tr>
+<tr><td>DB box (12-way, concealed)</td><td class="r">1</td><td>In lounge or near entry</td></tr>
+<tr><td>PVC conduit ¾″</td><td class="r">~750 ft (~75 pipes)</td><td>Lights, sockets, switch drops</td></tr>
+<tr><td>PVC conduit 1″</td><td class="r">~200 ft (~20 pipes)</td><td>Main from meter, AC lines, DB feeds</td></tr>
+<tr><td>Conduit bends ¾″ / 1″</td><td class="r">60 / 15</td><td></td></tr>
+<tr><td>Conduit sockets (joints)</td><td class="r">~90</td><td></td></tr>
+<tr><td>Earthing set (rod or plate + pit)</td><td class="r">1</td><td>Can be done at finishing</td></tr>
+</table></div>
+<div class="only-b tbl"><table>
+<tr><th>Item</th><th class="r">Quantity</th><th>Notes</th></tr>
+<tr><td>COB plastic cups (with langer)</td><td class="r">30</td><td>26 plus 4 spare</td></tr>
+<tr><td>Fan boxes (slab type, with hook)</td><td class="r">3</td><td>2 plus 1 spare. Hook from 4 sutar bar, tied to slab steel.</td></tr>
+<tr><td>Round junction boxes for slab</td><td class="r">11</td><td></td></tr>
+<tr><td>Switch board boxes (plastic, 4–6 switch size)</td><td class="r">7</td><td>Ask the electrician for sizes such as 3″×6″ or 6″×6″</td></tr>
+<tr><td>Socket boxes (plastic, small)</td><td class="r">11</td><td></td></tr>
+<tr><td>AC boxes</td><td class="r">2</td><td>With 1″ conduit from DB</td></tr>
+<tr><td>TV / internet box</td><td class="r">1</td><td>Plus spare conduit to each bedroom</td></tr>
+<tr><td>DB box (12-way, concealed)</td><td class="r">1</td><td>In lounge or near entry</td></tr>
+<tr><td>PVC conduit ¾″</td><td class="r">~560 ft (~56 pipes)</td><td>Lights, sockets, switch drops</td></tr>
+<tr><td>PVC conduit 1″</td><td class="r">~170 ft (~17 pipes)</td><td>Main from meter, AC lines, DB feeds</td></tr>
+<tr><td>Conduit bends ¾″ / 1″</td><td class="r">45 / 12</td><td></td></tr>
+<tr><td>Conduit sockets (joints)</td><td class="r">~70</td><td></td></tr>
+<tr><td>Earthing set (rod or plate + pit)</td><td class="r">1</td><td>Can be done at finishing</td></tr>
+</table></div>
+<div class="callout"><b class="t">Timing</b><p>Ceiling conduit, cups and fan boxes go in <b>on the shuttering, after the steel, before concrete</b>. Wall conduit and boxes are fixed after brickwork, by cutting grooves, <b>before plaster</b>. Take photos of all conduit routes before they are covered.</p></div>
+
+<h2 id="steps">Step-by-step schedule</h2>
+<p>Days are working days for a normal team (1 mistri and 3–4 labourers). Rain and material delays will add time. Expect about 2 to 2½ months in total, including the 14–21 days of slab curing.</p>
+<div class="tbl"><table>
+<tr><th>#</th><th>Step</th><th>What happens</th><th class="r">Days</th><th>Who</th><th>Check before moving on</th></tr>
+<tr><td>1</td><td>Layout (nishan dehi)</td><td>Clear plot, mark wall centre lines with rope and chuna from the drawing</td><td class="r">1</td><td>Mistri + engineer</td><td>Check diagonals of each room are equal (square corners)</td></tr>
+<tr><td>2</td><td>Digging (khudai)</td><td>Dig trenches: 2′-6″×3′-6″ all house walls, 1′-6″×2′ left boundary, 2′×2′-6″ front boundary</td><td class="r">3–4</td><td>Labour</td><td>Trench bottom level and firm. Water and ram it.</td></tr>
+<tr><td>3</td><td>Anti-termite</td><td>Spray chemical in the trench bottom and sides</td><td class="r">½</td><td>Labour</td><td></td></tr>
+<tr><td>4</td><td>Rait bed</td><td>3″ Ravi rait, wet and rammed</td><td class="r">½</td><td>Labour</td><td></td></tr>
+<tr><td>5</td><td>PCC (foundation concrete)</td><td>6″ of 1:4:8 bajri concrete in all trenches</td><td class="r">1–2</td><td>Mistri + labour</td><td>Level top. Keep it wet for 3 days.</td></tr>
+<tr><td>6</td><td>Brick footing (steps)</td><td>Khingar brick steps (22½″ → 18″ → 13½″) up to ground level, mortar 1:5</td><td class="r">4–5</td><td>Mistri</td><td>Centre lines still match layout</td></tr>
+<tr><td>7</td><td>Under-ground pipes</td><td>Lay sewer pipes that cross under walls, leave sleeves through footings</td><td class="r">1–2</td><td>Plumber</td><td>Slope correct, joints sealed</td></tr>
+<tr><td>8</td><td>Backfill trenches</td><td>Put the dug mitti back around footings, up to ground level, in 6″ layers, water and ram</td><td class="r">1</td><td>Filling contractor</td><td></td></tr>
+<tr><td>9</td><td>Plinth brickwork</td><td>Raise walls 2′ above ground to floor level</td><td class="r">2–3</td><td>Mistri</td><td>Top is dead level everywhere (use water level pipe)</td></tr>
+<tr><td>10</td><td>Fill rooms with ghassu (bharai)</td><td>Fill inside rooms with ghassu in 6″ layers. Flood each layer with water and ram it.</td><td class="r">3–5</td><td>Filling contractor</td><td>Leave 3″ below plinth top for the floor PCC. No soft spots when walked on.</td></tr>
+<tr><td>11</td><td>DPC</td><td>1½″ chips concrete 1:2:4 with waterproofing compound on plinth top</td><td class="r">1</td><td>Mistri</td><td>Continuous under every wall and door</td></tr>
+<tr><td>12</td><td>DPC curing + bitumen</td><td>Cure 3–4 days, then 2 coats hot bitumen, sand sprinkled</td><td class="r">4</td><td>Labour</td><td>No bare spots</td></tr>
+<tr><td>13</td><td>Walls to lintel level</td><td>9″ structural walls only, up to 7′, leaving door and window openings. Parda walls wait until step 21. Fix door frames now if they are steel or wood frames.</td><td class="r">4–5</td><td>Mistri + labour</td><td>Plumb (seedha) and right opening sizes</td></tr>
+<tr><td>14</td><td>Lintels and beam</td><td>Shuttering, steel and 1:2:4 concrete over openings, plus the 9″×12″ beam</td><td class="r">2</td><td>Mistri + steel fixer</td><td>Cure 7 days</td></tr>
+<tr><td>15</td><td>Walls to roof level</td><td>Brickwork from 7′ to 10′, top level and flat</td><td class="r">3–4</td><td>Mistri</td><td>Top dead level for slab</td></tr>
+<tr><td>16</td><td>Slab shuttering</td><td>Props, planks or steel plates, sealed so concrete does not leak</td><td class="r">3</td><td>Shuttering team</td><td>Shuttering level, strong props</td></tr>
+<tr><td>17</td><td>Slab steel (sarya bandhai)</td><td>3 sutar @ 6″ main, @ 9″ cross, extra top bars, spacer blocks</td><td class="r">3</td><td>Steel fixer</td><td>Engineer checks spacing, cover and laps</td></tr>
+<tr><td>18</td><td>Slab services</td><td>COB cups, fan boxes, conduit, rain outlets, vent and tank pipe sleeves</td><td class="r">1</td><td>Electrician + plumber</td><td>Count cups against the room plan</td></tr>
+<tr><td>19</td><td>Pour slab (lantar)</td><td>One continuous pour with mixer and vibrator</td><td class="r">1</td><td>Full team</td><td>Start early morning. Arrange enough labour.</td></tr>
+<tr><td>20</td><td>Slab curing</td><td>Water ponds on top for 14 days. Props stay 21 days.</td><td class="r">14–21</td><td>Labour</td><td>Never let it dry in the first week</td></tr>
+<tr><td>21</td><td>Parda walls, parapet, tank stand</td><td>After props are removed: 4½″ parda walls with 2 sutar bars every 5th course, top gap packed with mortar. Then 9″ parapet 3′ high and brick platform for the tank.</td><td class="r">4–5</td><td>Mistri</td><td>Parda walls tied into 9″ walls, plumb</td></tr>
+<tr><td>22</td><td>Boundary walls</td><td>Left wall (4½″ with pillars) and front wall (9″ with gate pillars), footing to 7′ high. Can run alongside steps 13–20.</td><td class="r">5–6</td><td>Mistri</td><td>Pillars every 8′, wall plumb</td></tr>
+<tr><td>23</td><td>Electrical wall work</td><td>Cut grooves, fix wall conduit, switch, socket, AC and DB boxes</td><td class="r">3–4</td><td>Electrician</td><td>Box heights the same in every room</td></tr>
+<tr><td>24</td><td>Plumbing wall work</td><td>PPR lines, points, valves, geyser line, drain pipes, traps</td><td class="r">4–5</td><td>Plumber</td><td>24-hour pressure test</td></tr>
+<tr><td>25</td><td>Manholes + sewer main</td><td>4 manholes, 6″ main along passage to street, septic if needed</td><td class="r">4–5</td><td>Plumber (in his fixed Rs 40k)</td><td>Pour water and watch it flow to the street</td></tr>
+<tr><td>26</td><td>Plaster</td><td>Ceiling first, then inside walls, then outside and boundary</td><td class="r">6–8</td><td>Mistri + labour</td><td>Cure 7 days. Corners straight.</td></tr>
+<tr><td>27</td><td>Floor base</td><td>Anti-termite spray on the ghassu, then 3″ PCC 1:4:8 in all rooms</td><td class="r">2</td><td>Mistri + labour</td><td>Slope in baths toward the floor trap</td></tr>
+<tr><td>28</td><td>Roof waterproofing</td><td>Bitumen, polythene, 4″ mud, roof tiles, slope to outlets</td><td class="r">3–4</td><td>Mistri + labour</td><td>Pour water: no ponding</td></tr>
+<tr><td>29</td><td>Grey handover check</td><td>Clean site, list any cracks or leaks, photos of everything</td><td class="r">1</td><td>You + engineer</td><td>Ready for finishing</td></tr>
+</table></div>
+
+<h3>When to buy what</h3>
+<div class="only-a tbl"><table>
+<tr><th>Round</th><th>Before step</th><th>Buy</th></tr>
+<tr><td>1</td><td>Step 2</td><td>~24,800 khingar bricks, ~2,100 cft ghassu (needed by step 10), 135 bags cement, 550 cft Ravi rait, 250 cft Chenab rait, 465 cft bajri, 35 cft chips, anti-termite, bitumen 50 kg, sewer pipes that go under walls</td></tr>
+<tr><td>2</td><td>Step 13</td><td>~30,000 first-class bricks, 195 bags cement, 1,000 cft Ravi rait, 300 cft Chenab rait, 530 cft crush, all sarya and binding wire, COB cups, fan boxes, slab conduit, rain outlets</td></tr>
+<tr><td>3</td><td>Step 23</td><td>Remaining ~7,500 first-class bricks (parda walls, parapet, boundary), ~120 bags cement, remaining rait and bajri, all PPR, drainage, electrical boxes and conduit, tank, roof materials</td></tr>
+</table></div>
+<div class="only-b tbl"><table>
+<tr><th>Round</th><th>Before step</th><th>Buy</th></tr>
+<tr><td>1</td><td>Step 2</td><td>~20,900 khingar bricks, ~1,550 cft ghassu (needed by step 10), 115 bags cement, 450 cft Ravi rait, 210 cft Chenab rait, 390 cft bajri, 27 cft chips, anti-termite, bitumen 40 kg, sewer pipes that go under walls</td></tr>
+<tr><td>2</td><td>Step 13</td><td>~27,000 first-class bricks, 160 bags cement, 800 cft Ravi rait, 220 cft Chenab rait, 390 cft crush, all sarya and binding wire, 30 COB cups, fan boxes, slab conduit, rain outlets</td></tr>
+<tr><td>3</td><td>Step 23</td><td>Remaining ~5,100 first-class bricks (parda walls, parapet, boundary), ~95 bags cement, remaining rait and bajri, all PPR, drainage, electrical boxes and conduit, tank, gate, roof materials</td></tr>
+</table></div>
+<p>Cement goes off in about 2–3 months, so do not stock it for longer than one round. Keep bags off the ground on planks and covered.</p>
+
+<h2 id="cost">Cost estimate</h2>
+<p>The full grey-structure cost for this phase: materials, labour by daily wage, services and a small buffer. Rows marked <span class="tag">Your rate</span> use the prices you gave. Rows marked <span class="tag opt">Estimate</span> are rough market guesses, so replace them with your actual rates. You can change any quantity or rate and the totals update. Your browser remembers what you type.</p>
+
+<h3>How the labour days were counted</h3>
+<p>Mistri Rs 2,500/day, mazdoor Rs 1,800/day. Days use fast Pakistani site output, and mistri + mazdoor wages stay under <b>Rs 5 lakh</b> in both plans.</p>
+<div class="tbl"><table>
+<tr><th>Job</th><th>Output used</th><th class="r">Mistri A</th><th class="r">Mazdoor A</th><th class="r">Mistri B</th><th class="r">Mazdoor B</th></tr>
+<tr><td>Layout and marking</td><td>Half a day</td><td class="r">1</td><td class="r">2</td><td class="r">1</td><td class="r">2</td></tr>
+<tr><td>Digging</td><td>~150 cft per mazdoor per day</td><td class="r">–</td><td class="r">22</td><td class="r">–</td><td class="r">19</td></tr>
+<tr><td>PCC foundation + floor base</td><td>~250 cft/day by 1 mistri + 5 mazdoor</td><td class="r">3</td><td class="r">15</td><td class="r">3</td><td class="r">13</td></tr>
+<tr><td>Manholes, manhole bases, sewer line</td><td>Plumber's fixed Rs 40k job</td><td class="r">–</td><td class="r">–</td><td class="r">–</td><td class="r">–</td></tr>
+<tr><td>Brickwork (khingar + first class, not manholes)</td><td>~1,800 bricks/day per mistri with 2 mazdoor</td><td class="r">32</td><td class="r">64</td><td class="r">27</td><td class="r">55</td></tr>
+<tr><td>Backfill mitti + ghassu filling</td><td>Filling contractor, fixed Rs 3 lakh</td><td class="r">–</td><td class="r">–</td><td class="r">–</td><td class="r">–</td></tr>
+<tr><td>DPC + bitumen</td><td>1 day</td><td class="r">1</td><td class="r">3</td><td class="r">1</td><td class="r">3</td></tr>
+<tr><td>Lintels and beam</td><td>2 days</td><td class="r">2</td><td class="r">4</td><td class="r">2</td><td class="r">3</td></tr>
+<tr><td>Slab pour day</td><td>1 day, big team</td><td class="r">1</td><td class="r">12</td><td class="r">1</td><td class="r">10</td></tr>
+<tr><td>Plaster</td><td>~250 sft per mistri per day, 1 mazdoor each</td><td class="r">32</td><td class="r">32</td><td class="r">27</td><td class="r">27</td></tr>
+<tr><td>Roof mud + tiles</td><td>2 days</td><td class="r">2</td><td class="r">6</td><td class="r">2</td><td class="r">5</td></tr>
+<tr><td>Curing, cleaning, helping</td><td>On and off</td><td class="r">–</td><td class="r">10</td><td class="r">–</td><td class="r">8</td></tr>
+<tr class="total"><td>Total days</td><td></td><td class="r">74</td><td class="r">170</td><td class="r">64</td><td class="r">145</td></tr>
+<tr class="total"><td>Wages</td><td></td><td class="r" colspan="2">Rs 491,000</td><td class="r" colspan="2">Rs 421,000</td></tr>
+</table></div>
+<p>Slab shuttering and steel fixing are normally given as a small contract (theka) to specialist teams. They are listed separately below.</p>
+
+<h3>Cost table</h3>
+<div class="cmp"><div><b id="totA">–</b><span>Plan A total (~1,280 sft)</span></div><div><b id="totB">–</b><span>Plan B total (~930 sft)</span></div><div><b id="saveAB">–</b><span>Saved by choosing Plan B</span></div></div>
+<p style="color:var(--muted);font-size:14px">The table below shows <span class="pv" data-a="Plan A" data-b="Plan B">Plan A</span>. Switch plans with the tabs at the top of the page.</p>
+<div class="tbl"><table id="costTable">
+<thead><tr><th>Item</th><th class="r">Qty</th><th>Unit</th><th class="r">Rate (Rs)</th><th>Rate source</th><th class="r">Amount (Rs)</th></tr></thead>
+<tbody></tbody>
+</table></div>
+<p><button class="reset" id="resetRates" type="button">Reset quantities and rates</button></p>
+
+<h2 id="verify">Check with the engineer</h2>
+<p>These numbers are a good planning estimate. Before buying, take this list to your engineer, sarya fixer and plumber and confirm:</p>
+<ul>
+  <li>Foundation depth and width for your soil, especially if an upper floor will be added later.</li>
+  <li>Slab thickness and sarya for the 17′ wide TV lounge.</li>
+  <li>That 9″ outer walls are fine for your house. They are for one storey, but ask again before adding any floor.</li>
+  <li>The 9″ / 4½″ wall list in <a href="#walltypes">wall types</a>. Especially that the centre spine wall runs unbroken from the back to the lounge, because the 4½″ walls depend on it.</li>
+  <li>That a 4½″ left boundary wall, 7′ high, is safe with pillars every 8′. If not, drop it to 6′ high, or make it 9″ in the passage area only.</li>
+  <li>Whether a plinth beam or roof band is needed in your area for earthquakes.</li>
+  <li>Whether the septic tank is required or the line goes straight to the street sewer.</li>
+  <li>The exact wall lengths, measured on site after layout. Adjust bricks by about 13½ bricks per cft of wall.</li>
+</ul>
+<p style="color:var(--muted);font-size:14px">Prepared from drawing 104-A-E5 (ground floor plan, sections and details). Quantities rounded.</p>
+</main>
+
+<aside class="toc" aria-label="On this page">
+  <h4>On this page</h4>
+  <a href="#overview">Overview</a>
+  <a href="#planb">Plan B</a>
+  <a href="#names">Material names</a>
+  <a href="#shopping">Shopping list</a>
+  <a href="#foundation">Foundation</a>
+  <a href="#bricks">Bricks</a>
+  <a href="#sarya">Sarya</a>
+  <a href="#concrete">Slab</a>
+  <a href="#dpc">DPC</a>
+  <a href="#plaster">Plaster &amp; roof</a>
+  <a href="#water">Water</a>
+  <a href="#sewer">Sewer</a>
+  <a href="#electric">Electric</a>
+  <a href="#steps">Schedule</a>
+  <a href="#cost">Cost</a>
+  <a href="#verify">Verify</a>
+</aside>
+</div>
+
+<script>
+(function(){
+  var Y="Your rate", E="Estimate";
+  // [key,label,[qtyA,qtyB],unit,[rateA,rateB],source]
+  var ITEMS=[
+    ["grp","Bricks, cement, steel, sand"],
+    ["khingar","Khingar bricks (below DPC)",[24800,20900],"brick",[22,22],Y],
+    ["bricks","First-class bricks (above DPC)",[37500,32100],"brick",[27.5,27.5],Y],
+    ["cement","Cement (50 kg bag)",[450,370],"bag",[1450,1450],E],
+    ["steel","Sarya Grade 60, all sizes + binding wire",[1445,1145],"kg",[240,240],Y],
+    ["ravi","Rait, Ravi / local",[1510,1290],"cft",[45,45],E],
+    ["chenab","Rait, Chenab",[1025,840],"cft",[110,110],E],
+    ["bajri","Bajri",[755,620],"cft",[150,150],E],
+    ["crush","Crush ½″–¾″",[525,390],"cft",[220,220],E],
+    ["chips","Chips ¼″–⅜″ (DPC)",[35,27],"cft",[230,230],E],
+    ["ghassu","Plot filling contract: ghassu + mitti backfill, incl. labour",[1,1],"lump sum",[300000,300000],Y],
+    ["grp","Waterproofing"],
+    ["bitumen","Bitumen (DPC + roof)",[245,185],"kg",[280,280],E],
+    ["compound","Waterproofing compound",[15,12],"kg",[600,600],E],
+    ["poly","Polythene sheet (roof)",[1400,1010],"sft",[10,10],E],
+    ["tiles","Roof brick tiles",[4700,3400],"tile",[22,22],E],
+    ["termite","Anti-termite chemical",[1,1],"set",[8000,7000],E],
+    ["grp","Plumbing, sewer, electrical materials"],
+    ["tank","Plastic water tank 500 gal (no underground tank)",[1,1],"each",[65000,65000],E],
+    ["ppr","PPR pipes, fittings, valves",[1,1],"lump sum",[85000,68000],E],
+    ["drain","PVC drain pipes, traps, fittings",[1,1],"lump sum",[80000,62000],E],
+    ["mhcov","Manhole covers 2′×2′",[4,2],"each",[6000,6000],E],
+    ["elec","Conduit, COB cups, boxes, DB box",[1,1],"lump sum",[55000,42000],E],
+    ["grp","Main gate"],
+    ["gate","Main gate 12′×7′ MS steel, fabricated, primer, fixed",[1,1],"each",[100000,100000],Y],
+    ["grp","Labour"],
+    ["mistri","Mistri (daily wage)",[74,64],"day",[2500,2500],Y],
+    ["mazdoor","Mazdoor (daily wage)",[170,145],"day",[1800,1800],Y],
+    ["plumber","Plumber: all pipes, manholes + bases, sewer line (fixed)",[1,1],"job",[40000,40000],Y],
+    ["electrician","Electrician, grey stage (labour)",[1,1],"job",[35000,35000],Y],
+    ["shutter","Slab shuttering, rent + team",[1280,930],"sft",[40,40],E],
+    ["fixer","Steel fixing (sarya bandhai)",[1445,1145],"kg",[18,18],E],
+    ["mixer","Mixer + vibrator on slab day",[1,1],"day",[15000,15000],E],
+    ["grp","Site running costs"],
+    ["misc","Water, electricity, tools, transport, chai",[1,1],"lump sum",[60000,50000],E],
+    ["cont","Buffer for waste and price changes",[5,5],"% of all above",[0,0],E]
+  ];
+  var AREA={A:1280,B:930};
+  var KEY="bilal-house-cost-v7", saved={A:{},B:{}}, plan="A";
+  try{var raw=JSON.parse(localStorage.getItem(KEY)||"null"); if(raw&&raw.A&&raw.B)saved=raw; if(raw&&raw.plan)plan=raw.plan}catch(e){}
+  var tb=document.querySelector("#costTable tbody");
+  var fmt=function(n){return Math.round(n).toLocaleString("en-PK")};
+  var num=function(v){return parseFloat(String(v).replace(/,/g,""))||0};
+  var pi=function(p){return p==="A"?0:1};
+  function val(p,k,i,def){var s=saved[p][k];return (s&&s[i]!=null)?s[i]:def}
+  function store(){try{saved.plan=plan;localStorage.setItem(KEY,JSON.stringify(saved))}catch(e){}}
+  function total(p){
+    var base=0,g=0;
+    ITEMS.forEach(function(it){ if(it[0]==="grp")return;
+      var q=num(val(p,it[0],0,it[2][pi(p)]));
+      if(it[0]==="cont"){g+=base*q/100}else{var a=q*num(val(p,it[0],1,it[4][pi(p)]));base+=a;g+=a}});
+    return g;
+  }
+  function render(){
+    var html="", gi=0;
+    ITEMS.forEach(function(it,idx){
+      if(it[0]==="grp"){
+        if(idx>0)html+='<tr class="sub"><td colspan="5">Subtotal</td><td class="r" id="sub-'+gi+'"></td></tr>';
+        gi++; html+='<tr class="grp"><td colspan="6">'+it[1]+'</td></tr>'; return}
+      var cont=it[0]==="cont", p=plan;
+      html+='<tr><td>'+it[1]+'</td><td class="r"><input class="rate" id="q-'+it[0]+'" data-k="'+it[0]+'" data-i="0" inputmode="decimal" value="'+val(p,it[0],0,it[2][pi(p)])+'" aria-label="Quantity for '+it[1]+'"></td><td>'+it[3]+'</td><td class="r">'+(cont?'–':'<input class="rate" id="r-'+it[0]+'" data-k="'+it[0]+'" data-i="1" inputmode="decimal" value="'+val(p,it[0],1,it[4][pi(p)])+'" aria-label="Rate for '+it[1]+'">')+'</td><td><span class="tag'+(it[5]===E?' opt':'')+'">'+it[5]+'</span></td><td class="r" id="amt-'+it[0]+'"></td></tr>';
+    });
+    html+='<tr class="sub"><td colspan="5">Subtotal</td><td class="r" id="sub-'+gi+'"></td></tr>';
+    html+='<tr class="total"><td colspan="5" id="grandLbl"></td><td class="r" id="grand"></td></tr>';
+    html+='<tr><td colspan="5" id="persftLbl"></td><td class="r" id="persft"></td></tr>';
+    tb.innerHTML=html;
+    calc();
+  }
+  function calc(){
+    var g=0, gi=0, sub=0, base=0;
+    ITEMS.forEach(function(it,idx){
+      if(it[0]==="grp"){ if(idx>0){document.getElementById("sub-"+gi).textContent=fmt(sub)} gi++; sub=0; return}
+      var q=num(document.getElementById("q-"+it[0]).value), a;
+      if(it[0]==="cont"){ a=base*q/100 } else { a=q*num(document.getElementById("r-"+it[0]).value); base+=a }
+      sub+=a; g+=a; document.getElementById("amt-"+it[0]).textContent=fmt(a);
+    });
+    document.getElementById("sub-"+gi).textContent=fmt(sub);
+    document.getElementById("grandLbl").textContent="Grand total, grey structure, Plan "+plan+" (approx.)";
+    document.getElementById("grand").textContent="Rs "+fmt(g);
+    document.getElementById("persftLbl").textContent="Per square foot of covered area ("+fmt(AREA[plan])+" sft, patio not counted)";
+    document.getElementById("persft").textContent="Rs "+fmt(g/AREA[plan]);
+    var a=total("A"), b=total("B");
+    document.getElementById("totA").textContent="Rs "+fmt(a);
+    document.getElementById("totB").textContent="Rs "+fmt(b);
+    document.getElementById("saveAB").textContent="Rs "+fmt(a-b);
+  }
+  tb.addEventListener("input",function(e){
+    var k=e.target.getAttribute("data-k"); if(!k)return;
+    var i=+e.target.getAttribute("data-i"); saved[plan][k]=saved[plan][k]||[null,null]; saved[plan][k][i]=e.target.value;
+    store(); calc();
+  });
+  function applyPlan(p){
+    plan=p; document.body.classList.toggle("plan-b",p==="B");
+    [].forEach.call(document.querySelectorAll(".pv"),function(el){el.textContent=el.getAttribute(p==="B"?"data-b":"data-a")});
+    ["tabA","tabB"].forEach(function(id){var b=document.getElementById(id);b.setAttribute("aria-selected",b.getAttribute("data-plan")===p)});
+    store(); render();
+  }
+  ["tabA","tabB"].forEach(function(id){document.getElementById(id).addEventListener("click",function(){applyPlan(this.getAttribute("data-plan"))})});
+  document.getElementById("resetRates").addEventListener("click",function(){
+    saved={A:{},B:{}}; try{localStorage.removeItem(KEY)}catch(err){} render();
+  });
+  applyPlan(plan);
+
+  // highlight current section in nav + toc
+  var links=[].slice.call(document.querySelectorAll(".side a,.toc a"));
+  var ids=links.map(function(a){return a.getAttribute("href").slice(1)}).filter(function(v,i,s){return s.indexOf(v)===i});
+  var secs=ids.map(function(id){return document.getElementById(id)}).filter(Boolean);
+  function onScroll(){
+    var cur=secs[0]&&secs[0].id;
+    secs.forEach(function(s){if(s.getBoundingClientRect().top<120)cur=s.id});
+    links.forEach(function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+cur)});
+  }
+  window.addEventListener("scroll",onScroll,{passive:true}); onScroll();
+})();
+</script>
