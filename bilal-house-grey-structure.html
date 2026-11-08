@@ -126,6 +126,10 @@ body.plan-b .only-a{display:none!important}
 .plan-tabs button{font:inherit;font-size:14px;font-weight:600;padding:6px 14px;border:0;border-radius:7px;background:transparent;color:var(--muted);cursor:pointer;white-space:nowrap}
 .plan-tabs button[aria-selected="true"]{background:var(--accent);color:var(--bg)}
 .plan-tabs small{font-weight:400;opacity:.85}
+.maplinks{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+.mapbtn{display:inline-block;text-decoration:none;font-size:14px;font-weight:600;padding:8px 14px;border-radius:8px;background:var(--accent);color:var(--bg);border:1px solid var(--accent)}
+.mapbtn.ghost{background:var(--panel);color:var(--fg);border-color:var(--line);font-weight:500}
+.mapbtn:hover{filter:brightness(1.05)}
 .planbar{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;border:1px solid var(--accent);background:var(--accent-soft);border-radius:10px;padding:10px 14px;margin:6px 0 18px;font-size:14.5px}
 .mobile-nav{display:none}
 @media (max-width:1180px){.shell{grid-template-columns:230px minmax(0,1fr)}.toc{display:none}}
@@ -182,6 +186,11 @@ body.plan-b .only-a{display:none!important}
 <div class="crumb">Guide / Ground floor / Grey structure / <span class="pv" data-a="Plan A" data-b="Plan B">Plan A</span></div>
 <h1 id="overview">Building the rear part of the ground floor</h1>
 <div class="planbar"><b>You are viewing <span class="pv" data-a="Plan A (full)" data-b="Plan B (smaller)">Plan A (full)</span>.</b><span class="only-a">All rooms in the screenshot, ~1,280 sft covered.</span><span class="only-b">Skips Bed 14×13, Dress and Bath 10×5′6″, and the back-yard sewer. ~930 sft covered.</span><span style="color:var(--muted)">Use the tabs at the top to switch. Every number below changes.</span></div>
+<div class="maplinks">
+  <a class="mapbtn" href="assets/104-A-E5-Model.pdf" target="_blank" rel="noopener">Open complete drawing (PDF, 104-A-E5)</a>
+  <a class="mapbtn ghost" href="assets/ground-floor-plan.jpg" target="_blank" rel="noopener">Full ground floor plan (image)</a>
+  <a class="mapbtn ghost" href="#plan">Part we are building</a>
+</div>
 <p class="lead">A plain-language guide to the materials, quantities and steps for the grey structure of the part of plan 104-A-E5 shown in your screenshot. Single storey, no basement, finishing comes later.</p>
 
 <div class="kv">
@@ -255,7 +264,7 @@ body.plan-b .only-a{display:none!important}
 <h3 id="plan">The part we are building</h3>
 <div class="plans">
 <figure><img src="assets/build-area.jpg" alt="Drawing of the rear part of the ground floor: back yard, two baths, dress, master bed, bed, patio, kitchen, S/kitchen and TV lounge" loading="lazy"><figcaption>This phase: from the back yard to the TV lounge front wall (the "OPENING 8′-6″ WIDE" line). The stair and drawing room at the bottom of the picture are not built now.</figcaption></figure>
-<figure><img src="assets/ground-floor-plan.jpg" alt="Full ground floor plan 104-A-E5" loading="lazy"><figcaption>Full ground floor plan, for reference. Only the top part, down to the TV lounge, is in this guide.</figcaption></figure>
+<figure><img src="assets/ground-floor-plan.jpg" alt="Full ground floor plan 104-A-E5" loading="lazy"><figcaption>Full ground floor plan, for reference. Only the top part, down to the TV lounge, is in this guide. <a href="assets/104-A-E5-Model.pdf" target="_blank" rel="noopener">Open the complete drawing (PDF)</a>.</figcaption></figure>
 </div>
 <div class="callout"><b class="t">How these numbers were made</b>
 <p>Lengths were taken from your drawing: covered width 29′-4½″, floor level +2′-0″ above road (F.L.), wall height 10′, roof slab 5″ RCC 1:2:4, DPC 1½″ 1:2:4, and the 9″×12″ beam with ¾″ bars. The part of the PDF that has the foundation section is cut off, so the foundation below uses the normal Pakistani design for this kind of house. Wall lengths are measured from the plan, so expect ±5–10%.</p></div>
