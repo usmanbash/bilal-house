@@ -1,32 +1,177 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Plan C Front Block</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-:root{--bg:#fbfaf8;--panel:#f3f1ed;--fg:#1d1b19;--muted:#6a645d;--line:#e3ded6;--accent:#a8432a;--accent-soft:#f6e6df;
---gap:#fbf2dc;--gap-line:#d9b25a;--key:#eef3f8;--key-line:#9db6cf;--note:#eef3f8;--note-line:#9db6cf;--warn:#fbf2dc;--warn-line:#d9b25a;--brick:#c4694c;--paper:#fff;
---lawn:#a9cf8a;--yard:#e8e2d6;--stone:#bdb5a8;--soil:#c9b597;--pcc:#b9b4ac;--code:#efece7;
---f-display:"Newsreader",Georgia,serif;--f-body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;--f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;color-scheme:light}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#171615;--panel:#1f1d1b;--fg:#ece8e2;--muted:#a39b91;--line:#33302c;--accent:#e58a6d;--accent-soft:#3a241d;--gap:#2e2614;--gap-line:#8f7430;--key:#1c2530;--key-line:#4f6d8c;--note:#1c2530;--note-line:#4f6d8c;--warn:#2e2614;--warn-line:#8f7430;--brick:#a5543a;--lawn:#3d5a2e;--yard:#2c2925;--stone:#7a746b;--soil:#6e5f49;--pcc:#5d5954;--code:#26231f;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#171615;--panel:#1f1d1b;--fg:#ece8e2;--muted:#a39b91;--line:#33302c;--accent:#e58a6d;--accent-soft:#3a241d;--gap:#2e2614;--gap-line:#8f7430;--key:#1c2530;--key-line:#4f6d8c;--note:#1c2530;--note-line:#4f6d8c;--warn:#2e2614;--warn-line:#8f7430;--brick:#a5543a;--lawn:#3d5a2e;--yard:#2c2925;--stone:#7a746b;--soil:#6e5f49;--pcc:#5d5954;--code:#26231f;color-scheme:dark}
+/* Layout: docs shell — left section nav, centred reading column, right "on this page" rail. Brick-red accent from the subject. */
+:root{
+  --bg:#fbfaf8; --panel:#f3f1ed; --fg:#1d1b19; --muted:#6a645d; --line:#e3ded6;
+  --accent:#a8432a; --accent-soft:#f6e6df; --note:#eef3f8; --note-line:#9db6cf; --warn:#fbf2dc; --warn-line:#d9b25a;
+  --code:#efece7; --paper:#ffffff; --lawn:#a9cf8a; --lawn-dk:#6f9a52; --yard:#e8e2d6; --stone:#bdb5a8; --soil:#c9b597; --sand:#efe0b4; --pcc:#b9b4ac; --brick:#c4694c; --dpc:#2f2b28; --rcc:#8e8a84;
+  --f-display:"Newsreader", Georgia, "Times New Roman", serif;
+  --f-body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#171615; --panel:#1f1d1b; --fg:#ece8e2; --muted:#a39b91; --line:#33302c;
+  --accent:#e58a6d; --accent-soft:#3a241d; --note:#1c2530; --note-line:#4f6d8c; --warn:#2e2614; --warn-line:#8f7430;
+  --code:#26231f; --lawn:#3d5a2e; --lawn-dk:#5d8446; --yard:#2c2925; --stone:#7a746b; --soil:#6e5f49; --sand:#8a7a4e; --pcc:#5d5954; --brick:#a5543a; --dpc:#e8e2da; --rcc:#77736d; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#171615; --panel:#1f1d1b; --fg:#ece8e2; --muted:#a39b91; --line:#33302c;
+  --accent:#e58a6d; --accent-soft:#3a241d; --note:#1c2530; --note-line:#4f6d8c; --warn:#2e2614; --warn-line:#8f7430;
+  --code:#26231f; --lawn:#3d5a2e; --lawn-dk:#5d8446; --yard:#2c2925; --stone:#7a746b; --soil:#6e5f49; --sand:#8a7a4e; --pcc:#5d5954; --brick:#a5543a; --dpc:#e8e2da; --rcc:#77736d; color-scheme:dark}
 *{box-sizing:border-box}
-html{padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px);scroll-padding-top:70px;scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.6}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.65}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
 a{color:var(--accent)}
-a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.top{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;
- padding-block:12px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-.brand{font-weight:700;display:flex;align-items:center;gap:10px}.brand i{width:22px;height:14px;background:var(--brick);border-radius:2px;display:inline-block}
-.tabs{display:inline-flex;flex-wrap:wrap;gap:4px;padding:3px;border:1px solid var(--line);border-radius:10px;background:var(--panel);margin-left:auto}
-.tabs a{text-decoration:none;font-size:14px;font-weight:600;padding:6px 12px;border-radius:7px;color:var(--muted);white-space:nowrap}
-.tabs a.on{background:var(--accent);color:var(--bg)}
-main{max-width:880px;margin:0 auto;padding-block:24px 80px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-h1{font-family:var(--f-display);font-size:2.2rem;line-height:1.15;margin:0 0 8px;text-wrap:balance}
-.lead{color:var(--muted);font-size:1.08rem;max-width:62ch;margin:0 0 18px}
-.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 18px}
-.kv div{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--panel)}
-.kv b{display:block;font-family:var(--f-display);font-size:1.5rem;line-height:1.1}.kv span{color:var(--muted);font-size:13px}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:12px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px}
+.brand{font-weight:700;letter-spacing:.01em;display:flex;align-items:center;gap:10px}
+.brand .mark{width:22px;height:14px;background:var(--brick);border-radius:2px;box-shadow:inset 0 -3px 0 rgba(0,0,0,.18)}
+.top .sub{color:var(--muted);font-size:14px}
+.shell{display:grid;grid-template-columns:250px minmax(0,1fr) 210px;gap:40px;max-width:1320px;margin:0 auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.side{position:sticky;top:72px;align-self:start;max-height:calc(100vh - 80px);overflow:auto;padding-block:28px}
+.side h4,.toc h4{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:18px 0 6px;font-weight:600}
+.side h4:first-child{margin-top:0}
+.side a,.toc a{display:block;text-decoration:none;color:var(--fg);font-size:14.5px;padding:5px 10px;border-radius:6px}
+.side a:hover{background:var(--panel)}
+.side a.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.toc{position:sticky;top:72px;align-self:start;padding-block:28px}
+.toc a{color:var(--muted);font-size:13.5px;padding:3px 0 3px 12px;border-left:2px solid var(--line);border-radius:0}
+.toc a.on{color:var(--accent);border-left-color:var(--accent)}
+main{min-width:0;padding-block:28px 96px;max-width:820px}
+.crumb{font-size:13.5px;color:var(--muted);margin-bottom:6px}
+h1,h2,h3{font-family:var(--f-display);font-weight:600;text-wrap:balance;line-height:1.2}
+h1{font-size:2.4rem;margin:0 0 10px}
+h2{font-size:1.75rem;margin:64px 0 12px;padding-top:12px;border-top:1px solid var(--line)}
+h3{font-size:1.25rem;margin:32px 0 8px}
+.lead{font-size:1.15rem;color:var(--muted);max-width:65ch}
+p,li{max-width:70ch}
+code,.num{font-family:var(--f-mono);font-size:.88em}
+code{background:var(--code);padding:1px 5px;border-radius:4px}
+.callout{border:1px solid var(--note-line);background:var(--note);border-radius:10px;padding:14px 16px;margin:18px 0;font-size:15px}
+.callout.warn{border-color:var(--warn-line);background:var(--warn)}
+.callout b.t{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.callout p{margin:4px 0}
+.tbl{overflow-x:auto;margin:16px 0;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:520px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top; color: white;}
+th{background:var(--panel);font-weight:600;font-size:13px;letter-spacing:.02em}
+tr:last-child td{border-bottom:0}
+td.r,th.r{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;background:var(--accent-soft)}
+tr.sub td{font-weight:600;color:var(--muted);border-top:1px solid var(--line)}
+tr.grp td{background:var(--panel);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.tag{display:inline-block;font-size:12px;padding:1px 8px;border-radius:99px;background:var(--panel);border:1px solid var(--line);white-space:nowrap}
+.tag.opt{background:var(--warn);border-color:var(--warn-line)}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:18px 0}
+.kv div{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--panel)}
+.kv b{display:block;font-family:var(--f-display);font-size:1.6rem;line-height:1.1}
+.kv span{color:var(--muted);font-size:13.5px}
+.fig{border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--panel);overflow-x:auto;margin:16px 0}
+.fig svg{display:block;width:100%;min-width:520px;height:auto}
+.fig .cap{font-size:13px;color:var(--muted);margin-top:6px}
+input.rate{width:92px;font:inherit;font-family:var(--f-mono);font-size:13.5px;padding:4px 6px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);text-align:right}
+input.rate:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.reset{font:inherit;font-size:13.5px;padding:6px 12px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--fg);cursor:pointer}
+ol.steps{padding-left:22px} ol.steps li{margin:6px 0}
+
+.fig svg text{font-family:var(--f-body);font-size:13px;fill:var(--fg)}
+.fig svg .tiny{font-size:11.5px}.fig svg .mu{fill:var(--muted)}.fig svg .rm{font-weight:600;font-size:12.5px}
+.fig svg .ld{stroke:var(--muted);stroke-width:1;fill:none}
+.fig svg .w9{stroke:var(--fg);stroke-width:8;stroke-linecap:square}
+.fig svg .w4{stroke:var(--accent);stroke-width:4;stroke-linecap:square}
+.fig svg .beam{stroke:var(--accent);stroke-width:2;stroke-dasharray:6 4}
+.fig svg .pil{fill:var(--fg)}
+.fig svg .mh{fill:var(--panel);stroke:var(--fg);stroke-width:1.5}
+.fig svg .sewer{stroke:var(--note-line);stroke-width:3;fill:none;stroke-dasharray:10 4}
+.fig svg .tank{fill:none;stroke:var(--note-line);stroke-width:1.5;stroke-dasharray:4 3}
+.fig svg .plot{fill:var(--bg);stroke:var(--line)}
+.fig svg .roofed{fill:var(--accent-soft)}.fig svg .open{fill:var(--bg);stroke:var(--line);stroke-dasharray:3 3}
+.fig svg .soilst{fill:var(--soil);opacity:.5}.fig svg .path{fill:var(--pcc);opacity:.35}
+.fig svg .conc{fill:var(--pcc);stroke:var(--fg);stroke-width:.6}
+.fig svg .brk{fill:var(--brick);stroke:var(--fg);stroke-width:.6}.fig svg .brk.thin{stroke-width:.4}
+.fig svg .brk4{fill:var(--brick);opacity:.7;stroke:var(--fg);stroke-width:.6}
+.fig svg .khg{fill:var(--dpc);opacity:.55;stroke:var(--fg);stroke-width:.6}
+.fig svg .bar{stroke:var(--fg);stroke-width:2.2;fill:none}.fig svg .bar2{stroke:var(--accent);stroke-width:2.2;fill:none}.fig svg .bar3{stroke:var(--note-line);stroke-width:3;fill:none}
+.fig svg .dot{fill:var(--fg)}.fig svg .dotb{fill:var(--fg)}.fig svg .ring{fill:none;stroke:var(--accent);stroke-width:2}
+.fig svg .gut{fill:var(--muted)}.fig svg .hole{fill:var(--bg);stroke:var(--line)}
+.fig svg .gap{fill:var(--bg);stroke:var(--accent);stroke-width:.8}.fig svg .dpcb{fill:var(--dpc)}
+.fig svg .sandL{fill:var(--sand)}.fig svg .tile{fill:var(--brick);stroke:var(--fg);stroke-width:.6}
+.fig svg .mud{fill:var(--soil);stroke:var(--fg);stroke-width:.4}.fig svg .poly{fill:var(--note-line)}.fig svg .bit{fill:var(--dpc)}
+.fig svg .cov{fill:var(--rcc);stroke:var(--fg);stroke-width:.6}.fig svg .pipe{fill:var(--panel);stroke:var(--fg);stroke-width:1}
+.fig svg .chan{fill:none;stroke:var(--fg);stroke-width:1.5}
+.fig svg .room{fill:var(--bg);stroke:var(--fg);stroke-width:6}
+.fig svg .cup{fill:var(--warn);stroke:var(--accent);stroke-width:2}.fig svg .fan{fill:var(--panel);stroke:var(--fg);stroke-width:2}
+.fig svg .skip{fill:var(--panel);stroke:var(--muted);stroke-dasharray:5 4}
+.fig svg .ngl{stroke:var(--fg);stroke-dasharray:6 4}
+.plans{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:14px;margin:16px 0}
+.plans figure{margin:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--panel)}
+.plans img{display:block;width:100%;height:auto;background:var(--paper)}
+.plans figcaption{font-size:13px;color:var(--muted);padding:8px 12px}
+@media (max-width:700px){.plans{grid-template-columns:minmax(0,1fr)}}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:6px 0 4px}
+.seg button{font:inherit;font-size:14px;padding:8px 14px;border:0;background:var(--panel);color:var(--fg);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--bg);font-weight:600}
+.cmp{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:12px 0}
+.cmp div{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--panel)}
+.cmp b{display:block;font-family:var(--f-display);font-size:1.5rem}.cmp span{color:var(--muted);font-size:13.5px}
+.only-b{display:none!important}
+body.plan-b .only-b{display:revert!important}
+body.plan-b .only-a{display:none!important}
+.plan-tabs{display:inline-flex;gap:4px;padding:3px;border:1px solid var(--line);border-radius:10px;background:var(--panel);margin-left:auto}
+.plan-tabs button{font:inherit;font-size:14px;font-weight:600;padding:6px 14px;border:0;border-radius:7px;background:transparent;color:var(--muted);cursor:pointer;white-space:nowrap}
+.plan-tabs button[aria-selected="true"]{background:var(--accent);color:var(--bg)}
+.plan-tabs small{font-weight:400;opacity:.85}
+.maplinks{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+.mapbtn{display:inline-block;text-decoration:none;font-size:14px;font-weight:600;padding:8px 14px;border-radius:8px;background:var(--accent);color:var(--bg);border:1px solid var(--accent)}
+.mapbtn.ghost{background:var(--panel);color:var(--fg);border-color:var(--line);font-weight:500}
+.mapbtn:hover{filter:brightness(1.05)}
+.planbar{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;border:1px solid var(--accent);background:var(--accent-soft);border-radius:10px;padding:10px 14px;margin:6px 0 18px;font-size:14.5px}
+
+.fig svg .yd{fill:var(--yard)}.fig svg .hs{fill:var(--accent-soft);stroke:var(--fg);stroke-width:2}
+.fig svg .conc2{fill:var(--pcc);opacity:.75}.fig svg .lawn{fill:var(--lawn)}.fig svg .stone{fill:var(--stone);stroke:var(--fg);stroke-width:.8}
+.fig svg .pathp{fill:var(--pcc);opacity:.45}.fig svg .future{fill:none;stroke:var(--fg);stroke-width:1;stroke-dasharray:5 4;opacity:.6}
+.fig svg .car{fill:var(--panel);stroke:var(--fg);stroke-width:1.5}.fig svg .gate{stroke:var(--accent);stroke-width:4;stroke-dasharray:8 4}
+.fig svg .arrow{stroke:var(--accent);stroke-width:2.5}.fig svg .ahd{fill:var(--accent)}
+.drawing{margin:16px auto;max-width:640px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--panel)}
+.dwrap{position:relative;background:var(--paper)}
+.dwrap img{display:block;width:100%;height:auto}
+.dmask{position:absolute;background:repeating-linear-gradient(45deg,rgba(168,67,42,.30) 0 8px,rgba(168,67,42,.12) 8px 16px)}
+.dmask.skip{inset:0;clip-path:polygon(43.7% 16.6%,93.8% 16.6%,93.8% 72.1%,90.9% 72.1%,90.9% 52.8%,66.6% 52.8%,66.6% 51.6%,57.3% 51.6%,57.3% 31.3%,43.7% 31.3%)}
+.dmask.ugwt{left:52.4%;top:6.8%;width:24.8%;height:8.9%}
+.dtag{position:absolute;transform:translate(-50%,-50%);background:var(--accent);color:var(--bg);font-size:12.5px;font-weight:700;padding:3px 8px;border-radius:6px;white-space:nowrap}
+.drawing figcaption{font-size:13.5px;color:var(--muted);padding:10px 12px}
+details.insp{margin-top:8px;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
+details.insp summary{cursor:pointer;font-size:13.5px;font-weight:600;color:var(--accent);padding:6px 10px;list-style:none}
+details.insp summary::-webkit-details-marker{display:none}
+details.insp summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details.insp[open] summary::before{content:"▾ "}
+details.insp ul{margin:0;padding:2px 12px 10px 28px;font-size:14px}
+details.insp li{margin:3px 0}
+.mobile-nav{display:none}
+@media (max-width:1180px){.shell{grid-template-columns:230px minmax(0,1fr)}.toc{display:none}}
+@media (max-width:860px){
+  .shell{grid-template-columns:minmax(0,1fr)}
+  .side{display:none}
+  .mobile-nav{display:flex;gap:8px;overflow-x:auto;padding:10px 0 4px;margin:0 0 6px}
+  .mobile-nav a{flex:none;font-size:13.5px;text-decoration:none;color:var(--fg);border:1px solid var(--line);border-radius:99px;padding:4px 12px;background:var(--panel)}
+  h1{font-size:1.9rem}
+  .top .sub{display:none}
+}
+
+details.insp{margin-top:8px;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
+details.insp summary{cursor:pointer;font-size:13.5px;font-weight:600;color:var(--accent);padding:6px 10px;list-style:none}
+details.insp summary::-webkit-details-marker{display:none}
+details.insp summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details.insp[open] summary::before{content:"▾ "}
+details.insp ul{margin:0;padding:2px 12px 10px 28px;font-size:14px}
+details.insp li{margin:3px 0}
+
 .legend{display:flex;flex-wrap:wrap;gap:8px;font-size:13.5px;color:var(--muted);margin-bottom:8px}
 .week h2,.week h3.wh{font-family:var(--f-display);font-size:1.45rem;margin:40px 0 2px;padding-top:12px;border-top:1px solid var(--line);text-wrap:balance}
 .wk{color:var(--muted);font-size:14px;margin:0 0 10px;font-variant-numeric:tabular-nums}
@@ -46,14 +191,6 @@ ol.days{list-style:none;padding:0;margin:0;display:grid;gap:8px}
 .badge{font-size:11px;font-weight:700;letter-spacing:.06em;padding:1px 7px;border-radius:5px}
 .badge.gap{background:var(--gap-line);color:var(--bg)}.badge.key{background:var(--key-line);color:var(--bg)}
 .note{border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:12px 14px;font-size:14.5px;margin:14px 0}
-@media (max-width:560px){h1{font-size:1.75rem}.day{grid-template-columns:48px minmax(0,1fr)}.dn{font-size:1.35rem}.tabs{margin-left:0}}
-details.insp{margin-top:8px;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
-details.insp summary{cursor:pointer;font-size:13.5px;font-weight:600;color:var(--accent);padding:6px 10px;list-style:none}
-details.insp summary::-webkit-details-marker{display:none}
-details.insp summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
-details.insp[open] summary::before{content:"▾ "}
-details.insp ul{margin:0;padding:2px 12px 10px 28px;font-size:14px}
-details.insp li{margin:3px 0}
 
 h2{font-family:var(--f-display);font-size:1.7rem;margin:56px 0 10px;padding-top:12px;border-top:1px solid var(--line);text-wrap:balance}
 h3{font-family:var(--f-display);font-size:1.25rem;margin:28px 0 8px}
@@ -104,13 +241,27 @@ tr.grp td{background:var(--panel);font-weight:600;font-size:13px;text-transform:
 .cmp b{display:block;font-family:var(--f-display);font-size:1.45rem}.cmp span{color:var(--muted);font-size:13.5px}
 input.rate{width:92px;font:inherit;font-family:var(--f-mono);font-size:13.5px;padding:4px 6px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);text-align:right}
 button.reset{font:inherit;font-size:13.5px;padding:6px 12px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--fg);cursor:pointer}
-.mapbtn{display:inline-block;text-decoration:none;font-size:14px;font-weight:600;padding:8px 14px;border-radius:8px;background:var(--accent);color:var(--bg)}</style></head><body>
-<header class="top"><div class="brand"><i aria-hidden="true"></i>Bilal House</div>
-<nav class="tabs" aria-label="Pages"><a href="./">Plan A / B guide</a><a  href="plan-b-roadmap.html">Plan B day by day</a><a class="on" aria-current="page" href="plan-c.html">Plan C</a></nav><a class="mapbtn" href="#days">Plan C day by day →</a></header>
+
+
+body{margin:0}
+:root{--gap:var(--warn);--gap-line:var(--warn-line);--key-line:var(--note-line);--key:var(--note)}
+.plan-tabs a{font-size:14px;font-weight:600;padding:6px 14px;border-radius:7px;color:var(--muted);text-decoration:none;white-space:nowrap}
+.plan-tabs a[aria-current]{background:var(--accent);color:var(--bg)}
+.week h3.wh{font-family:var(--f-display);font-size:1.35rem;margin:36px 0 2px;padding-top:12px;border-top:1px solid var(--line)}
+</style></head><body>
+<header class="top">
+  <div class="brand"><span class="mark" aria-hidden="true"></span>Bilal House</div>
+  <span class="sub">Grey structure guide · Plan C, front block only</span>
+  <nav class="plan-tabs" aria-label="Choose plan"><a href="./">Plan A / B</a><a href="plan-c.html" aria-current="page">Plan C <small>front block</small></a></nav>
+  <a class="mapbtn" href="#days">Plan C day by day →</a>
+</header>
+<div class="shell">
+<nav class="side" aria-label="Sections"><h4>Start here</h4><a href="#map">The Plan C map</a><a href="#changes">What changes</a><a href="#site">Site layout</a><a href="#walls">Walls 9″ / 4½″</a><a href="#shopping">Shopping list</a><h4>Structure</h4><a href="#foundation">Foundation</a><a href="#bricks">Bricks</a><a href="#steel">Sarya, beam &amp; slab</a><a href="#plaster">Plaster, floor &amp; roof</a><h4>Services</h4><a href="#services">Water, sewer, electric</a><h4>Plan &amp; money</h4><a href="#cost">Cost estimate</a><a href="#days">Day by day</a><a href="#verify">Check with engineer</a></nav>
 <main>
-<h1>Plan C: front block only</h1>
+<div class="mobile-nav" aria-label="Sections"><a href="#map">Map</a><a href="#walls">Walls</a><a href="#shopping">Shopping</a><a href="#foundation">Foundation</a><a href="#bricks">Bricks</a><a href="#steel">Sarya</a><a href="#plaster">Plaster</a><a href="#services">Services</a><a href="#cost">Cost</a><a href="#days">Day by day</a><a href="#verify">Engineer</a></div>
+<div class="crumb">Guide / Ground floor / Grey structure / Plan C</div>
+<h1 id="overview">Plan C: front block only</h1>
 <p class="lead">Only the blue area of your sketch: the old S/kitchen, stair, bath, TV lounge and drawing room, turned into a small complete house. Single storey, grey structure only. The rear part of the plot stays empty for later.</p>
-<nav class="pnav" aria-label="Sections"><a href="#map">Map</a><a href="#walls">Walls</a><a href="#shopping">Shopping</a><a href="#foundation">Foundation</a><a href="#bricks">Bricks</a><a href="#steel">Sarya + slab</a><a href="#plaster">Plaster</a><a href="#services">Services</a><a href="#cost">Cost</a><a href="#days">Day by day</a><a href="#verify">Engineer</a></nav>
 <div class="kv">
 <div><b>~820 sft</b><span>Covered area (roofed)</span></div>
 <div><b id="totC">Rs 34.4 lakh</b><span>Grey structure total, from the cost table</span></div>
@@ -124,9 +275,9 @@ button.reset{font:inherit;font-size:13.5px;padding:6px 12px;border-radius:8px;bo
 <h2 id="map">The Plan C map</h2>
 <p>1 bedroom with attached bath, a common bath, an open kitchen and living, and an entry. Everything in the blue line, nothing in the red.</p>
 <div class="fig"><svg viewBox="0 0 610 660" role="img" aria-label="Plan C floor plan: Room, Bath 1, Kitchen, Living, Bath 2, with passage, manholes and stubs"><rect x="19.4" y="47.0" width="80.6" height="543.0" class="pathp"/><rect x="25.0" y="47.0" width="30.0" height="543.0" class="soilst"/><line class="w4" x1="22.0" y1="47.0" x2="22.0" y2="590.0"/><rect x="100.0" y="92.0" width="161.2" height="103.1" class="futurefill"/><rect x="111.2" y="206.4" width="418.1" height="331.9" class="floor"/><rect x="272.5" y="103.2" width="256.9" height="213.8" class="floor"/><rect x="100.0" y="195.1" width="11.2" height="354.4" class="wf9"/><rect x="100.0" y="195.1" width="172.5" height="11.2" class="wf9"/><rect x="261.2" y="92.0" width="11.2" height="114.4" class="wf9"/><rect x="261.2" y="92.0" width="279.4" height="11.2" class="wf9"/><rect x="529.4" y="92.0" width="11.2" height="457.5" class="wf9"/><rect x="100.0" y="538.2" width="440.6" height="11.2" class="wf9"/><rect x="111.2" y="317.0" width="418.1" height="11.2" class="wf9"/><rect x="223.8" y="206.4" width="5.6" height="110.6" class="wf4"/><rect x="111.2" y="458.3" width="118.1" height="5.5" class="wf4"/><rect x="223.8" y="463.8" width="5.6" height="74.4" class="wf4"/><rect x="100.0" y="165.1" width="11.2" height="30.0" class="stub"/><rect x="261.2" y="62.0" width="11.2" height="30.0" class="stub"/><rect x="529.4" y="62.0" width="11.2" height="30.0" class="stub"/><rect x="394.0" y="62.0" width="11.2" height="30.0" class="stub"/><rect x="250.0" y="538.2" width="52.5" height="11.2" class="floor"/><rect x="238.8" y="317.0" width="45.0" height="11.2" class="floor"/><rect x="223.8" y="278.0" width="5.6" height="37.5" class="floor"/><rect x="223.8" y="482.0" width="5.6" height="37.5" class="floor"/><rect x="347.5" y="92.0" width="90.0" height="11.2" class="floor"/><line class="win" x1="347.5" y1="97.6" x2="437.5" y2="97.6"/><rect x="100.0" y="354.5" width="11.2" height="67.5" class="floor"/><line class="win" x1="105.6" y1="354.5" x2="105.6" y2="422.0"/><rect x="100.0" y="242.0" width="11.2" height="22.5" class="floor"/><line class="win" x1="105.6" y1="242.0" x2="105.6" y2="264.5"/><rect x="100.0" y="489.5" width="11.2" height="22.5" class="floor"/><line class="win" x1="105.6" y1="489.5" x2="105.6" y2="512.0"/><rect x="377.5" y="538.2" width="90.0" height="11.2" class="floor"/><line class="win" x1="377.5" y1="543.9" x2="467.5" y2="543.9"/><path class="swing" d="M250.0,538.2 L250.0,485.8 A52.5,52.5 0 0 1 302.5,538.2"/><path class="swing" d="M238.8,317.0 L238.8,272.0 A45.0,45.0 0 0 1 283.8,317.0"/><path class="swing" d="M223.8,315.5 L186.2,315.5 A37.5,37.5 0 0 1 223.8,278.0"/><path class="swing" d="M223.8,519.5 L186.2,519.5 A37.5,37.5 0 0 1 223.8,482.0"/><rect x="315.6" y="328.2" width="11.2" height="210.0" class="removed"/><line class="beam" x1="321.2" y1="328.2" x2="321.2" y2="538.2"/><rect x="61.0" y="242.0" width="30.0" height="30.0" class="mh"/><text x="76.0" y="262.2" text-anchor="middle" class="tiny b">1</text><rect x="61.0" y="474.5" width="30.0" height="30.0" class="mh"/><text x="76.0" y="494.8" text-anchor="middle" class="tiny b">2</text><path class="sewer" d="M76.0,272.0 V474.5 M76.0,504.5 V590.0"/><text x="76.0" y="611.0" text-anchor="middle" class="tiny mu">6″ main to street</text><text x="400.0" y="197.0" text-anchor="middle" class="rm">ROOM</text><text x="400.0" y="216.5" text-anchor="middle" class="tiny mu">ex TV lounge · 17′-1½″×14′-3″</text><text x="167.5" y="233.0" text-anchor="middle" class="rm">BATH 1</text><text x="167.5" y="251.0" text-anchor="middle" class="tiny mu">ex S/kitchen</text><text x="167.5" y="267.5" text-anchor="middle" class="tiny mu">7′-6″×7′-4½″</text><text x="202.0" y="380.0" text-anchor="middle" class="rm">KITCHEN</text><text x="202.0" y="398.0" text-anchor="middle" class="tiny mu">ex stair · 13′-7½″×8′-8″</text><text x="430.0" y="416.0" text-anchor="middle" class="rm">LIVING</text><text x="430.0" y="434.0" text-anchor="middle" class="tiny mu">ex drawing · 13′-6″×14′</text><text x="148.0" y="495.5" text-anchor="middle" class="rm">BATH 2</text><text x="148.0" y="513.5" text-anchor="middle" class="tiny mu">7′-6″×5′</text><text x="272.5" y="476.0" text-anchor="middle" class="tiny b">Entry</text><text x="275.5" y="570.5" text-anchor="middle" class="tiny mu">Main door</text><text x="422.5" y="570.5" text-anchor="middle" class="tiny mu">W1</text><text x="364.0" y="83.0" text-anchor="middle" class="tiny mu">W3</text><text x="181.0" y="140.0" text-anchor="middle" class="tiny mu">Open: future kitchen</text><text x="181.0" y="158.0" text-anchor="middle" class="tiny mu">(rear part, later)</text><text x="280.0" y="47.0" text-anchor="middle" class="tiny mu">Rear of plot: future rooms, not built now</text><text class="tiny ac" transform="translate(334.0,432.5) rotate(-90)" text-anchor="middle">beam 9″×15″, wall removed</text><text x="400.0" y="308.0" text-anchor="middle" class="tiny ac">full 9″ wall, 8′-6″ opening closed</text><text x="40.0" y="74.0" text-anchor="middle" class="tiny mu">2′ soil</text><text x="77.5" y="74.0" text-anchor="middle" class="tiny mu">3′ path</text><text class="tiny mu" transform="translate(11.5,332.0) rotate(-90)" text-anchor="middle">Left boundary 4½″</text><line class="ld" x1="100.0" y1="27.5" x2="540.6" y2="27.5"/><text x="320.5" y="23.0" text-anchor="middle" class="tiny mu">29′-4½″ outside</text><line class="ld" x1="559.0" y1="92.0" x2="559.0" y2="549.5"/><text class="tiny mu" transform="translate(571.0,320.8) rotate(90)" text-anchor="middle">30′-6″ outside · neighbour wall side</text><rect x="25.0" y="626.8" width="21.0" height="13.5" class="wf9"/><text x="53.5" y="639.5" text-anchor="start" class="tiny">9″ wall</text><rect x="163.0" y="626.8" width="21.0" height="13.5" class="wf4"/><text x="191.5" y="639.5" text-anchor="start" class="tiny">4½″ parda</text><rect x="301.0" y="626.8" width="21.0" height="13.5" class="stub"/><text x="329.5" y="639.5" text-anchor="start" class="tiny">2′ stub for later</text><rect x="439.0" y="626.8" width="21.0" height="13.5" class="removed"/><text x="467.5" y="639.5" text-anchor="start" class="tiny">wall removed</text></svg><div class="cap">Plan C, drawn from drawing 104-A-E5 room sizes. Top = back of the plot, bottom = front (street side). Solid walls = 9″, red = 4½″ parda walls, red dashed blocks = 2′ foundation stubs for the rear part, dotted red = drawing-room wall removed and replaced by a beam. Blue lines in walls are windows. Measure on site before building.</div></div>
-<h3>What changes from the drawing</h3>
+<h3 id="changes">What changes from the drawing</h3>
 <div class="tbl "><table><tr><th>In the drawing</th><th>In Plan C</th><th>What the mistri does</th></tr><tr><td>T.V lounge 17′-1½″×14′-3″</td><td><b>Room</b> (bedroom)</td><td>Same walls. Its door is the old D1 from the hall, made a single 3′ door.</td></tr><tr><td>Drawing 13′-6″×14′</td><td><b>Living</b></td><td>Same front and right walls. Window W1 stays.</td></tr><tr><td>Drawing room left wall</td><td><b>Removed</b></td><td>No wall, no foundation. A 9″×15″ beam in the roof slab takes its place, from the front wall to the Room wall.</td></tr><tr><td>8′-6″ opening between lounge and drawing</td><td><b>Closed</b></td><td>Built as a full 9″ wall, because the Room is now a bedroom. The ¾″ beam over the opening is not needed.</td></tr><tr><td>Stair 13′-7½″×8′-8″</td><td><b>Kitchen</b>, open to the Living</td><td>No stair. Window W5 on the left wall stays. Counter along the left wall.</td></tr><tr><td>S/Kitchen 7′-6″×7′-4½″</td><td><b>Bath 1</b>, attached to the Room</td><td>Door cut into its right wall from the Room. Old door D3 to the passage is closed with brick, leaving a small ventilator.</td></tr><tr><td>Bath 7′-6″×5′</td><td><b>Bath 2</b>, common bath</td><td>Same, door from the entry.</td></tr><tr><td>Kitchen 10×13, patio, bedrooms, back yard</td><td><b>Not built</b></td><td>4 foundation stubs are left at the back so they join cleanly later.</td></tr></table></div>
-<h3>Site layout</h3>
+<h3 id="site">Site layout</h3>
 <div class="fig"><svg viewBox="0 0 560 545" role="img" aria-label="Plan C site layout on the 109 foot plot"><rect x="30.0" y="24.0" width="159.8" height="501.4" class="yd"/><rect x="31.7" y="24.0" width="9.2" height="501.4" class="soilst"/><rect x="40.9" y="24.0" width="13.8" height="501.4" class="pathp"/><rect x="54.7" y="24.0" width="135.1" height="286.3" class="yd"/><rect x="54.7" y="310.3" width="135.1" height="140.3" class="hs"/><rect x="54.7" y="310.3" width="49.4" height="31.6" class="yd"/><rect x="54.7" y="450.6" width="135.1" height="41.4" class="conc2"/><rect x="54.7" y="492.0" width="55.2" height="33.3" class="conc2"/><rect x="109.9" y="492.0" width="79.9" height="33.3" class="lawn"/><ellipse cx="177.1" cy="519.0" rx="6.5" ry="4.5" class="stone"/><ellipse cx="168.3" cy="514.4" rx="6.5" ry="4.5" class="stone"/><ellipse cx="159.6" cy="509.8" rx="6.5" ry="4.5" class="stone"/><ellipse cx="150.9" cy="505.2" rx="6.5" ry="4.5" class="stone"/><ellipse cx="142.1" cy="500.6" rx="6.5" ry="4.5" class="stone"/><ellipse cx="133.4" cy="496.0" rx="6.5" ry="4.5" class="stone"/><line class="w4" x1="30.0" y1="24.0" x2="30.0" y2="525.4"/><line class="w9" x1="30.0" y1="525.4" x2="54.7" y2="525.4"/><line class="gate" x1="54.7" y1="525.4" x2="109.9" y2="525.4"/><line class="w9" x1="109.9" y1="525.4" x2="189.8" y2="525.4"/><line class="ld" x1="122.0" y1="162.0" x2="232" y2="66"/><text x="236" y="70">Rear of plot: empty for now</text><text x="236" y="85" class="tiny mu">Future kitchen, bedrooms, patio, back yard</text><line class="ld" x1="36.4" y1="208.0" x2="232" y2="136"/><text x="236" y="140">2′ soil strip + 3′ path</text><text x="236" y="155" class="tiny mu">Along the 4½″ left boundary wall</text><line class="ld" x1="77.7" y1="326.0" x2="232" y2="206"/><text x="236" y="210">Open corner</text><text x="236" y="225" class="tiny mu">Future kitchen joins here</text><line class="ld" x1="137.5" y1="365.5" x2="232" y2="258"/><text x="236" y="262">Plan C house</text><text x="236" y="277" class="tiny mu">~820 sft roofed</text><line class="ld" x1="91.5" y1="466.7" x2="232" y2="326"/><text x="236" y="330">Poured car porch</text><text x="236" y="345" class="tiny mu">From the house to the driveway</text><line class="ld" x1="82.3" y1="502.4" x2="232" y2="376"/><text x="236" y="380">Driveway from the gate</text><text x="236" y="395" class="tiny mu">Poured, 12′ gate</text><line class="ld" x1="165.1" y1="507.0" x2="232" y2="426"/><text x="236" y="430">Lawn with stepping stones</text><text x="236" y="445" class="tiny mu">From the front wall to the porch</text><line class="ld" x1="146.7" y1="525.4" x2="232" y2="476"/><text x="236" y="480">Front wall 9″</text><text x="236" y="495" class="tiny mu">With 2 gate pillars</text><text x="30.0" y="16.0" class="tiny mu">Neighbour behind (no new wall)</text><text x="30.0" y="542.4" class="tiny mu">Street</text></svg><div class="cap">Plan C on the plot. The house sits where the drawing puts it, 16′-3″ back from the front wall. The rear ~62′ stays open for the rear part later.</div></div>
 <div class="callout warn"><b class="t">Three things to tell the engineer</b>
 <p>1. <b>Removed wall:</b> taking out the drawing room's left wall makes Kitchen + Entry + Living one 21′-wide space. A 9″×15″ beam (3 + 3 bars of 6 sutar) in the slab, on the old wall line, keeps every slab panel near 14′.<br>2. <b>No stair:</b> with the stair gone, a future upper floor needs a new stair, for example an outside steel stair in the passage or one in the rear part. Decide before the slab, because a stair opening cannot be cut later.<br>3. <b>Room door:</b> the 8′-6″ opening is closed, so the Room's door is the old D1 from the kitchen hall.</p></div>
@@ -205,6 +356,8 @@ button.reset{font:inherit;font-size:13.5px;padding:6px 12px;border-radius:8px;bo
 </ul>
 <p style="color:var(--muted);font-size:14px">Prepared from drawing 104-A-E5 and your marked sketch. Quantities rounded, ±5–10%.</p>
 </main>
+<aside class="toc" aria-label="On this page"><h4>On this page</h4><a href="#map">The Plan C map</a><a href="#changes">What changes</a><a href="#site">Site layout</a><a href="#walls">Walls 9″ / 4½″</a><a href="#shopping">Shopping list</a><a href="#foundation">Foundation</a><a href="#bricks">Bricks</a><a href="#steel">Sarya, beam &amp; slab</a><a href="#plaster">Plaster, floor &amp; roof</a><a href="#services">Water, sewer, electric</a><a href="#cost">Cost estimate</a><a href="#days">Day by day</a><a href="#verify">Check with engineer</a></aside>
+</div>
 <script>
 (function(){
 var ITEMS=[["grp", "Bricks, cement, steel, sand"], ["khingar", "Khingar bricks (below DPC)", 16600, "brick", 22, "Y"], ["bricks", "First-class bricks (above DPC)", 23000, "brick", 27.5, "Y"], ["cement", "Cement (50 kg bag)", 290, "bag", 1450, "E"], ["steel", "Sarya Grade 60, all sizes + binding wire", 845, "kg", 240, "Y"], ["ravi", "Rait, Ravi / local", 960, "cft", 45, "E"], ["chenab", "Rait, Chenab", 665, "cft", 110, "E"], ["bajri", "Bajri", 500, "cft", 150, "E"], ["crush", "Crush ½″–¾″", 335, "cft", 220, "E"], ["chips", "Chips ¼″–⅜″ (DPC)", 22, "cft", 230, "E"], ["ghassu", "Plot filling contract: ghassu + mitti backfill, incl. labour", 1, "lump sum", 300000, "Y"], ["grp", "Waterproofing"], ["bitumen", "Bitumen (DPC + roof)", 160, "kg", 280, "E"], ["compound", "Waterproofing compound", 10, "kg", 600, "E"], ["poly", "Polythene sheet (roof)", 900, "sft", 10, "E"], ["tiles", "Roof brick tiles", 3000, "tile", 22, "E"], ["termite", "Anti-termite chemical", 1, "set", 6500, "E"], ["grp", "Plumbing, sewer, electrical materials"], ["tank", "Plastic water tank 500 gal", 1, "each", 65000, "E"], ["ppr", "PPR pipes, fittings, valves", 1, "lump sum", 72000, "E"], ["drain", "PVC drain pipes, traps, fittings (short main)", 1, "lump sum", 45000, "E"], ["mhcov", "Manhole covers 2′×2′", 2, "each", 6000, "E"], ["elec", "Conduit, COB cups, boxes, DB box", 1, "lump sum", 40000, "E"], ["grp", "Main gate"], ["gate", "Main gate 12′×7′ MS steel, fabricated, primer, fixed", 1, "each", 100000, "Y"], ["grp", "Labour"], ["mistri", "Mistri (daily wage)", 77, "day", 2500, "Y"], ["mazdoor", "Mazdoor (daily wage)", 146, "day", 1800, "Y"], ["plumber", "Plumber: all pipes, manholes + bases, sewer line (fixed)", 1, "job", 40000, "Y"], ["electrician", "Electrician, grey stage (labour)", 1, "job", 35000, "Y"], ["shutter", "Shuttering plates + props rent (own crew fixes)", 815, "sft", 15, "E"], ["fixer", "Steel fixing (sarya bandhai)", 845, "kg", 18, "E"], ["mixer", "Mixer + vibrator on slab day", 1, "day", 15000, "E"], ["grp", "Site running costs"], ["misc", "Water, electricity, tools, transport, chai", 1, "lump sum", 45000, "E"], ["cont", "Buffer for waste and price changes", 5, "% of all above", 0, "E"]], AREA=820, KEY="bilal-house-cost-c-v1", saved={};
@@ -237,4 +390,10 @@ document.getElementById("resetRates").addEventListener("click",function(){saved=
 render();
 })();
 </script>
+<script>(function(){var links=[].slice.call(document.querySelectorAll(".side a,.toc a"));
+var ids=links.map(function(a){return a.getAttribute("href").slice(1)}).filter(function(v,i,s){return s.indexOf(v)===i});
+var secs=ids.map(function(id){return document.getElementById(id)}).filter(Boolean);
+function f(){var cur=secs[0]&&secs[0].id;secs.forEach(function(s){if(s.getBoundingClientRect().top<120)cur=s.id});
+links.forEach(function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+cur)})}
+window.addEventListener("scroll",f,{passive:true});f()})();</script>
 </body></html>
