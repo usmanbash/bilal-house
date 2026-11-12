@@ -145,6 +145,13 @@ body.plan-b .only-a{display:none!important}
 .dmask.ugwt{left:52.4%;top:6.8%;width:24.8%;height:8.9%}
 .dtag{position:absolute;transform:translate(-50%,-50%);background:var(--accent);color:var(--bg);font-size:12.5px;font-weight:700;padding:3px 8px;border-radius:6px;white-space:nowrap}
 .drawing figcaption{font-size:13.5px;color:var(--muted);padding:10px 12px}
+details.insp{margin-top:8px;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
+details.insp summary{cursor:pointer;font-size:13.5px;font-weight:600;color:var(--accent);padding:6px 10px;list-style:none}
+details.insp summary::-webkit-details-marker{display:none}
+details.insp summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details.insp[open] summary::before{content:"▾ "}
+details.insp ul{margin:0;padding:2px 12px 10px 28px;font-size:14px}
+details.insp li{margin:3px 0}
 .mobile-nav{display:none}
 @media (max-width:1180px){.shell{grid-template-columns:230px minmax(0,1fr)}.toc{display:none}}
 @media (max-width:860px){
@@ -211,9 +218,9 @@ body.plan-b .only-a{display:none!important}
 
 <div class="kv">
   <div><b><span class="pv" data-a="~1,280 sft" data-b="~930 sft">~1,280 sft</span></b><span>Covered area: roofed rooms only, patio not counted</span></div>
-  <div><b><span class="pv" data-a="~24,800" data-b="~19,500">~24,800</span></b><span>Khingar bricks, below DPC</span></div>
+  <div><b><span class="pv" data-a="~24,800" data-b="~20,300">~24,800</span></b><span>Khingar bricks, below DPC</span></div>
   <div><b><span class="pv" data-a="~34,300" data-b="~27,400">~34,300</span></b><span>First-class bricks, above DPC</span></div>
-  <div><b><span class="pv" data-a="~440 bags" data-b="~340 bags">~440 bags</span></b><span>Cement, everything included</span></div>
+  <div><b><span class="pv" data-a="~440 bags" data-b="~345 bags">~440 bags</span></b><span>Cement, everything included</span></div>
   <div><b><span class="pv" data-a="~1.45 ton" data-b="~1.15 ton">~1.45 ton</span></b><span>Sarya, mostly 3 sutar</span></div>
 </div>
 
@@ -361,12 +368,12 @@ body.plan-b .only-a{display:none!important}
 <div class="only-b tbl"><table>
 <tr><th>Item</th><th class="r">Quantity</th><th>Notes</th></tr>
 <tr class="grp"><td colspan="3">Basic materials</td></tr>
-<tr><td>Khingar bricks</td><td class="r">19,500</td><td>Everything below DPC, incl. manholes, septic, boundary footing. 8% breakage added.</td></tr>
+<tr><td>Khingar bricks</td><td class="r">20,300</td><td>Everything below DPC, incl. manholes, septic, boundary footing. 8% breakage added.</td></tr>
 <tr><td>First-class bricks</td><td class="r">27,400</td><td>9″ and 4½″ walls above DPC, 2-course parapet, boundary above ground, tank stand. 5% breakage added.</td></tr>
-<tr><td>Cement</td><td class="r">340 bags</td><td>About 100 bags are needed in the foundation stage</td></tr>
-<tr><td>Rait, Ravi / local</td><td class="r">1,150 cft</td><td>Brick mortar plus bed under foundation</td></tr>
-<tr><td>Rait, Chenab</td><td class="r">785 cft</td><td>Concrete, DPC, plaster</td></tr>
-<tr><td>Bajri</td><td class="r">595 cft</td><td>PCC under foundation and floors</td></tr>
+<tr><td>Cement</td><td class="r">345 bags</td><td>About 104 bags are needed in the foundation stage</td></tr>
+<tr><td>Rait, Ravi / local</td><td class="r">1,175 cft</td><td>Brick mortar plus bed under foundation</td></tr>
+<tr><td>Rait, Chenab</td><td class="r">790 cft</td><td>Concrete, DPC, plaster</td></tr>
+<tr><td>Bajri</td><td class="r">610 cft</td><td>PCC under foundation and floors</td></tr>
 <tr><td>Crush ½″–¾″</td><td class="r">390 cft</td><td>Slab, beams, lintels</td></tr>
 <tr><td>Chips ¼″–⅜″</td><td class="r">27 cft</td><td>DPC</td></tr>
 <tr><td>Sarya 3 sutar (⅜″)</td><td class="r">790 kg</td><td>~116 bars of 40 ft</td></tr>
@@ -375,7 +382,7 @@ body.plan-b .only-a{display:none!important}
 <tr><td>Sarya 4 sutar (½″)</td><td class="r">12 kg</td><td>Fan hooks and spare</td></tr>
 <tr><td>Binding wire</td><td class="r">12 kg</td><td></td></tr>
 <tr><td>Ghassu</td><td class="r">~1,550 cft</td><td>Filling inside the rooms, about 19″ deep, watered and rammed</td></tr>
-<tr><td>Mitti</td><td class="r">0 to buy</td><td>Use the ~2,610 cft of dug soil for backfill outside the footings and for the roof mud</td></tr>
+<tr><td>Mitti</td><td class="r">0 to buy</td><td>Use the ~2,715 cft of dug soil for backfill outside the footings and for the roof mud</td></tr>
 <tr class="grp"><td colspan="3">Waterproofing</td></tr>
 <tr><td>Bitumen</td><td class="r">~185 kg</td><td>40 kg on DPC, 145 kg on roof</td></tr>
 <tr><td>Waterproofing compound</td><td class="r">~12 kg / litre</td><td>Mixed into the DPC and slab top</td></tr>
@@ -501,6 +508,10 @@ body.plan-b .only-a{display:none!important}
 <tr><td>Left boundary, single brick 4½″</td><td class="r">~109 rft</td><td>1′-6″ × 2′-0″</td><td>3″ rait, 6″ PCC, steps 13½″/9″, then 4½″ wall, 7′ high. 13½″×13½″ pillar every 8′ (15 pillars).</td></tr>
 <tr><td>Front boundary 9″</td><td class="r">~22 rft</td><td>2′-0″ × 2′-6″</td><td>3″ rait, 6″ PCC, steps 18″/13½″, then 9″ wall, 7′ high, plus 2 gate pillars</td></tr>
 </table></div>
+<div class="only-b callout"><b class="t">Plan B: foundation stubs for the future rooms</b><p>At each of these 6 points, carry the foundation (PCC + khingar steps + DPC) <b>2′ further</b> than needed, and leave <b>toothing</b> (every second course sticking out) in the walls above:</p>
+<p>1. Back wall line, past the left bath's corner<br>2. Left bath's side wall, at the back<br>3. Master bed's top wall, where the future dress wall will join<br>4. Master bed's right wall, toward the future bedroom<br>5. Lobby top wall, at its right end<br>6. Right outer wall, above the TV lounge, toward the patio</p>
+<p>The new rooms will lock into these instead of cracking at the joint, and nobody has to dig next to a finished foundation later. Cost: ~744 khingar bricks and ~4 bags of cement, about <b>Rs 25k</b>.</p></div>
+
 
 <div class="fig"><svg viewBox="0 0 680 250" role="img" aria-label="Left boundary wall elevation"><line x1="20" y1="170" x2="660" y2="170" class="ngl"/><rect x="40" y="30" width="30" height="140" class="brk"/><rect x="70" y="30" width="170" height="140" class="brk4"/><rect x="240" y="30" width="30" height="140" class="brk"/><rect x="270" y="30" width="170" height="140" class="brk4"/><rect x="440" y="30" width="30" height="140" class="brk"/><rect x="470" y="30" width="170" height="140" class="brk4"/><rect x="640" y="30" width="30" height="140" class="brk"/><rect x="30" y="170" width="620" height="30" class="khg"/><rect x="20" y="200" width="640" height="12" class="conc"/><text x="125" y="105" text-anchor="middle" class="mu">4½″ wall</text><text x="55" y="22" text-anchor="middle" class="tiny">Pillar 13½″</text><line x1="70" y1="225" x2="240" y2="225" class="ld"/><text x="155" y="241" text-anchor="middle" class="tiny mu">8′ centre to centre</text><text x="666" y="104" class="tiny mu" transform="rotate(90 666 104)" text-anchor="middle">7′ high</text><text x="330" y="190" text-anchor="middle" class="tiny">Khingar footing (13½″ → 9″), PCC 6″ below</text><text x="560" y="164" class="tiny mu">Ground</text></svg><div class="cap">Left boundary wall: single brick (4½″) panels between 13½″ pillars every 8′, on a khingar footing.</div></div>
 <h3>Foundation materials (up to DPC)</h3>
@@ -516,16 +527,16 @@ body.plan-b .only-a{display:none!important}
 </table></div>
 <div class="only-b tbl"><table>
 <tr><th>Work</th><th class="r">Volume</th><th class="r">Cement</th><th class="r">Rait</th><th class="r">Bajri / chips</th><th class="r">Bricks</th></tr>
-<tr><td>Digging (khudai)</td><td class="r">~2,610 cft</td><td class="r">–</td><td class="r">–</td><td class="r">–</td><td class="r">–</td></tr>
-<tr><td>Rait bed 3″</td><td class="r">190 cft</td><td class="r">–</td><td class="r">190 cft Ravi</td><td class="r">–</td><td class="r">–</td></tr>
-<tr><td>PCC 6″ (1:4:8)</td><td class="r">388 cft</td><td class="r">37 bags</td><td class="r">184 cft Chenab</td><td class="r">368 cft bajri</td><td class="r">–</td></tr>
-<tr><td>Khingar footing + plinth (mortar 1:5)</td><td class="r">1,168 cft</td><td class="r">58 bags</td><td class="r">363 cft Ravi</td><td class="r">–</td><td class="r">15,770 khingar</td></tr>
+<tr><td>Digging (khudai)</td><td class="r">~2,715 cft</td><td class="r">–</td><td class="r">–</td><td class="r">–</td><td class="r">–</td></tr>
+<tr><td>Rait bed 3″</td><td class="r">198 cft</td><td class="r">–</td><td class="r">198 cft Ravi</td><td class="r">–</td><td class="r">–</td></tr>
+<tr><td>PCC 6″ (1:4:8)</td><td class="r">403 cft</td><td class="r">38 bags</td><td class="r">191 cft Chenab</td><td class="r">383 cft bajri</td><td class="r">–</td></tr>
+<tr><td>Khingar footing + plinth (mortar 1:5)</td><td class="r">1,223 cft</td><td class="r">61 bags</td><td class="r">380 cft Ravi</td><td class="r">–</td><td class="r">16,514 khingar</td></tr>
 <tr><td>DPC 1½″ (1:2:4)</td><td class="r">28 cft</td><td class="r">5 bags</td><td class="r">12 cft Chenab</td><td class="r">25 cft chips</td><td class="r">–</td></tr>
-<tr class="total"><td>Foundation total</td><td class="r"></td><td class="r">~100 bags</td><td class="r">~749 cft</td><td class="r">~393 cft</td><td class="r">~15,770 khingar</td></tr>
+<tr class="total"><td>Foundation total</td><td class="r"></td><td class="r">~104 bags</td><td class="r">~781 cft</td><td class="r">~408 cft</td><td class="r">~16,514 khingar</td></tr>
 </table></div>
 <div class="only-a callout"><b class="t">Mitti outside, ghassu inside</b><p>You will dig about 3,300 cft of mitti. Keep it on the plot. About 1,700 cft goes back into the trenches around the footings, up to ground level. About 425 cft goes on the roof as mud. Spread the rest in the back yard and the 2′ soil strip.</p>
 <p>Inside the rooms, from ground level up to the floor base, fill with <b>ghassu</b>: about 19″ deep over ~1,110 sft, so <b>about 2,100 cft</b> loose. Lay it in 6″ layers, flood each layer with water and ram it. Ghassu is sandy, so the floor PCC goes straight on top and the 3″ rait layer is not needed.</p></div>
-<div class="only-b callout"><b class="t">Mitti outside, ghassu inside</b><p>You will dig about 2,610 cft of mitti. Keep it on the plot. About 1,300 cft goes back into the trenches around the footings, up to ground level. About 305 cft goes on the roof as mud. Spread the rest in the back yard, the empty corner and the 2′ soil strip.</p><p>Inside the rooms, from ground level up to the floor base, fill with <b>ghassu</b>: about 19″ deep over ~810 sft, so <b>about 1,550 cft</b> loose. Lay it in 6″ layers, flood each layer with water and ram it. The floor PCC goes straight on top.</p></div>
+<div class="only-b callout"><b class="t">Mitti outside, ghassu inside</b><p>You will dig about 2,715 cft of mitti. Keep it on the plot. About 1,300 cft goes back into the trenches around the footings, up to ground level. About 305 cft goes on the roof as mud. Spread the rest in the back yard, the empty corner and the 2′ soil strip.</p><p>Inside the rooms, from ground level up to the floor base, fill with <b>ghassu</b>: about 19″ deep over ~810 sft, so <b>about 1,550 cft</b> loose. Lay it in 6″ layers, flood each layer with water and ram it. The floor PCC goes straight on top.</p></div>
 
 <h2 id="bricks">Brick estimate</h2>
 <p>There are two kinds of brick. <b>Khingar</b> goes everywhere below the DPC, because it is hard, cheap and does not soak up ground water. <b>First-class (awwal)</b> goes everywhere above the DPC, because it is straight and gives clean walls for plaster. Only the rooms under the roof are counted. Nothing is counted for the stair, drawing room or porch/garage.</p>
@@ -544,14 +555,15 @@ body.plan-b .only-a{display:none!important}
 <div class="only-b tbl"><table>
 <tr><th>Part</th><th>How it was worked out</th><th class="r">Bricks</th></tr>
 <tr><td>Foundation of 9″ structural walls</td><td>~188 rft: steps plus 2′ plinth</td><td class="r">11,690</td></tr>
+<tr><td><b>Foundation stubs for future rooms</b></td><td>6 joints × 2′ long, 9″ footing up to DPC, toothing at the ends</td><td class="r">744</td></tr>
 <tr><td>Foundation of 4½″ parda walls</td><td>~37 rft: one step + 9″ khingar up to DPC</td><td class="r">1,450</td></tr>
 <tr><td>Boundary wall footings</td><td>Left 4½″ (~109 rft, 15 pillars) + front 9″ (~22 rft), up to ground level</td><td class="r">2,630</td></tr>
 <tr><td>Manholes (2 nos, 2′×2′)</td><td>~330 bricks each</td><td class="r">660</td></tr>
 <tr><td>Septic tank (8′-3″ × 5′-6″, as drawn) <span class="tag opt">optional</span></td><td>Only if the society or street sewer needs it</td><td class="r">1,600</td></tr>
-<tr class="total"><td>Khingar total</td><td></td><td class="r">18,030</td></tr>
-<tr class="total"><td>Buy (8% breakage, khingar is uneven)</td><td></td><td class="r">~19,500</td></tr>
+<tr class="total"><td>Khingar total</td><td></td><td class="r">18,774</td></tr>
+<tr class="total"><td>Buy (8% breakage, khingar is uneven)</td><td></td><td class="r">~20,300</td></tr>
 </table></div>
-<p>Without the septic tank, buy about <span class="pv" data-a="23,100" data-b="17,700">23,100</span> khingar bricks.</p>
+<p>Without the septic tank, buy about <span class="pv" data-a="23,100" data-b="18,500">23,100</span> khingar bricks.</p>
 <div class="callout"><b class="t">Not counted anywhere</b><p>No foundation, wall, slab or brick is counted for the staircase, stair bath (mumtee bath), drawing room, porch/garage or verandah. The bottom wall of the TV lounge is counted because it closes the lounge, and it will be shared with those rooms later.</p></div>
 
 <h3>First-class bricks (above DPC)</h3>
@@ -582,7 +594,7 @@ body.plan-b .only-a{display:none!important}
 <p>Bricks went from ~75,700 to <b>~59,100</b> (about 16,600 fewer), and cement went from ~510 to <b>~440 bags</b>. The changes were:</p>
 <p>• Outer house walls made 9″ instead of 13½″, with a smaller foundation.<br>• Six inside walls (~52 rft) made 4½″ parda walls, with a lighter footing.<br>• Back and right boundary walls removed.<br>• Left boundary made single brick (4½″) with pillars.<br>• Outer face of the left boundary left unplastered (pointing only).</p>
 <p>• Roof parapet cut to 2 courses (2 rada) instead of 3′ high, saving about 3,000 bricks. It holds the roof mud and tiles in place. It is not a safety railing, so take care on the roof.</p></div>
-<div class="only-b callout"><b class="t">Plan B compared with Plan A</b><p>Plan B uses about <b>46,900 bricks</b> (19,500 khingar + 27,400 first class) instead of ~59,100, and about <b>340 bags</b> of cement instead of ~450. The savings from 9″ outer walls, parda walls and the single-brick left boundary all still apply.</p></div>
+<div class="only-b callout"><b class="t">Plan B compared with Plan A</b><p>Plan B uses about <b>47,700 bricks</b> (20,300 khingar + 27,400 first class) instead of ~59,100, and about <b>345 bags</b> of cement instead of ~450. The savings from 9″ outer walls, parda walls and the single-brick left boundary all still apply.</p></div>
 
 <p><b>Simple rule used:</b> 1 cubic foot of brick wall takes about 13½ bricks with mortar. 1,000 first-class bricks take about 2.8 bags of cement and 21 cft of rait for 1:6 mortar. 1,000 khingar bricks in 1:5 mortar take about 3.7 bags and 23 cft of rait. That is about 12% more than first class, because the bent bricks leave bigger joints.</p>
 <div class="callout"><b class="t">Khingar tips</b><p>Pick the straightest khingar bricks for the corners and the top course under the DPC. Put the badly bent ones in the middle of the wide footing steps. Fill all gaps fully with mortar. Khingar does not need soaking as long as first-class bricks do. A quick dip is enough.</p></div>
@@ -955,35 +967,35 @@ body.plan-b .only-a{display:none!important}
 <p>Days are working days for a normal team (1 mistri and 3–4 labourers). Rain and material delays will add time. Expect about 2 to 2½ months in total, including the 14–21 days of slab curing.</p>
 <div class="tbl"><table>
 <tr><th>#</th><th>Step</th><th>What happens</th><th class="r">Days</th><th>Who</th><th>Check before moving on</th></tr>
-<tr><td>1</td><td>Layout (nishan dehi)</td><td>Clear plot, mark wall centre lines with rope and chuna from the drawing</td><td class="r">1</td><td>Mistri + engineer</td><td>Check diagonals of each room are equal (square corners)</td></tr>
-<tr><td>2</td><td>Digging (khudai)</td><td>Dig trenches: 2′-6″×3′-6″ all house walls, 1′-6″×2′ left boundary, 2′×2′-6″ front boundary</td><td class="r">3–4</td><td>Labour</td><td>Trench bottom level and firm. Water and ram it.</td></tr>
-<tr><td>3</td><td>Anti-termite</td><td>Spray chemical in the trench bottom and sides</td><td class="r">½</td><td>Labour</td><td></td></tr>
-<tr><td>4</td><td>Rait bed</td><td>3″ Ravi rait, wet and rammed</td><td class="r">½</td><td>Labour</td><td></td></tr>
-<tr><td>5</td><td>PCC (foundation concrete)</td><td>6″ of 1:4:8 bajri concrete in all trenches</td><td class="r">1–2</td><td>Mistri + labour</td><td>Level top. Keep it wet for 3 days.</td></tr>
-<tr><td>6</td><td>Brick footing (steps)</td><td>Khingar brick steps (22½″ → 18″ → 13½″) up to ground level, mortar 1:5</td><td class="r">4–5</td><td>Mistri</td><td>Centre lines still match layout</td></tr>
-<tr><td>7</td><td>Under-ground pipes</td><td>Lay sewer pipes that cross under walls, leave sleeves through footings</td><td class="r">1–2</td><td>Plumber</td><td>Slope correct, joints sealed</td></tr>
-<tr><td>8</td><td>Backfill trenches</td><td>Put the dug mitti back around footings, up to ground level, in 6″ layers, water and ram</td><td class="r">1</td><td>Filling contractor</td><td></td></tr>
-<tr><td>9</td><td>Plinth brickwork</td><td>Raise walls 2′ above ground to floor level</td><td class="r">2–3</td><td>Mistri</td><td>Top is dead level everywhere (use water level pipe)</td></tr>
-<tr><td>10</td><td>Fill rooms with ghassu (bharai)</td><td>Fill inside rooms with ghassu in 6″ layers. Flood each layer with water and ram it.</td><td class="r">3–5</td><td>Filling contractor</td><td>Leave 3″ below plinth top for the floor PCC. No soft spots when walked on.</td></tr>
-<tr><td>11</td><td>DPC</td><td>1½″ chips concrete 1:2:4 with waterproofing compound on plinth top</td><td class="r">1</td><td>Mistri</td><td>Continuous under every wall and door</td></tr>
-<tr><td>12</td><td>DPC curing + bitumen</td><td>Cure 3–4 days, then 2 coats hot bitumen, sand sprinkled</td><td class="r">4</td><td>Labour</td><td>No bare spots</td></tr>
-<tr><td>13</td><td>Walls to lintel level</td><td>9″ structural walls only, up to 7′, leaving door and window openings. Parda walls wait until step 21. Fix door frames now if they are steel or wood frames.</td><td class="r">4–5</td><td>Mistri + labour</td><td>Plumb (seedha) and right opening sizes</td></tr>
-<tr><td>14</td><td>Lintels and beam</td><td>Shuttering, steel and 1:2:4 concrete over openings, plus the 9″×12″ beam</td><td class="r">2</td><td>Mistri + steel fixer</td><td>Cure 7 days</td></tr>
-<tr><td>15</td><td>Walls to roof level</td><td>Brickwork from 7′ to 10′, top level and flat</td><td class="r">3–4</td><td>Mistri</td><td>Top dead level for slab</td></tr>
-<tr><td>16</td><td>Slab shuttering</td><td>Props, planks or steel plates, sealed so concrete does not leak</td><td class="r">3</td><td>Shuttering team</td><td>Shuttering level, strong props</td></tr>
-<tr><td>17</td><td>Slab steel (sarya bandhai)</td><td>3 sutar @ 6″ main, @ 9″ cross, extra top bars, spacer blocks</td><td class="r">3</td><td>Steel fixer</td><td>Engineer checks spacing, cover and laps</td></tr>
-<tr><td>18</td><td>Slab services</td><td>COB cups, fan boxes, conduit, rain outlets, vent and tank pipe sleeves</td><td class="r">1</td><td>Electrician + plumber</td><td>Count cups against the room plan</td></tr>
-<tr><td>19</td><td>Pour slab (lantar)</td><td>One continuous pour with mixer and vibrator</td><td class="r">1</td><td>Full team</td><td>Start early morning. Arrange enough labour.</td></tr>
-<tr><td>20</td><td>Slab curing</td><td>Water ponds on top for 14 days. Props stay 21 days.</td><td class="r">14–21</td><td>Labour</td><td>Never let it dry in the first week</td></tr>
-<tr><td>21</td><td>Parda walls, parapet, tank stand</td><td>After props are removed: 4½″ parda walls with 2 sutar bars every 5th course, top gap packed with mortar. Then a low 9″ parapet, only 2 courses (2 rada), and a brick platform for the tank.</td><td class="r">2–3</td><td>Mistri</td><td>Parda walls tied into 9″ walls, plumb</td></tr>
-<tr><td>22</td><td>Boundary walls</td><td>Left wall (4½″ with pillars) and front wall (9″ with gate pillars), footing to 7′ high. Can run alongside steps 13–20.</td><td class="r">5–6</td><td>Mistri</td><td>Pillars every 8′, wall plumb</td></tr>
-<tr><td>23</td><td>Electrical wall work</td><td>Cut grooves, fix wall conduit, switch, socket, AC and DB boxes</td><td class="r">3–4</td><td>Electrician</td><td>Box heights the same in every room</td></tr>
-<tr><td>24</td><td>Plumbing wall work</td><td>PPR lines, points, valves, geyser line, drain pipes, traps</td><td class="r">4–5</td><td>Plumber</td><td>24-hour pressure test</td></tr>
-<tr><td>25</td><td>Manholes + sewer main</td><td>4 manholes, 6″ main along passage to street, septic if needed</td><td class="r">4–5</td><td>Plumber (in his fixed Rs 40k)</td><td>Pour water and watch it flow to the street</td></tr>
-<tr><td>26</td><td>Plaster</td><td>Ceiling first, then inside walls, then outside and boundary</td><td class="r">6–8</td><td>Mistri + labour</td><td>Cure 7 days. Corners straight.</td></tr>
-<tr><td>27</td><td>Floor base</td><td>Anti-termite spray on the ghassu, then 3″ PCC 1:4:8 in all rooms</td><td class="r">2</td><td>Mistri + labour</td><td>Slope in baths toward the floor trap</td></tr>
-<tr><td>28</td><td>Roof waterproofing</td><td>Bitumen, polythene, 4″ mud, roof tiles, slope to outlets</td><td class="r">3–4</td><td>Mistri + labour</td><td>Pour water: no ponding</td></tr>
-<tr><td>29</td><td>Grey handover check</td><td>Clean site, list any cracks or leaks, photos of everything</td><td class="r">1</td><td>You + engineer</td><td>Ready for finishing</td></tr>
+<tr><td>1</td><td>Layout (nishan dehi)</td><td>Clear plot, mark wall centre lines with rope and chuna from the drawing<details class="insp"><summary>What to inspect</summary><ul><li>Each room's two diagonals are equal (within ½″), so corners are square</li><li>Wall centre lines match the drawing sizes</li><li>A fixed level mark (benchmark) is set for all heights</li><li>Left passage marked: 3′ path + 2′ soil strip</li></ul></details></td><td class="r">1</td><td>Mistri + engineer</td><td>Check diagonals of each room are equal (square corners)</td></tr>
+<tr><td>2</td><td>Digging (khudai)</td><td>Dig trenches: 2′-6″×3′-6″ all house walls, 1′-6″×2′ left boundary, 2′×2′-6″ front boundary <span class="only-b"><b>Plan B:</b> also dig 2′ stubs at the 6 future joints.</span><details class="insp"><summary>What to inspect</summary><ul><li>Trench widths: 2′-6″ house walls, 2′-0″ parda, 1′-6″ left boundary, 2′ front</li><li>Depth 3′-6″ everywhere, bottom flat and level</li><li>Sides straight, no loose soil falling in</li><li>No water standing in the trench</li><li><span class='only-b'>Plan B: the 6 stubs (2′ each) for future rooms are dug too</span></li></ul></details></td><td class="r">3–4</td><td>Labour</td><td>Trench bottom level and firm. Water and ram it.</td></tr>
+<tr><td>3</td><td>Anti-termite</td><td>Spray chemical in the trench bottom and sides<details class="insp"><summary>What to inspect</summary><ul><li>Bottom watered and rammed hard</li><li>Anti-termite sprayed on bottom and sides</li><li>Rait bed 3″ thick, even and wet</li></ul></details></td><td class="r">½</td><td>Labour</td><td></td></tr>
+<tr><td>4</td><td>Rait bed</td><td>3″ Ravi rait, wet and rammed<details class="insp"><summary>What to inspect</summary><ul><li>Bottom watered and rammed hard</li><li>Anti-termite sprayed on bottom and sides</li><li>Rait bed 3″ thick, even and wet</li></ul></details></td><td class="r">½</td><td>Labour</td><td></td></tr>
+<tr><td>5</td><td>PCC (foundation concrete)</td><td>6″ of 1:4:8 bajri concrete in all trenches <span class="only-b"><b>Plan B:</b> PCC in the 6 stubs too.</span><details class="insp"><summary>What to inspect</summary><ul><li>Mix 1:4:8 by tasla count (1 cement : 4 rait : 8 bajri)</li><li>Thickness 6″ (check with a marked stick)</li><li>PCC covers the full trench width</li><li>Top is level</li><li>Kept wet after pouring</li><li><span class='only-b'>Plan B: PCC poured in the 6 future stubs</span></li></ul></details></td><td class="r">1–2</td><td>Mistri + labour</td><td>Level top. Keep it wet for 3 days.</td></tr>
+<tr><td>6</td><td>Brick footing (steps)</td><td>Khingar brick steps (22½″ → 18″ → 13½″) up to ground level, mortar 1:5 <span class="only-b"><b>Plan B:</b> build the 6 foundation stubs (2′ each) for the future rooms.</span><details class="insp"><summary>What to inspect</summary><ul><li>Steps 22½″ → 18″ → 13½″, 2 courses each, then 9″</li><li>Joints full of 1:5 mortar, no hollow gaps</li><li>Wall centred on the PCC, lines straight</li><li>Corners square and plumb</li><li>Straightest khingar used at corners and the top course</li><li><span class='only-b'>Plan B: 6 stubs carried 2′ out with toothing at the ends</span></li></ul></details></td><td class="r">4–5</td><td>Mistri</td><td>Centre lines still match layout</td></tr>
+<tr><td>7</td><td>Under-ground pipes</td><td>Lay sewer pipes that cross under walls, leave sleeves through footings<details class="insp"><summary>What to inspect</summary><ul><li>Sleeves through footings at bath and kitchen points</li><li>Pipes slope downhill toward the passage</li><li>Joints sealed with solvent</li></ul></details></td><td class="r">1–2</td><td>Plumber</td><td>Slope correct, joints sealed</td></tr>
+<tr><td>8</td><td>Backfill trenches</td><td>Put the dug mitti back around footings, up to ground level, in 6″ layers, water and ram<details class="insp"><summary>What to inspect</summary><ul><li>Mitti laid in 6″ layers, watered and rammed</li><li>No rubbish or roots in the fill</li><li>Footings not knocked or cracked</li></ul></details></td><td class="r">1</td><td>Filling contractor</td><td></td></tr>
+<tr><td>9</td><td>Plinth brickwork</td><td>Raise walls 2′ above ground to floor level <span class="only-b"><b>Plan B:</b> raise the 6 stubs to DPC level.</span><details class="insp"><summary>What to inspect</summary><ul><li>Top dead level everywhere at +2′ (water-level pipe)</li><li>Width 9″ throughout</li><li>Room sizes measured again against the drawing</li><li><span class='only-b'>Plan B: stubs also raised to DPC level</span></li></ul></details></td><td class="r">2–3</td><td>Mistri</td><td>Top is dead level everywhere (use water level pipe)</td></tr>
+<tr><td>10</td><td>Fill rooms with ghassu (bharai)</td><td>Fill inside rooms with ghassu in 6″ layers. Flood each layer with water and ram it.<details class="insp"><summary>What to inspect</summary><ul><li>Ghassu laid in 6″ layers, each flooded and rammed</li><li>No soft spots when walked on</li><li>Stops 3″ below plinth top</li></ul></details></td><td class="r">3–5</td><td>Filling contractor</td><td>Leave 3″ below plinth top for the floor PCC. No soft spots when walked on.</td></tr>
+<tr><td>11</td><td>DPC</td><td>1½″ chips concrete 1:2:4 with waterproofing compound on plinth top <span class="only-b"><b>Plan B:</b> DPC on the stubs too.</span><details class="insp"><summary>What to inspect</summary><ul><li>1½″ thick, mix 1:2:4 with chips + waterproofing compound</li><li>Continuous under every wall and door opening</li><li>Straight edges (side planks used)</li><li>Top smooth and level</li><li>Wet curing starts the same day</li><li><span class='only-b'>Plan B: DPC also on the 6 stubs</span></li></ul></details></td><td class="r">1</td><td>Mistri</td><td>Continuous under every wall and door</td></tr>
+<tr><td>12</td><td>DPC curing + bitumen</td><td>Cure 3–4 days, then 2 coats hot bitumen, sand sprinkled<details class="insp"><summary>What to inspect</summary><ul><li>DPC kept wet with gunny bags</li><li>No cracks</li><li>Nobody walking or stacking bricks on it</li><li>DPC fully dry before bitumen</li><li>2 coats, no bare spots</li><li>Sand sprinkled on the second coat</li><li>Bitumen runs a little down both sides</li></ul></details></td><td class="r">4</td><td>Labour</td><td>No bare spots</td></tr>
+<tr><td>13</td><td>Walls to lintel level</td><td>9″ structural walls only, up to 7′, leaving door and window openings. Parda walls wait until step 21. Fix door frames now if they are steel or wood frames. <span class="only-b"><b>Plan B:</b> leave toothing at the 6 future joints.</span><details class="insp"><summary>What to inspect</summary><ul><li>First-class bricks soaked before laying</li><li>Joints ~⅜″, full of 1:6 mortar</li><li>Plumb checked every 3′ with a plumb bob</li><li>Courses level along a string line</li><li>Openings at the right size and place</li><li>No more than ~4′ of height per day</li><li><span class='only-b'>Plan B: toothing left at the 6 future joints</span></li><li>All walls at 7′</li><li>Door and window openings the right size</li><li>Door frames plumb and braced</li></ul></details></td><td class="r">4–5</td><td>Mistri + labour</td><td>Plumb (seedha) and right opening sizes</td></tr>
+<tr><td>14</td><td>Lintels and beam</td><td>Shuttering, steel and 1:2:4 concrete over openings, plus the 9″×12″ beam<details class="insp"><summary>What to inspect</summary><ul><li>Lintel rests 9″ on the wall each side</li><li>4 bars of 3 sutar, 2 sutar rings @ 6″</li><li>Beam 9″×12″: 3 top + 4 bottom bars of ¾″, rings @ 9″</li><li>1″ cover with gutka under the steel</li><li>Concrete 1:2:4, well packed</li><li>Shuttering props firm</li></ul></details></td><td class="r">2</td><td>Mistri + steel fixer</td><td>Cure 7 days</td></tr>
+<tr><td>15</td><td>Walls to roof level</td><td>Brickwork from 7′ to 10′, top level and flat<details class="insp"><summary>What to inspect</summary><ul><li>First-class bricks soaked before laying</li><li>Joints ~⅜″, full of 1:6 mortar</li><li>Plumb checked every 3′ with a plumb bob</li><li>Courses level along a string line</li><li>Openings at the right size and place</li><li>No more than ~4′ of height per day</li><li><span class='only-b'>Plan B: toothing left at the 6 future joints</span></li><li>Wall tops level at 10′ everywhere</li><li>Beam bearing areas clean</li><li>Rain outlet positions marked</li></ul></details></td><td class="r">3–4</td><td>Mistri</td><td>Top dead level for slab</td></tr>
+<tr><td>16</td><td>Slab shuttering</td><td>Props, planks or steel plates, sealed so concrete does not leak<details class="insp"><summary>What to inspect</summary><ul><li>Props straight, on firm base, about every 3′</li><li>Plates level, gaps sealed (no leaks)</li><li>5″ slab thickness marked on edges</li><li>Patio left open, no shuttering there</li></ul></details></td><td class="r">3</td><td>Shuttering team</td><td>Shuttering level, strong props</td></tr>
+<tr><td>17</td><td>Slab steel (sarya bandhai)</td><td>3 sutar @ 6″ main, @ 9″ cross, extra top bars, spacer blocks<details class="insp"><summary>What to inspect</summary><ul><li>Main bars 3 sutar @ 6″, cross bars @ 9″</li><li>Every second bar cranked near walls</li><li>Extra top bars 4′ long @ 9″ over inner walls</li><li>Laps at least 15″, tied with wire</li><li>Gutka 1″ under all bars</li><li>Engineer checks before the pour</li></ul></details></td><td class="r">3</td><td>Steel fixer</td><td>Engineer checks spacing, cover and laps</td></tr>
+<tr><td>18</td><td>Slab services</td><td>COB cups, fan boxes, conduit, rain outlets, vent and tank pipe sleeves<details class="insp"><summary>What to inspect</summary><ul><li>COB cups counted per room and placed right</li><li>Fan box hooks tied to the slab steel</li><li>Conduit joints taped, nothing crushed</li><li>Rain outlets at the low points</li><li>Sleeves for tank pipe and vent fixed</li></ul></details></td><td class="r">1</td><td>Electrician + plumber</td><td>Count cups against the room plan</td></tr>
+<tr><td>19</td><td>Pour slab (lantar)</td><td>One continuous pour with mixer and vibrator<details class="insp"><summary>What to inspect</summary><ul><li>Mix 1:2:4 stays the same all day</li><li>Vibrator used everywhere, no honeycomb</li><li>Thickness 5″ checked</li><li>Poured in one go, no break</li><li>Mud ponds made and filled by evening</li></ul></details></td><td class="r">1</td><td>Full team</td><td>Start early morning. Arrange enough labour.</td></tr>
+<tr><td>20</td><td>Slab curing</td><td>Water ponds on top for 14 days. Props stay 21 days.<details class="insp"><summary>What to inspect</summary><ul><li>Water standing on the roof all day</li><li>No load or walking on the slab</li><li>Props untouched</li><li>Underside: no leaks or cracks</li></ul></details></td><td class="r">14–21</td><td>Labour</td><td>Never let it dry in the first week</td></tr>
+<tr><td>21</td><td>Parda walls, parapet, tank stand</td><td>After props are removed: 4½″ parda walls with 2 sutar bars every 5th course, top gap packed with mortar. Then a low 9″ parapet, only 2 courses (2 rada), and a brick platform for the tank.<details class="insp"><summary>What to inspect</summary><ul><li>2 bars of 2 sutar every 5th course, bent into the 9″ walls</li><li>Wall plumb</li><li>Top gap packed tight with mortar</li><li>No deep pipe grooves cut</li><li>Parapet 2 courses (2 rada), level</li><li>Tank stand sits over a wall</li><li>Rain outlets not blocked</li></ul></details></td><td class="r">2–3</td><td>Mistri</td><td>Parda walls tied into 9″ walls, plumb</td></tr>
+<tr><td>22</td><td>Boundary walls</td><td>Left wall (4½″ with pillars) and front wall (9″ with gate pillars), footing to 7′ high. Can run alongside steps 13–20.<details class="insp"><summary>What to inspect</summary><ul><li>13½″ pillars every 8′</li><li>Wall plumb (check with a plumb bob)</li><li>Bricks interlocked with the pillars on every course</li><li>No more than ~4′ of height laid per day</li><li>Gate opening 12′ clear</li></ul></details></td><td class="r">5–6</td><td>Mistri</td><td>Pillars every 8′, wall plumb</td></tr>
+<tr><td>23</td><td>Electrical wall work</td><td>Cut grooves, fix wall conduit, switch, socket, AC and DB boxes<details class="insp"><summary>What to inspect</summary><ul><li>Wall grooves deep enough, boxes at the same height in every room</li><li>PPR joints heat-welded, no bends forced</li><li>Water pipes only in 9″ walls</li><li>Manholes 2′×2′ inside with smooth channel</li><li>Sewer main slopes toward the street</li></ul></details></td><td class="r">3–4</td><td>Electrician</td><td>Box heights the same in every room</td></tr>
+<tr><td>24</td><td>Plumbing wall work</td><td>PPR lines, points, valves, geyser line, drain pipes, traps<details class="insp"><summary>What to inspect</summary><ul><li>Wall grooves deep enough, boxes at the same height in every room</li><li>PPR joints heat-welded, no bends forced</li><li>Water pipes only in 9″ walls</li><li>Manholes 2′×2′ inside with smooth channel</li><li>Sewer main slopes toward the street</li><li>Pressure gauge holds for 24 hours</li><li>No drop or wet spot at any joint</li></ul></details></td><td class="r">4–5</td><td>Plumber</td><td>24-hour pressure test</td></tr>
+<tr><td>25</td><td>Manholes + sewer main</td><td>4 manholes, 6″ main along passage to street, septic if needed<details class="insp"><summary>What to inspect</summary><ul><li>Wall grooves deep enough, boxes at the same height in every room</li><li>PPR joints heat-welded, no bends forced</li><li>Water pipes only in 9″ walls</li><li>Manholes 2′×2′ inside with smooth channel</li><li>Sewer main slopes toward the street</li></ul></details></td><td class="r">4–5</td><td>Plumber (in his fixed Rs 40k)</td><td>Pour water and watch it flow to the street</td></tr>
+<tr><td>26</td><td>Plaster</td><td>Ceiling first, then inside walls, then outside and boundary<details class="insp"><summary>What to inspect</summary><ul><li>Walls watered before plaster</li><li>Thickness: ½″ inside, ¾″ outside, ⅜″ ceiling</li><li>Checked with a 4′ straight edge, no waves</li><li>Corners straight</li><li>All conduit and pipes done first</li><li>Plaster kept wet for 7 days</li></ul></details></td><td class="r">6–8</td><td>Mistri + labour</td><td>Cure 7 days. Corners straight.</td></tr>
+<tr><td>27</td><td>Floor base</td><td>Anti-termite spray on the ghassu, then 3″ PCC 1:4:8 in all rooms<details class="insp"><summary>What to inspect</summary><ul><li>Anti-termite on the ghassu</li><li>Ghassu firm, no soft spots</li><li>PCC 3″, mix 1:4:8</li><li>Bath floor slopes to the floor trap</li></ul></details></td><td class="r">2</td><td>Mistri + labour</td><td>Slope in baths toward the floor trap</td></tr>
+<tr><td>28</td><td>Roof waterproofing</td><td>Bitumen, polythene, 4″ mud, roof tiles, slope to outlets<details class="insp"><summary>What to inspect</summary><ul><li>Slab dry before bitumen</li><li>Polythene overlaps 6″</li><li>Mitti 4″, rammed</li><li>Tiles slope ~1″ per 10′ to the outlets</li><li>Water test: no standing water</li></ul></details></td><td class="r">3–4</td><td>Mistri + labour</td><td>Pour water: no ponding</td></tr>
+<tr><td>29</td><td>Grey handover check</td><td>Clean site, list any cracks or leaks, photos of everything<details class="insp"><summary>What to inspect</summary><ul><li>Drains flow to the street</li><li>Roof water test passed</li><li>Photos of all conduit and pipe routes saved</li><li>List of cracks or leaks made for fixing</li></ul></details></td><td class="r">1</td><td>You + engineer</td><td>Ready for finishing</td></tr>
 </table></div>
 
 <h3>When to buy what</h3>
@@ -995,7 +1007,7 @@ body.plan-b .only-a{display:none!important}
 </table></div>
 <div class="only-b tbl"><table>
 <tr><th>Round</th><th>Before step</th><th>Buy</th></tr>
-<tr><td>1</td><td>Step 2</td><td>~19,500 khingar bricks, ~1,550 cft ghassu (needed by step 10), 110 bags cement, 450 cft Ravi rait, 210 cft Chenab rait, 390 cft bajri, 27 cft chips, anti-termite, bitumen 40 kg, sewer pipes that go under walls</td></tr>
+<tr><td>1</td><td>Step 2</td><td>~20,300 khingar bricks, ~1,550 cft ghassu (needed by step 10), 110 bags cement, 450 cft Ravi rait, 210 cft Chenab rait, 390 cft bajri, 27 cft chips, anti-termite, bitumen 40 kg, sewer pipes that go under walls</td></tr>
 <tr><td>2</td><td>Step 13</td><td>~25,000 first-class bricks, 160 bags cement, 800 cft Ravi rait, 220 cft Chenab rait, 390 cft crush, all sarya and binding wire, 30 COB cups, fan boxes, slab conduit, rain outlets</td></tr>
 <tr><td>3</td><td>Step 23</td><td>Remaining ~5,100 first-class bricks (parda walls, parapet, boundary), ~95 bags cement, remaining rait and bajri, all PPR, drainage, electrical boxes and conduit, tank, gate, roof materials</td></tr>
 </table></div>
@@ -1012,7 +1024,7 @@ body.plan-b .only-a{display:none!important}
 <tr><td>Digging</td><td>~150 cft per mazdoor per day</td><td class="r">–</td><td class="r">22</td><td class="r">–</td><td class="r">17</td></tr>
 <tr><td>PCC foundation + floor base</td><td>~250 cft/day by 1 mistri + 5 mazdoor</td><td class="r">3</td><td class="r">15</td><td class="r">4</td><td class="r">19</td></tr>
 <tr><td>Manholes, manhole bases, sewer line</td><td>Plumber's fixed Rs 40k job</td><td class="r">–</td><td class="r">–</td><td class="r">–</td><td class="r">–</td></tr>
-<tr><td>Brickwork (khingar + first class, not manholes)</td><td>~1,800 bricks/day per mistri with 2 mazdoor</td><td class="r">30</td><td class="r">61</td><td class="r">28</td><td class="r">58</td></tr>
+<tr><td>Brickwork (khingar + first class, not manholes)</td><td>~1,800 bricks/day per mistri with 2 mazdoor</td><td class="r">30</td><td class="r">61</td><td class="r">29</td><td class="r">60</td></tr>
 <tr><td>Backfill mitti + ghassu filling</td><td>Filling contractor, fixed Rs 3 lakh</td><td class="r">–</td><td class="r">–</td><td class="r">–</td><td class="r">–</td></tr>
 <tr><td>DPC + bitumen</td><td>1–2 days</td><td class="r">1</td><td class="r">3</td><td class="r">2</td><td class="r">5</td></tr>
 <tr><td>Lintels and beam</td><td>1–2 days</td><td class="r">2</td><td class="r">4</td><td class="r">2</td><td class="r">3</td></tr>
@@ -1020,8 +1032,8 @@ body.plan-b .only-a{display:none!important}
 <tr><td>Plaster</td><td>~250 sft per mistri per day</td><td class="r">32</td><td class="r">32</td><td class="r">27</td><td class="r">18</td></tr>
 <tr><td>Roof mud + tiles</td><td>2–3 days</td><td class="r">2</td><td class="r">6</td><td class="r">5</td><td class="r">11</td></tr>
 <tr><td>Curing, watering, cleaning</td><td>Gap days, 1 mazdoor</td><td class="r">–</td><td class="r">10</td><td class="r">–</td><td class="r">18</td></tr>
-<tr class="total"><td>Total days</td><td></td><td class="r">72</td><td class="r">167</td><td class="r">70</td><td class="r">161</td></tr>
-<tr class="total"><td>Wages</td><td></td><td class="r" colspan="2">Rs 480,600</td><td class="r" colspan="2">Rs 464,800</td></tr>
+<tr class="total"><td>Total days</td><td></td><td class="r">72</td><td class="r">167</td><td class="r">71</td><td class="r">163</td></tr>
+<tr class="total"><td>Wages</td><td></td><td class="r" colspan="2">Rs 480,600</td><td class="r" colspan="2">Rs 470,900</td></tr>
 </table></div>
 <p>Slab shuttering and steel fixing are normally given as a small contract (theka) to specialist teams. They are listed separately below.</p>
 
@@ -1075,13 +1087,13 @@ body.plan-b .only-a{display:none!important}
   // [key,label,[qtyA,qtyB],unit,[rateA,rateB],source]
   var ITEMS=[
     ["grp","Bricks, cement, steel, sand"],
-    ["khingar","Khingar bricks (below DPC)",[24800,19500],"brick",[22,22],Y],
+    ["khingar","Khingar bricks (below DPC)",[24800,20300],"brick",[22,22],Y],
     ["bricks","First-class bricks (above DPC)",[34300,27400],"brick",[27.5,27.5],Y],
-    ["cement","Cement (50 kg bag)",[440,340],"bag",[1450,1450],E],
+    ["cement","Cement (50 kg bag)",[440,345],"bag",[1450,1450],E],
     ["steel","Sarya Grade 60, all sizes + binding wire",[1445,1145],"kg",[240,240],Y],
-    ["ravi","Rait, Ravi / local",[1445,1150],"cft",[45,45],E],
-    ["chenab","Rait, Chenab",[1005,785],"cft",[110,110],E],
-    ["bajri","Bajri",[755,595],"cft",[150,150],E],
+    ["ravi","Rait, Ravi / local",[1445,1175],"cft",[45,45],E],
+    ["chenab","Rait, Chenab",[1005,790],"cft",[110,110],E],
+    ["bajri","Bajri",[755,610],"cft",[150,150],E],
     ["crush","Crush ½″–¾″",[525,390],"cft",[220,220],E],
     ["chips","Chips ¼″–⅜″ (DPC)",[35,27],"cft",[230,230],E],
     ["ghassu","Plot filling contract: ghassu + mitti backfill, incl. labour",[1,1],"lump sum",[300000,300000],Y],
@@ -1100,8 +1112,8 @@ body.plan-b .only-a{display:none!important}
     ["grp","Main gate"],
     ["gate","Main gate 12′×7′ MS steel, fabricated, primer, fixed",[1,1],"each",[100000,100000],Y],
     ["grp","Labour"],
-    ["mistri","Mistri (daily wage)",[72,70],"day",[2500,2500],Y],
-    ["mazdoor","Mazdoor (daily wage)",[167,161],"day",[1800,1800],Y],
+    ["mistri","Mistri (daily wage)",[72,71],"day",[2500,2500],Y],
+    ["mazdoor","Mazdoor (daily wage)",[167,163],"day",[1800,1800],Y],
     ["plumber","Plumber: all pipes, manholes + bases, sewer line (fixed)",[1,1],"job",[40000,40000],Y],
     ["electrician","Electrician, grey stage (labour)",[1,1],"job",[35000,35000],Y],
     ["shutter","Slab shuttering, rent + team",[1280,930],"sft",[40,40],E],
