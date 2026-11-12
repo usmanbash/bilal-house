@@ -1137,7 +1137,7 @@ details.insp li{margin:3px 0}
     ["cont","Buffer for waste and price changes",[5,5],"% of all above",[0,0],E]
   ];
   var AREA={A:1280,B:930};
-  var KEY="bilal-house-cost-v8", saved={A:{},B:{}}, plan="A";
+  var KEY="bilal-house-cost-v9", saved={A:{},B:{}}, plan="A";
   try{var raw=JSON.parse(localStorage.getItem(KEY)||"null"); if(raw&&raw.A&&raw.B)saved=raw; if(raw&&raw.plan)plan=raw.plan}catch(e){}
   try{var qp=new URLSearchParams(location.search).get("plan"); if(qp==="A"||qp==="B")plan=qp}catch(e){}
   var tb=document.querySelector("#costTable tbody");
