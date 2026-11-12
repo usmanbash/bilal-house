@@ -126,6 +126,8 @@ body.plan-b .only-a{display:none!important}
 .plan-tabs button{font:inherit;font-size:14px;font-weight:600;padding:6px 14px;border:0;border-radius:7px;background:transparent;color:var(--muted);cursor:pointer;white-space:nowrap}
 .plan-tabs button[aria-selected="true"]{background:var(--accent);color:var(--bg)}
 .plan-tabs small{font-weight:400;opacity:.85}
+.plan-tabs a{font-size:14px;font-weight:600;padding:6px 14px;border-radius:7px;color:var(--muted);text-decoration:none;white-space:nowrap;line-height:1.65}
+.plan-tabs a:hover,.plan-tabs button:hover{color:var(--fg)}
 .maplinks{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
 .mapbtn{display:inline-block;text-decoration:none;font-size:14px;font-weight:600;padding:8px 14px;border-radius:8px;background:var(--accent);color:var(--bg);border:1px solid var(--accent)}
 .mapbtn.ghost{background:var(--panel);color:var(--fg);border-color:var(--line);font-weight:500}
@@ -170,9 +172,9 @@ details.insp li{margin:3px 0}
   <div class="plan-tabs" role="tablist" aria-label="Choose plan">
     <button type="button" role="tab" id="tabA" data-plan="A" aria-selected="true">Plan A <small>full</small></button>
     <button type="button" role="tab" id="tabB" data-plan="B" aria-selected="false">Plan B <small>smaller</small></button>
+    <a href="plan-c.html">Plan C <small>front block</small></a>
   </div>
   <a class="mapbtn only-b" href="plan-b-roadmap.html">Plan B day by day →</a>
-  <a class="mapbtn ghost" href="plan-c.html">Plan C →</a>
 </header>
 
 <div class="shell">
@@ -1100,7 +1102,7 @@ details.insp li{margin:3px 0}
     ["grp","Bricks, cement, steel, sand"],
     ["khingar","Khingar bricks (below DPC)",[24800,20300],"brick",[22,22],Y],
     ["bricks","First-class bricks (above DPC)",[34300,27400],"brick",[27.5,27.5],Y],
-    ["cement","Cement (50 kg bag)",[440,345],"bag",[1450,1450],E],
+    ["cement","Cement (50 kg bag)",[440,345],"bag",[1650,1650],Y],
     ["steel","Sarya Grade 60, all sizes + binding wire",[1445,1145],"kg",[240,240],Y],
     ["ravi","Rait, Ravi / local",[1445,1175],"cft",[45,45],E],
     ["chenab","Rait, Chenab",[1005,790],"cft",[110,110],E],
@@ -1137,6 +1139,7 @@ details.insp li{margin:3px 0}
   var AREA={A:1280,B:930};
   var KEY="bilal-house-cost-v8", saved={A:{},B:{}}, plan="A";
   try{var raw=JSON.parse(localStorage.getItem(KEY)||"null"); if(raw&&raw.A&&raw.B)saved=raw; if(raw&&raw.plan)plan=raw.plan}catch(e){}
+  try{var qp=new URLSearchParams(location.search).get("plan"); if(qp==="A"||qp==="B")plan=qp}catch(e){}
   var tb=document.querySelector("#costTable tbody");
   var fmt=function(n){return Math.round(n).toLocaleString("en-PK")};
   var num=function(v){return parseFloat(String(v).replace(/,/g,""))||0};

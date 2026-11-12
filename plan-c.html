@@ -127,6 +127,8 @@ body.plan-b .only-a{display:none!important}
 .plan-tabs button{font:inherit;font-size:14px;font-weight:600;padding:6px 14px;border:0;border-radius:7px;background:transparent;color:var(--muted);cursor:pointer;white-space:nowrap}
 .plan-tabs button[aria-selected="true"]{background:var(--accent);color:var(--bg)}
 .plan-tabs small{font-weight:400;opacity:.85}
+.plan-tabs a{font-size:14px;font-weight:600;padding:6px 14px;border-radius:7px;color:var(--muted);text-decoration:none;white-space:nowrap;line-height:1.65}
+.plan-tabs a:hover,.plan-tabs button:hover{color:var(--fg)}
 .maplinks{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
 .mapbtn{display:inline-block;text-decoration:none;font-size:14px;font-weight:600;padding:8px 14px;border-radius:8px;background:var(--accent);color:var(--bg);border:1px solid var(--accent)}
 .mapbtn.ghost{background:var(--panel);color:var(--fg);border-color:var(--line);font-weight:500}
@@ -245,14 +247,14 @@ button.reset{font:inherit;font-size:13.5px;padding:6px 12px;border-radius:8px;bo
 
 body{margin:0}
 :root{--gap:var(--warn);--gap-line:var(--warn-line);--key-line:var(--note-line);--key:var(--note)}
-.plan-tabs a{font-size:14px;font-weight:600;padding:6px 14px;border-radius:7px;color:var(--muted);text-decoration:none;white-space:nowrap}
+.plan-tabs a{line-height:1.65}
 .plan-tabs a[aria-current]{background:var(--accent);color:var(--bg)}
 .week h3.wh{font-family:var(--f-display);font-size:1.35rem;margin:36px 0 2px;padding-top:12px;border-top:1px solid var(--line)}
 </style></head><body>
 <header class="top">
   <div class="brand"><span class="mark" aria-hidden="true"></span>Bilal House</div>
   <span class="sub">Grey structure guide · Plan C, front block only</span>
-  <nav class="plan-tabs" aria-label="Choose plan"><a href="./">Plan A / B</a><a href="plan-c.html" aria-current="page">Plan C <small>front block</small></a></nav>
+  <nav class="plan-tabs" aria-label="Choose plan"><a href="./?plan=A">Plan A <small>full</small></a><a href="./?plan=B">Plan B <small>smaller</small></a><a href="plan-c.html" aria-current="page">Plan C <small>front block</small></a></nav>
   <a class="mapbtn" href="#days">Plan C day by day →</a>
 </header>
 <div class="shell">
@@ -264,7 +266,7 @@ body{margin:0}
 <p class="lead">Only the blue area of your sketch: the old S/kitchen, stair, bath, TV lounge and drawing room, turned into a small complete house. Single storey, grey structure only. The rear part of the plot stays empty for later.</p>
 <div class="kv">
 <div><b>~820 sft</b><span>Covered area (roofed)</span></div>
-<div><b id="totC">Rs 34.4 lakh</b><span>Grey structure total, from the cost table</span></div>
+<div><b id="totC">Rs 35.0 lakh</b><span>Grey structure total, from the cost table</span></div>
 <div><b>~16,600</b><span>Khingar bricks</span></div>
 <div><b>~23,000</b><span>First-class bricks</span></div>
 <div><b>~290 bags</b><span>Cement</span></div>
@@ -360,7 +362,7 @@ body{margin:0}
 </div>
 <script>
 (function(){
-var ITEMS=[["grp", "Bricks, cement, steel, sand"], ["khingar", "Khingar bricks (below DPC)", 16600, "brick", 22, "Y"], ["bricks", "First-class bricks (above DPC)", 23000, "brick", 27.5, "Y"], ["cement", "Cement (50 kg bag)", 290, "bag", 1450, "E"], ["steel", "Sarya Grade 60, all sizes + binding wire", 845, "kg", 240, "Y"], ["ravi", "Rait, Ravi / local", 960, "cft", 45, "E"], ["chenab", "Rait, Chenab", 665, "cft", 110, "E"], ["bajri", "Bajri", 500, "cft", 150, "E"], ["crush", "Crush ½″–¾″", 335, "cft", 220, "E"], ["chips", "Chips ¼″–⅜″ (DPC)", 22, "cft", 230, "E"], ["ghassu", "Plot filling contract: ghassu + mitti backfill, incl. labour", 1, "lump sum", 300000, "Y"], ["grp", "Waterproofing"], ["bitumen", "Bitumen (DPC + roof)", 160, "kg", 280, "E"], ["compound", "Waterproofing compound", 10, "kg", 600, "E"], ["poly", "Polythene sheet (roof)", 900, "sft", 10, "E"], ["tiles", "Roof brick tiles", 3000, "tile", 22, "E"], ["termite", "Anti-termite chemical", 1, "set", 6500, "E"], ["grp", "Plumbing, sewer, electrical materials"], ["tank", "Plastic water tank 500 gal", 1, "each", 65000, "E"], ["ppr", "PPR pipes, fittings, valves", 1, "lump sum", 72000, "E"], ["drain", "PVC drain pipes, traps, fittings (short main)", 1, "lump sum", 45000, "E"], ["mhcov", "Manhole covers 2′×2′", 2, "each", 6000, "E"], ["elec", "Conduit, COB cups, boxes, DB box", 1, "lump sum", 40000, "E"], ["grp", "Main gate"], ["gate", "Main gate 12′×7′ MS steel, fabricated, primer, fixed", 1, "each", 100000, "Y"], ["grp", "Labour"], ["mistri", "Mistri (daily wage)", 77, "day", 2500, "Y"], ["mazdoor", "Mazdoor (daily wage)", 146, "day", 1800, "Y"], ["plumber", "Plumber: all pipes, manholes + bases, sewer line (fixed)", 1, "job", 40000, "Y"], ["electrician", "Electrician, grey stage (labour)", 1, "job", 35000, "Y"], ["shutter", "Shuttering plates + props rent (own crew fixes)", 815, "sft", 15, "E"], ["fixer", "Steel fixing (sarya bandhai)", 845, "kg", 18, "E"], ["mixer", "Mixer + vibrator on slab day", 1, "day", 15000, "E"], ["grp", "Site running costs"], ["misc", "Water, electricity, tools, transport, chai", 1, "lump sum", 45000, "E"], ["cont", "Buffer for waste and price changes", 5, "% of all above", 0, "E"]], AREA=820, KEY="bilal-house-cost-c-v1", saved={};
+var ITEMS=[["grp", "Bricks, cement, steel, sand"], ["khingar", "Khingar bricks (below DPC)", 16600, "brick", 22, "Y"], ["bricks", "First-class bricks (above DPC)", 23000, "brick", 27.5, "Y"], ["cement", "Cement (50 kg bag)", 290, "bag", 1650, "Y"], ["steel", "Sarya Grade 60, all sizes + binding wire", 845, "kg", 240, "Y"], ["ravi", "Rait, Ravi / local", 960, "cft", 45, "E"], ["chenab", "Rait, Chenab", 665, "cft", 110, "E"], ["bajri", "Bajri", 500, "cft", 150, "E"], ["crush", "Crush ½″–¾″", 335, "cft", 220, "E"], ["chips", "Chips ¼″–⅜″ (DPC)", 22, "cft", 230, "E"], ["ghassu", "Plot filling contract: ghassu + mitti backfill, incl. labour", 1, "lump sum", 300000, "Y"], ["grp", "Waterproofing"], ["bitumen", "Bitumen (DPC + roof)", 160, "kg", 280, "E"], ["compound", "Waterproofing compound", 10, "kg", 600, "E"], ["poly", "Polythene sheet (roof)", 900, "sft", 10, "E"], ["tiles", "Roof brick tiles", 3000, "tile", 22, "E"], ["termite", "Anti-termite chemical", 1, "set", 6500, "E"], ["grp", "Plumbing, sewer, electrical materials"], ["tank", "Plastic water tank 500 gal", 1, "each", 65000, "E"], ["ppr", "PPR pipes, fittings, valves", 1, "lump sum", 72000, "E"], ["drain", "PVC drain pipes, traps, fittings (short main)", 1, "lump sum", 45000, "E"], ["mhcov", "Manhole covers 2′×2′", 2, "each", 6000, "E"], ["elec", "Conduit, COB cups, boxes, DB box", 1, "lump sum", 40000, "E"], ["grp", "Main gate"], ["gate", "Main gate 12′×7′ MS steel, fabricated, primer, fixed", 1, "each", 100000, "Y"], ["grp", "Labour"], ["mistri", "Mistri (daily wage)", 77, "day", 2500, "Y"], ["mazdoor", "Mazdoor (daily wage)", 146, "day", 1800, "Y"], ["plumber", "Plumber: all pipes, manholes + bases, sewer line (fixed)", 1, "job", 40000, "Y"], ["electrician", "Electrician, grey stage (labour)", 1, "job", 35000, "Y"], ["shutter", "Shuttering plates + props rent (own crew fixes)", 815, "sft", 15, "E"], ["fixer", "Steel fixing (sarya bandhai)", 845, "kg", 18, "E"], ["mixer", "Mixer + vibrator on slab day", 1, "day", 15000, "E"], ["grp", "Site running costs"], ["misc", "Water, electricity, tools, transport, chai", 1, "lump sum", 45000, "E"], ["cont", "Buffer for waste and price changes", 5, "% of all above", 0, "E"]], AREA=820, KEY="bilal-house-cost-c-v1", saved={};
 try{saved=JSON.parse(localStorage.getItem(KEY)||"{}")||{}}catch(e){}
 var tb=document.querySelector("#costTable tbody");
 var fmt=function(n){return Math.round(n).toLocaleString("en-PK")};
