@@ -7,7 +7,7 @@
 :root{
   --bg:#fbfaf8; --panel:#f3f1ed; --fg:#1d1b19; --muted:#6a645d; --line:#e3ded6;
   --accent:#a8432a; --accent-soft:#f6e6df; --note:#eef3f8; --note-line:#9db6cf; --warn:#fbf2dc; --warn-line:#d9b25a;
-  --code:#efece7; --paper:#ffffff; --soil:#c9b597; --sand:#efe0b4; --pcc:#b9b4ac; --brick:#c4694c; --dpc:#2f2b28; --rcc:#8e8a84;
+  --code:#efece7; --paper:#ffffff; --lawn:#a9cf8a; --lawn-dk:#6f9a52; --yard:#e8e2d6; --stone:#bdb5a8; --soil:#c9b597; --sand:#efe0b4; --pcc:#b9b4ac; --brick:#c4694c; --dpc:#2f2b28; --rcc:#8e8a84;
   --f-display:"Newsreader", Georgia, "Times New Roman", serif;
   --f-body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
   --f-mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
@@ -15,11 +15,11 @@
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#171615; --panel:#1f1d1b; --fg:#ece8e2; --muted:#a39b91; --line:#33302c;
   --accent:#e58a6d; --accent-soft:#3a241d; --note:#1c2530; --note-line:#4f6d8c; --warn:#2e2614; --warn-line:#8f7430;
-  --code:#26231f; --soil:#6e5f49; --sand:#8a7a4e; --pcc:#5d5954; --brick:#a5543a; --dpc:#e8e2da; --rcc:#77736d; color-scheme:dark}}
+  --code:#26231f; --lawn:#3d5a2e; --lawn-dk:#5d8446; --yard:#2c2925; --stone:#7a746b; --soil:#6e5f49; --sand:#8a7a4e; --pcc:#5d5954; --brick:#a5543a; --dpc:#e8e2da; --rcc:#77736d; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#171615; --panel:#1f1d1b; --fg:#ece8e2; --muted:#a39b91; --line:#33302c;
   --accent:#e58a6d; --accent-soft:#3a241d; --note:#1c2530; --note-line:#4f6d8c; --warn:#2e2614; --warn-line:#8f7430;
-  --code:#26231f; --soil:#6e5f49; --sand:#8a7a4e; --pcc:#5d5954; --brick:#a5543a; --dpc:#e8e2da; --rcc:#77736d; color-scheme:dark}
+  --code:#26231f; --lawn:#3d5a2e; --lawn-dk:#5d8446; --yard:#2c2925; --stone:#7a746b; --soil:#6e5f49; --sand:#8a7a4e; --pcc:#5d5954; --brick:#a5543a; --dpc:#e8e2da; --rcc:#77736d; color-scheme:dark}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -131,6 +131,20 @@ body.plan-b .only-a{display:none!important}
 .mapbtn.ghost{background:var(--panel);color:var(--fg);border-color:var(--line);font-weight:500}
 .mapbtn:hover{filter:brightness(1.05)}
 .planbar{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;border:1px solid var(--accent);background:var(--accent-soft);border-radius:10px;padding:10px 14px;margin:6px 0 18px;font-size:14.5px}
+
+.fig svg .yd{fill:var(--yard)}.fig svg .hs{fill:var(--accent-soft);stroke:var(--fg);stroke-width:2}
+.fig svg .conc2{fill:var(--pcc);opacity:.75}.fig svg .lawn{fill:var(--lawn)}.fig svg .stone{fill:var(--stone);stroke:var(--fg);stroke-width:.8}
+.fig svg .pathp{fill:var(--pcc);opacity:.45}.fig svg .future{fill:none;stroke:var(--fg);stroke-width:1;stroke-dasharray:5 4;opacity:.6}
+.fig svg .car{fill:var(--panel);stroke:var(--fg);stroke-width:1.5}.fig svg .gate{stroke:var(--accent);stroke-width:4;stroke-dasharray:8 4}
+.fig svg .arrow{stroke:var(--accent);stroke-width:2.5}.fig svg .ahd{fill:var(--accent)}
+.drawing{margin:16px auto;max-width:640px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--panel)}
+.dwrap{position:relative;background:var(--paper)}
+.dwrap img{display:block;width:100%;height:auto}
+.dmask{position:absolute;background:repeating-linear-gradient(45deg,rgba(168,67,42,.30) 0 8px,rgba(168,67,42,.12) 8px 16px)}
+.dmask.skip{inset:0;clip-path:polygon(43.7% 16.6%,93.8% 16.6%,93.8% 72.1%,90.9% 72.1%,90.9% 52.8%,66.6% 52.8%,66.6% 51.6%,57.3% 51.6%,57.3% 31.3%,43.7% 31.3%)}
+.dmask.ugwt{left:52.4%;top:6.8%;width:24.8%;height:8.9%}
+.dtag{position:absolute;transform:translate(-50%,-50%);background:var(--accent);color:var(--bg);font-size:12.5px;font-weight:700;padding:3px 8px;border-radius:6px;white-space:nowrap}
+.drawing figcaption{font-size:13.5px;color:var(--muted);padding:10px 12px}
 .mobile-nav{display:none}
 @media (max-width:1180px){.shell{grid-template-columns:230px minmax(0,1fr)}.toc{display:none}}
 @media (max-width:860px){
@@ -159,6 +173,7 @@ body.plan-b .only-a{display:none!important}
   <a href="#overview">What we are building</a>
   <a href="#thickness">Wall thickness</a>
   <a href="#plan">Plan of this phase</a>
+  <a href="#yards">Back + front yard</a>
   <a href="#names">Material names</a>
   <a href="#shopping">Shopping list</a>
   <h4>Structure</h4>
@@ -197,8 +212,8 @@ body.plan-b .only-a{display:none!important}
 <div class="kv">
   <div><b><span class="pv" data-a="~1,280 sft" data-b="~930 sft">~1,280 sft</span></b><span>Covered area: roofed rooms only, patio not counted</span></div>
   <div><b><span class="pv" data-a="~24,800" data-b="~19,500">~24,800</span></b><span>Khingar bricks, below DPC</span></div>
-  <div><b><span class="pv" data-a="~37,500" data-b="~30,100">~37,500</span></b><span>First-class bricks, above DPC</span></div>
-  <div><b><span class="pv" data-a="~450 bags" data-b="~350 bags">~450 bags</span></b><span>Cement, everything included</span></div>
+  <div><b><span class="pv" data-a="~34,300" data-b="~27,400">~34,300</span></b><span>First-class bricks, above DPC</span></div>
+  <div><b><span class="pv" data-a="~440 bags" data-b="~340 bags">~440 bags</span></b><span>Cement, everything included</span></div>
   <div><b><span class="pv" data-a="~1.45 ton" data-b="~1.15 ton">~1.45 ton</span></b><span>Sarya, mostly 3 sutar</span></div>
 </div>
 
@@ -230,7 +245,7 @@ body.plan-b .only-a{display:none!important}
 <tr><td>TV lounge front wall (8′-6″ opening)</td><td><span class="tag">9″</span></td><td>Carries the beam</td></tr>
 <tr><td>Bath 8×7 | Dress, Dress | Bath 10×5′6″</td><td><span class="tag opt">4½″</span></td><td>Parda wall</td></tr>
 <tr><td>Master bed | Kitchen, Kitchen | S/Kitchen, small walls at D2 / D3</td><td><span class="tag opt">4½″</span></td><td>Parda wall</td></tr>
-<tr><td>Roof parapet (back, left, right)</td><td><span class="tag">9″</span></td><td>3′ high</td></tr>
+<tr><td>Roof parapet (back, left, right)</td><td><span class="tag">9″</span></td><td>Only 2 courses (2 rada, ~7″ high)</td></tr>
 <tr class="grp"><td colspan="3">Boundary walls</td></tr>
 <tr><td>Left boundary (along the passage, full 109′)</td><td><span class="tag opt">4½″</span></td><td>Single brick with 13½″ pillars every 8′</td></tr>
 <tr><td>Front boundary (at the street, beside the gate)</td><td><span class="tag">9″</span></td><td>With 2 gate pillars</td></tr>
@@ -251,7 +266,7 @@ body.plan-b .only-a{display:none!important}
 <tr><td>Patio walls: left + bottom only</td><td><span class="tag">9″</span></td><td>The roof ends on them. The patio's top and right sides stay open to the back yard.</td></tr>
 <tr><td>TV lounge front wall (8′-6″ opening)</td><td><span class="tag">9″</span></td><td>Carries the beam</td></tr>
 <tr><td>Master bed | Kitchen, Kitchen | S/Kitchen, small walls at D2 / D3</td><td><span class="tag opt">4½″</span></td><td>Parda wall</td></tr>
-<tr><td>Roof parapet (all round the roofed part)</td><td><span class="tag">9″</span></td><td>3′ high</td></tr>
+<tr><td>Roof parapet (all round the roofed part)</td><td><span class="tag">9″</span></td><td>Only 2 courses (2 rada, ~7″ high)</td></tr>
 <tr class="grp"><td colspan="3">Boundary walls</td></tr>
 <tr><td>Left boundary (along the passage, full 109′)</td><td><span class="tag opt">4½″</span></td><td>Single brick with 13½″ pillars every 8′</td></tr>
 <tr><td>Front boundary (at the street, beside the gate)</td><td><span class="tag">9″</span></td><td>With 2 gate pillars</td></tr>
@@ -263,10 +278,18 @@ body.plan-b .only-a{display:none!important}
 </table></div>
 
 <h3 id="plan">The part we are building</h3>
-<div class="plans">
-<figure><img src="assets/build-area.jpg" alt="Drawing of the rear part of the ground floor: back yard, two baths, dress, master bed, bed, patio, kitchen, S/kitchen and TV lounge" loading="lazy"><figcaption>This phase: from the back yard to the TV lounge front wall (the "OPENING 8′-6″ WIDE" line). The stair and drawing room at the bottom of the picture are not built now.</figcaption></figure>
-<figure><img src="assets/ground-floor-plan.jpg" alt="Full ground floor plan 104-A-E5" loading="lazy"><figcaption>Full ground floor plan, for reference. Only the top part, down to the TV lounge, is in this guide. <a href="assets/104-A-E5-Model.pdf" target="_blank" rel="noopener">Open the complete drawing (PDF)</a>.</figcaption></figure>
+<figure class="drawing">
+<div class="dwrap"><img src="assets/build-area.jpg" alt="Part of drawing 104-A-E5 being built: back yard, baths, dress, master bed, bed, patio, kitchen, S/kitchen and TV lounge" loading="lazy">
+<div class="dmask ugwt"></div><span class="dtag" style="left:64.8%;top:11.2%">No underground tank</span>
+<div class="dmask skip only-b"></div><span class="dtag only-b" style="left:75%;top:34%">Not built in Plan B</span>
 </div>
+<figcaption>The exact part of drawing 104-A-E5 we are building: from the back yard to the TV lounge front wall ("OPENING 8′-6″ WIDE"). The drawing is unchanged. The 800-gallon underground tank shown in the back yard is not built. <span class="only-b"><b>Plan B:</b> the shaded corner (Bed 14×13, Dress, Bath 10×5′6″, and the patio's top and right walls) is left for later, so the patio opens to the back yard.</span> <a href="assets/104-A-E5-Model.pdf" target="_blank" rel="noopener">Open the complete drawing (PDF)</a>.</figcaption>
+</figure>
+
+<h3 id="yards">Back yard and front yard layout</h3>
+<p>How the plot will look when this phase is finished. The floor is poured from the house up to the end of the garage. After that comes the lawn, with stepping stones from the gate to the entrance.</p>
+<div class="fig only-a"><svg viewBox="0 0 640 640" role="img" aria-label="Plan A site layout: back yard, house, poured floor to garage, lawn with stepping stones"><defs><marker id="ahA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ahd"/></marker></defs><rect x="40.0" y="26.0" width="182.2" height="577.7" class="yd" /><rect x="40.0" y="26.0" width="10.6" height="577.7" class="soilst" /><rect x="50.6" y="26.0" width="15.9" height="577.7" class="pathp" /><rect x="66.5" y="26.0" width="155.7" height="37.1" class="yd" /><rect x="66.5" y="63.1" width="155.7" height="249.1" class="hs" /><rect x="171.4" y="170.2" width="50.7" height="63.1" class="yd" /><rect x="66.5" y="312.2" width="155.7" height="161.7" class="conc2" /><rect x="66.5" y="312.2" width="155.7" height="75.5" class="future"/><rect x="87.7" y="381.1" width="34.4" height="79.5" rx="6" class="car"/><rect x="130.1" y="473.8" width="92.1" height="129.8" class="lawn" /><rect x="66.5" y="473.8" width="63.6" height="129.8" class="conc2" /><ellipse cx="148.6" cy="590.4" rx="6.9" ry="4.8" class="stone"/><ellipse cx="154.8" cy="572.8" rx="6.9" ry="4.8" class="stone"/><ellipse cx="161.0" cy="555.1" rx="6.9" ry="4.8" class="stone"/><ellipse cx="167.2" cy="537.5" rx="6.9" ry="4.8" class="stone"/><ellipse cx="173.4" cy="519.8" rx="6.9" ry="4.8" class="stone"/><ellipse cx="179.6" cy="502.1" rx="6.9" ry="4.8" class="stone"/><ellipse cx="185.8" cy="484.4" rx="6.9" ry="4.8" class="stone"/><line class="arrow" x1="184.2" y1="333.4" x2="184.2" y2="317.5" marker-end="url(#ahA)"/><line class="w4" x1="40.0" y1="26.0" x2="40.0" y2="603.7"/><line class="w9" x1="40.0" y1="603.7" x2="66.5" y2="603.7"/><line class="w9" x1="130.1" y1="603.7" x2="222.2" y2="603.7"/><line class="gate" x1="66.5" y1="603.7" x2="130.1" y2="603.7"/><text x="40.0" y="622.9" class="tiny mu">Street</text><line class="ld" x1="146.0" y1="44.5" x2="250" y2="40"/><text x="254" y="44">Back yard, open</text><text x="254" y="59" class="tiny mu">7′ deep, neighbour's wall behind</text><line class="ld" x1="146.0" y1="185.0" x2="250" y2="150"/><text x="254" y="154">House: this phase</text><text x="254" y="169" class="tiny mu">~1,280 sft roofed</text><line class="ld" x1="196.3" y1="200.9" x2="250" y2="200"/><text x="254" y="204">Patio, open to sky</text><line class="ld" x1="58.5" y1="264.5" x2="250" y2="260"/><text x="254" y="264">3′ path + 2′ soil strip</text><text x="254" y="279" class="tiny mu">Along the left boundary (4½″ wall)</text><line class="ld" x1="184.2" y1="325.4" x2="250" y2="312"/><text x="254" y="316">House entrance</text><text x="254" y="331" class="tiny mu">8′-6″ lounge opening</text><line class="ld" x1="146.0" y1="354.6" x2="250" y2="362"/><text x="254" y="366">Poured concrete floor</text><text x="254" y="381" class="tiny mu">From the house up to the end of the garage</text><line class="ld" x1="103.6" y1="423.5" x2="250" y2="412"/><text x="254" y="416">Garage / car porch</text><text x="254" y="431" class="tiny mu">Car parks here</text><line class="ld" x1="98.3" y1="545.4" x2="250" y2="462"/><text x="254" y="466">Driveway from the gate</text><text x="254" y="481" class="tiny mu">Poured, so the car reaches the garage</text><line class="ld" x1="167.2" y1="537.5" x2="250" y2="512"/><text x="254" y="516">Lawn with stepping stones</text><text x="254" y="531" class="tiny mu">From the gate to the entrance</text><line class="ld" x1="98.3" y1="603.7" x2="250" y2="566"/><text x="254" y="570">Main gate 12′ + front wall 9″</text><text x="41.0" y="18.0" class="tiny mu">Neighbour's house behind (no new wall)</text><text x="70.5" y="365.0" class="tiny mu">future stair / drawing area</text></svg><div class="cap">Plan A site layout. Not to scale for building. Measure on site.</div></div>
+<div class="fig only-b"><svg viewBox="0 0 640 640" role="img" aria-label="Plan B site layout: back yard, house, poured floor to garage, lawn with stepping stones"><defs><marker id="ahB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ahd"/></marker></defs><rect x="40.0" y="26.0" width="182.2" height="577.7" class="yd" /><rect x="40.0" y="26.0" width="10.6" height="577.7" class="soilst" /><rect x="50.6" y="26.0" width="15.9" height="577.7" class="pathp" /><rect x="66.5" y="26.0" width="155.7" height="37.1" class="yd" /><polygon class="hs" points="66.5,63.1 111.5,63.1 111.5,106.8 142.0,106.8 142.0,170.2 171.4,170.2 171.4,233.2 222.2,233.2 222.2,312.2 66.5,312.2"/><rect x="66.5" y="312.2" width="155.7" height="161.7" class="conc2" /><rect x="66.5" y="312.2" width="155.7" height="75.5" class="future"/><rect x="87.7" y="381.1" width="34.4" height="79.5" rx="6" class="car"/><rect x="130.1" y="473.8" width="92.1" height="129.8" class="lawn" /><rect x="66.5" y="473.8" width="63.6" height="129.8" class="conc2" /><ellipse cx="148.6" cy="590.4" rx="6.9" ry="4.8" class="stone"/><ellipse cx="154.8" cy="572.8" rx="6.9" ry="4.8" class="stone"/><ellipse cx="161.0" cy="555.1" rx="6.9" ry="4.8" class="stone"/><ellipse cx="167.2" cy="537.5" rx="6.9" ry="4.8" class="stone"/><ellipse cx="173.4" cy="519.8" rx="6.9" ry="4.8" class="stone"/><ellipse cx="179.6" cy="502.1" rx="6.9" ry="4.8" class="stone"/><ellipse cx="185.8" cy="484.4" rx="6.9" ry="4.8" class="stone"/><line class="arrow" x1="184.2" y1="333.4" x2="184.2" y2="317.5" marker-end="url(#ahB)"/><line class="w4" x1="40.0" y1="26.0" x2="40.0" y2="603.7"/><line class="w9" x1="40.0" y1="603.7" x2="66.5" y2="603.7"/><line class="w9" x1="130.1" y1="603.7" x2="222.2" y2="603.7"/><line class="gate" x1="66.5" y1="603.7" x2="130.1" y2="603.7"/><text x="40.0" y="622.9" class="tiny mu">Street</text><line class="ld" x1="146.0" y1="44.5" x2="250" y2="40"/><text x="254" y="44">Back yard, open</text><text x="254" y="59" class="tiny mu">7′ deep, neighbour's wall behind</text><line class="ld" x1="177.8" y1="116.1" x2="250" y2="110"/><text x="254" y="114">Open yard: future Bed, Dress, Bath</text><text x="254" y="129" class="tiny mu">Joins the back yard and the patio</text><line class="ld" x1="103.6" y1="238.0" x2="250" y2="170"/><text x="254" y="174">House: Plan B</text><text x="254" y="189" class="tiny mu">~930 sft roofed</text><line class="ld" x1="196.3" y1="200.9" x2="250" y2="215"/><text x="254" y="219">Patio, open to back yard</text><line class="ld" x1="58.5" y1="264.5" x2="250" y2="260"/><text x="254" y="264">3′ path + 2′ soil strip</text><text x="254" y="279" class="tiny mu">Along the left boundary (4½″ wall)</text><line class="ld" x1="184.2" y1="325.4" x2="250" y2="312"/><text x="254" y="316">House entrance</text><text x="254" y="331" class="tiny mu">8′-6″ lounge opening</text><line class="ld" x1="146.0" y1="354.6" x2="250" y2="362"/><text x="254" y="366">Poured concrete floor</text><text x="254" y="381" class="tiny mu">From the house up to the end of the garage</text><line class="ld" x1="103.6" y1="423.5" x2="250" y2="412"/><text x="254" y="416">Garage / car porch</text><text x="254" y="431" class="tiny mu">Car parks here</text><line class="ld" x1="98.3" y1="545.4" x2="250" y2="462"/><text x="254" y="466">Driveway from the gate</text><text x="254" y="481" class="tiny mu">Poured, so the car reaches the garage</text><line class="ld" x1="167.2" y1="537.5" x2="250" y2="512"/><text x="254" y="516">Lawn with stepping stones</text><text x="254" y="531" class="tiny mu">From the gate to the entrance</text><line class="ld" x1="98.3" y1="603.7" x2="250" y2="566"/><text x="254" y="570">Main gate 12′ + front wall 9″</text><text x="41.0" y="18.0" class="tiny mu">Neighbour's house behind (no new wall)</text><text x="70.5" y="365.0" class="tiny mu">future stair / drawing area</text></svg><div class="cap">Plan B site layout: the skipped corner and the patio are one open yard with the back yard.</div></div>
 <div class="callout"><b class="t">How these numbers were made</b>
 <p>Lengths were taken from your drawing: covered width 29′-4½″, floor level +2′-0″ above road (F.L.), wall height 10′, roof slab 5″ RCC 1:2:4, DPC 1½″ 1:2:4, and the 9″×12″ beam with ¾″ bars. The part of the PDF that has the foundation section is cut off, so the foundation below uses the normal Pakistani design for this kind of house. Wall lengths are measured from the plan, so expect ±5–10%.</p></div>
 
@@ -310,10 +333,10 @@ body.plan-b .only-a{display:none!important}
 <tr><th>Item</th><th class="r">Quantity</th><th>Notes</th></tr>
 <tr class="grp"><td colspan="3">Basic materials</td></tr>
 <tr><td>Khingar bricks</td><td class="r">24,800</td><td>Everything below DPC, incl. manholes, septic, boundary footing. 8% breakage added.</td></tr>
-<tr><td>First-class bricks</td><td class="r">37,500</td><td>9″ and 4½″ walls above DPC, parapet, boundary above ground, tank stand. 5% breakage added.</td></tr>
-<tr><td>Cement</td><td class="r">450 bags</td><td>About 125 bags are needed in the foundation stage</td></tr>
-<tr><td>Rait, Ravi / local</td><td class="r">1,510 cft</td><td>Brick mortar plus bed under foundation</td></tr>
-<tr><td>Rait, Chenab</td><td class="r">1,025 cft</td><td>Concrete, DPC, plaster</td></tr>
+<tr><td>First-class bricks</td><td class="r">34,300</td><td>9″ and 4½″ walls above DPC, 2-course parapet, boundary above ground, tank stand. 5% breakage added.</td></tr>
+<tr><td>Cement</td><td class="r">440 bags</td><td>About 125 bags are needed in the foundation stage</td></tr>
+<tr><td>Rait, Ravi / local</td><td class="r">1,445 cft</td><td>Brick mortar plus bed under foundation</td></tr>
+<tr><td>Rait, Chenab</td><td class="r">1,005 cft</td><td>Concrete, DPC, plaster</td></tr>
 <tr><td>Bajri</td><td class="r">755 cft</td><td>PCC under foundation and floors</td></tr>
 <tr><td>Crush ½″–¾″</td><td class="r">525 cft</td><td>Slab, beams, lintels</td></tr>
 <tr><td>Chips ¼″–⅜″</td><td class="r">35 cft</td><td>DPC</td></tr>
@@ -339,10 +362,10 @@ body.plan-b .only-a{display:none!important}
 <tr><th>Item</th><th class="r">Quantity</th><th>Notes</th></tr>
 <tr class="grp"><td colspan="3">Basic materials</td></tr>
 <tr><td>Khingar bricks</td><td class="r">19,500</td><td>Everything below DPC, incl. manholes, septic, boundary footing. 8% breakage added.</td></tr>
-<tr><td>First-class bricks</td><td class="r">30,100</td><td>9″ and 4½″ walls above DPC, parapet, boundary above ground, tank stand. 5% breakage added.</td></tr>
-<tr><td>Cement</td><td class="r">350 bags</td><td>About 100 bags are needed in the foundation stage</td></tr>
-<tr><td>Rait, Ravi / local</td><td class="r">1,205 cft</td><td>Brick mortar plus bed under foundation</td></tr>
-<tr><td>Rait, Chenab</td><td class="r">800 cft</td><td>Concrete, DPC, plaster</td></tr>
+<tr><td>First-class bricks</td><td class="r">27,400</td><td>9″ and 4½″ walls above DPC, 2-course parapet, boundary above ground, tank stand. 5% breakage added.</td></tr>
+<tr><td>Cement</td><td class="r">340 bags</td><td>About 100 bags are needed in the foundation stage</td></tr>
+<tr><td>Rait, Ravi / local</td><td class="r">1,150 cft</td><td>Brick mortar plus bed under foundation</td></tr>
+<tr><td>Rait, Chenab</td><td class="r">785 cft</td><td>Concrete, DPC, plaster</td></tr>
 <tr><td>Bajri</td><td class="r">595 cft</td><td>PCC under foundation and floors</td></tr>
 <tr><td>Crush ½″–¾″</td><td class="r">390 cft</td><td>Slab, beams, lintels</td></tr>
 <tr><td>Chips ¼″–⅜″</td><td class="r">27 cft</td><td>DPC</td></tr>
@@ -536,30 +559,30 @@ body.plan-b .only-a{display:none!important}
 <tr><th>Part</th><th>How it was worked out</th><th class="r">Bricks</th></tr>
 <tr><td>9″ structural walls, DPC to roof (10′)</td><td>~248 rft, door and window openings removed</td><td class="r">22,265</td></tr>
 <tr><td>4½″ parda walls, DPC to roof (10′)</td><td>~52 rft, door openings removed</td><td class="r">2,430</td></tr>
-<tr><td>Roof parapet 9″ × 3′</td><td>Back, left and right sides of the roof (~123 rft)</td><td class="r">3,740</td></tr>
+<tr><td>Roof parapet 9″, 2 courses (2 rada)</td><td>Back, left and right sides of the roof (~123 rft)</td><td class="r">680</td></tr>
 <tr><td>Left boundary above ground</td><td>Single brick 4½″, 7′ high, ~109 rft, 15 pillars 13½″×13½″</td><td class="r">5,060</td></tr>
 <tr><td>Front boundary above ground</td><td>9″, 7′ high, ~22 rft, 2 gate pillars</td><td class="r">1,920</td></tr>
 <tr><td>Roof tank platform</td><td>About 3′ high, for water pressure</td><td class="r">300</td></tr>
-<tr class="total"><td>First-class total</td><td></td><td class="r">35,715</td></tr>
-<tr class="total"><td>Buy (5% breakage)</td><td></td><td class="r">~37,500</td></tr>
+<tr class="total"><td>First-class total</td><td></td><td class="r">32,655</td></tr>
+<tr class="total"><td>Buy (5% breakage)</td><td></td><td class="r">~34,300</td></tr>
 </table></div>
 <div class="only-b tbl"><table>
 <tr><th>Part</th><th>How it was worked out</th><th class="r">Bricks</th></tr>
 <tr><td>9″ structural walls, DPC to roof (10′)</td><td>~188 rft, door and window openings removed</td><td class="r">16,535</td></tr>
 <tr><td>4½″ parda walls, DPC to roof (10′)</td><td>~37 rft, door openings removed</td><td class="r">1,730</td></tr>
-<tr><td>Roof parapet 9″ × 3′</td><td>All round the roofed part (~102 rft)</td><td class="r">3,100</td></tr>
+<tr><td>Roof parapet 9″, 2 courses (2 rada)</td><td>All round the roofed part (~102 rft)</td><td class="r">560</td></tr>
 <tr><td>Left boundary above ground</td><td>Single brick 4½″, 7′ high, ~109 rft, 15 pillars 13½″×13½″</td><td class="r">5,060</td></tr>
 <tr><td>Front boundary above ground</td><td>9″, 7′ high, ~22 rft, 2 gate pillars</td><td class="r">1,920</td></tr>
 <tr><td>Roof tank platform</td><td>About 3′ high, for water pressure</td><td class="r">300</td></tr>
-<tr class="total"><td>First-class total</td><td></td><td class="r">28,645</td></tr>
-<tr class="total"><td>Buy (5% breakage)</td><td></td><td class="r">~30,100</td></tr>
+<tr class="total"><td>First-class total</td><td></td><td class="r">26,105</td></tr>
+<tr class="total"><td>Buy (5% breakage)</td><td></td><td class="r">~27,400</td></tr>
 </table></div>
 
 <div class="only-a callout"><b class="t">What was cut to save money</b>
-<p>Bricks went from ~75,700 to <b>~62,300</b> (about 13,400 fewer), and cement went from ~510 to <b>~450 bags</b>. The changes were:</p>
+<p>Bricks went from ~75,700 to <b>~59,100</b> (about 16,600 fewer), and cement went from ~510 to <b>~440 bags</b>. The changes were:</p>
 <p>• Outer house walls made 9″ instead of 13½″, with a smaller foundation.<br>• Six inside walls (~52 rft) made 4½″ parda walls, with a lighter footing.<br>• Back and right boundary walls removed.<br>• Left boundary made single brick (4½″) with pillars.<br>• Outer face of the left boundary left unplastered (pointing only).</p>
-<p><b>Further saving if needed:</b> make the roof parapet 4½″ with pillars every 8′. That saves about 1,800 bricks, but the parapet will be weaker for leaning on.</p></div>
-<div class="only-b callout"><b class="t">Plan B compared with Plan A</b><p>Plan B uses about <b>49,600 bricks</b> (19,500 khingar + 30,100 first class) instead of ~62,300, and about <b>350 bags</b> of cement instead of ~450. The savings from 9″ outer walls, parda walls and the single-brick left boundary all still apply.</p></div>
+<p>• Roof parapet cut to 2 courses (2 rada) instead of 3′ high, saving about 3,000 bricks. It holds the roof mud and tiles in place. It is not a safety railing, so take care on the roof.</p></div>
+<div class="only-b callout"><b class="t">Plan B compared with Plan A</b><p>Plan B uses about <b>46,900 bricks</b> (19,500 khingar + 27,400 first class) instead of ~59,100, and about <b>340 bags</b> of cement instead of ~450. The savings from 9″ outer walls, parda walls and the single-brick left boundary all still apply.</p></div>
 
 <p><b>Simple rule used:</b> 1 cubic foot of brick wall takes about 13½ bricks with mortar. 1,000 first-class bricks take about 2.8 bags of cement and 21 cft of rait for 1:6 mortar. 1,000 khingar bricks in 1:5 mortar take about 3.7 bags and 23 cft of rait. That is about 12% more than first class, because the bent bricks leave bigger joints.</p>
 <div class="callout"><b class="t">Khingar tips</b><p>Pick the straightest khingar bricks for the corners and the top course under the DPC. Put the badly bent ones in the middle of the wide footing steps. Fill all gaps fully with mortar. Khingar does not need soaking as long as first-class bricks do. A quick dip is enough.</p></div>
@@ -688,7 +711,7 @@ body.plan-b .only-a{display:none!important}
 <tr><th>Work</th><th>Area and mix</th><th class="r">Cement</th><th class="r">Rait</th></tr>
 <tr><td>Inside wall plaster ½″</td><td>~4,150 sft, 1:4</td><td class="r">36 bags</td><td class="r">178 cft</td></tr>
 <tr><td>Ceiling plaster ⅜″</td><td>~1,110 sft, 1:3</td><td class="r">9 bags</td><td class="r">34 cft</td></tr>
-<tr><td>Outside plaster ¾″</td><td>~1,750 sft, 1:4 (back, left, parapet, front edge; not the right side wall against the neighbour)</td><td class="r">23 bags</td><td class="r">114 cft</td></tr>
+<tr><td>Outside plaster ¾″</td><td>~1,455 sft, 1:4 (back, left, low parapet, front edge; not the right side wall against the neighbour)</td><td class="r">19 bags</td><td class="r">95 cft</td></tr>
 <tr><td>Boundary wall plaster ½″</td><td>~1,070 sft, 1:5. Left wall inside face only (outside face pointing only), front wall both faces.</td><td class="r">8 bags</td><td class="r">48 cft</td></tr>
 <tr><td>Floor base inside rooms</td><td>~1,110 sft: 3″ PCC 1:4:8 straight on the rammed ghassu</td><td class="r">26 bags</td><td class="r">132 Chenab, 263 cft bajri</td></tr>
 </table></div>
@@ -696,7 +719,7 @@ body.plan-b .only-a{display:none!important}
 <tr><th>Work</th><th>Area and mix</th><th class="r">Cement</th><th class="r">Rait</th></tr>
 <tr><td>Inside wall plaster ½″</td><td>~2,980 sft, 1:4</td><td class="r">26 bags</td><td class="r">128 cft</td></tr>
 <tr><td>Ceiling plaster ⅜″</td><td>~810 sft, 1:3</td><td class="r">7 bags</td><td class="r">25 cft</td></tr>
-<tr><td>Outside plaster ¾″</td><td>~1,500 sft, 1:4 (left, back of bath, new walls around the skipped corner, patio, parapet, front edge)</td><td class="r">20 bags</td><td class="r">97 cft</td></tr>
+<tr><td>Outside plaster ¾″</td><td>~1,255 sft, 1:4 (left, back of bath, new walls around the skipped corner, patio, low parapet, front edge)</td><td class="r">16 bags</td><td class="r">81 cft</td></tr>
 <tr><td>Boundary wall plaster ½″</td><td>~1,070 sft, 1:5. Left wall inside face only, front wall both faces.</td><td class="r">8 bags</td><td class="r">48 cft</td></tr>
 <tr><td>Floor base inside rooms</td><td>~810 sft: 3″ PCC 1:4:8 straight on the rammed ghassu</td><td class="r">19 bags</td><td class="r">96 Chenab, 192 cft bajri</td></tr>
 </table></div>
@@ -952,7 +975,7 @@ body.plan-b .only-a{display:none!important}
 <tr><td>18</td><td>Slab services</td><td>COB cups, fan boxes, conduit, rain outlets, vent and tank pipe sleeves</td><td class="r">1</td><td>Electrician + plumber</td><td>Count cups against the room plan</td></tr>
 <tr><td>19</td><td>Pour slab (lantar)</td><td>One continuous pour with mixer and vibrator</td><td class="r">1</td><td>Full team</td><td>Start early morning. Arrange enough labour.</td></tr>
 <tr><td>20</td><td>Slab curing</td><td>Water ponds on top for 14 days. Props stay 21 days.</td><td class="r">14–21</td><td>Labour</td><td>Never let it dry in the first week</td></tr>
-<tr><td>21</td><td>Parda walls, parapet, tank stand</td><td>After props are removed: 4½″ parda walls with 2 sutar bars every 5th course, top gap packed with mortar. Then 9″ parapet 3′ high and brick platform for the tank.</td><td class="r">4–5</td><td>Mistri</td><td>Parda walls tied into 9″ walls, plumb</td></tr>
+<tr><td>21</td><td>Parda walls, parapet, tank stand</td><td>After props are removed: 4½″ parda walls with 2 sutar bars every 5th course, top gap packed with mortar. Then a low 9″ parapet, only 2 courses (2 rada), and a brick platform for the tank.</td><td class="r">2–3</td><td>Mistri</td><td>Parda walls tied into 9″ walls, plumb</td></tr>
 <tr><td>22</td><td>Boundary walls</td><td>Left wall (4½″ with pillars) and front wall (9″ with gate pillars), footing to 7′ high. Can run alongside steps 13–20.</td><td class="r">5–6</td><td>Mistri</td><td>Pillars every 8′, wall plumb</td></tr>
 <tr><td>23</td><td>Electrical wall work</td><td>Cut grooves, fix wall conduit, switch, socket, AC and DB boxes</td><td class="r">3–4</td><td>Electrician</td><td>Box heights the same in every room</td></tr>
 <tr><td>24</td><td>Plumbing wall work</td><td>PPR lines, points, valves, geyser line, drain pipes, traps</td><td class="r">4–5</td><td>Plumber</td><td>24-hour pressure test</td></tr>
@@ -989,7 +1012,7 @@ body.plan-b .only-a{display:none!important}
 <tr><td>Digging</td><td>~150 cft per mazdoor per day</td><td class="r">–</td><td class="r">22</td><td class="r">–</td><td class="r">17</td></tr>
 <tr><td>PCC foundation + floor base</td><td>~250 cft/day by 1 mistri + 5 mazdoor</td><td class="r">3</td><td class="r">15</td><td class="r">4</td><td class="r">19</td></tr>
 <tr><td>Manholes, manhole bases, sewer line</td><td>Plumber's fixed Rs 40k job</td><td class="r">–</td><td class="r">–</td><td class="r">–</td><td class="r">–</td></tr>
-<tr><td>Brickwork (khingar + first class, not manholes)</td><td>~1,800 bricks/day per mistri with 2 mazdoor</td><td class="r">32</td><td class="r">64</td><td class="r">31</td><td class="r">61</td></tr>
+<tr><td>Brickwork (khingar + first class, not manholes)</td><td>~1,800 bricks/day per mistri with 2 mazdoor</td><td class="r">30</td><td class="r">61</td><td class="r">28</td><td class="r">58</td></tr>
 <tr><td>Backfill mitti + ghassu filling</td><td>Filling contractor, fixed Rs 3 lakh</td><td class="r">–</td><td class="r">–</td><td class="r">–</td><td class="r">–</td></tr>
 <tr><td>DPC + bitumen</td><td>1–2 days</td><td class="r">1</td><td class="r">3</td><td class="r">2</td><td class="r">5</td></tr>
 <tr><td>Lintels and beam</td><td>1–2 days</td><td class="r">2</td><td class="r">4</td><td class="r">2</td><td class="r">3</td></tr>
@@ -997,8 +1020,8 @@ body.plan-b .only-a{display:none!important}
 <tr><td>Plaster</td><td>~250 sft per mistri per day</td><td class="r">32</td><td class="r">32</td><td class="r">27</td><td class="r">18</td></tr>
 <tr><td>Roof mud + tiles</td><td>2–3 days</td><td class="r">2</td><td class="r">6</td><td class="r">5</td><td class="r">11</td></tr>
 <tr><td>Curing, watering, cleaning</td><td>Gap days, 1 mazdoor</td><td class="r">–</td><td class="r">10</td><td class="r">–</td><td class="r">18</td></tr>
-<tr class="total"><td>Total days</td><td></td><td class="r">74</td><td class="r">170</td><td class="r">73</td><td class="r">164</td></tr>
-<tr class="total"><td>Wages</td><td></td><td class="r" colspan="2">Rs 491,000</td><td class="r" colspan="2">Rs 477,700</td></tr>
+<tr class="total"><td>Total days</td><td></td><td class="r">72</td><td class="r">167</td><td class="r">70</td><td class="r">161</td></tr>
+<tr class="total"><td>Wages</td><td></td><td class="r" colspan="2">Rs 480,600</td><td class="r" colspan="2">Rs 464,800</td></tr>
 </table></div>
 <p>Slab shuttering and steel fixing are normally given as a small contract (theka) to specialist teams. They are listed separately below.</p>
 
@@ -1053,11 +1076,11 @@ body.plan-b .only-a{display:none!important}
   var ITEMS=[
     ["grp","Bricks, cement, steel, sand"],
     ["khingar","Khingar bricks (below DPC)",[24800,19500],"brick",[22,22],Y],
-    ["bricks","First-class bricks (above DPC)",[37500,30100],"brick",[27.5,27.5],Y],
-    ["cement","Cement (50 kg bag)",[450,350],"bag",[1450,1450],E],
+    ["bricks","First-class bricks (above DPC)",[34300,27400],"brick",[27.5,27.5],Y],
+    ["cement","Cement (50 kg bag)",[440,340],"bag",[1450,1450],E],
     ["steel","Sarya Grade 60, all sizes + binding wire",[1445,1145],"kg",[240,240],Y],
-    ["ravi","Rait, Ravi / local",[1510,1205],"cft",[45,45],E],
-    ["chenab","Rait, Chenab",[1025,800],"cft",[110,110],E],
+    ["ravi","Rait, Ravi / local",[1445,1150],"cft",[45,45],E],
+    ["chenab","Rait, Chenab",[1005,785],"cft",[110,110],E],
     ["bajri","Bajri",[755,595],"cft",[150,150],E],
     ["crush","Crush ½″–¾″",[525,390],"cft",[220,220],E],
     ["chips","Chips ¼″–⅜″ (DPC)",[35,27],"cft",[230,230],E],
@@ -1077,8 +1100,8 @@ body.plan-b .only-a{display:none!important}
     ["grp","Main gate"],
     ["gate","Main gate 12′×7′ MS steel, fabricated, primer, fixed",[1,1],"each",[100000,100000],Y],
     ["grp","Labour"],
-    ["mistri","Mistri (daily wage)",[74,73],"day",[2500,2500],Y],
-    ["mazdoor","Mazdoor (daily wage)",[170,164],"day",[1800,1800],Y],
+    ["mistri","Mistri (daily wage)",[72,70],"day",[2500,2500],Y],
+    ["mazdoor","Mazdoor (daily wage)",[167,161],"day",[1800,1800],Y],
     ["plumber","Plumber: all pipes, manholes + bases, sewer line (fixed)",[1,1],"job",[40000,40000],Y],
     ["electrician","Electrician, grey stage (labour)",[1,1],"job",[35000,35000],Y],
     ["shutter","Slab shuttering, rent + team",[1280,930],"sft",[40,40],E],
